@@ -35,6 +35,7 @@ Currently only planned to contain Packet Tracer implementation.
 * Configure WAN to HQ
 * Set hostnames
 * Port security
+* Make WLANs belong to correct VLAN (, configure trunking on switch connecting APs?)
 
 ### Config
 
