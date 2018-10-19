@@ -14,6 +14,7 @@ Currently only planned to contain Packet Tracer implementation.
     * 244 if excluding 1 to 10 from dhcp
     * **FOR SIMPLICITY**
 * In this setup only guests cannot get a wired connection. They will have to rely on Wi-Fi
+* Remember to use cross-over between switches..
 
 ### Questions
 
