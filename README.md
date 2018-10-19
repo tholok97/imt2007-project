@@ -13,6 +13,7 @@ Currently only planned to contain Packet Tracer implementation.
 * Assuming we will never have more than 254 in any of our subnets, 192.168.x.0/24 is a convenient and pretty subnet 
     * 244 if excluding 1 to 10 from dhcp
     * **FOR SIMPLICITY**
+* In this setup only guests cannot get a wired connection. They will have to rely on Wi-Fi
 
 ### Questions
 
@@ -76,21 +77,34 @@ interface GigabitEthernet9/1
  switchport mode trunk
 interface FastEthernet0/1
  switchport access vlan 11
+ switchport mode access
 interface FastEthernet1/1
  switchport access vlan 14
+ switchport mode access
 interface FastEthernet2/1
  switchport access vlan 15
+ switchport mode access
 ! ABOVE: only ever need one port...
 ! BELOW: might need more ports in the future, will let grown from 
 !        left to right, and right to left
 interface FastEthernet3/1
  switchport access vlan 12
+ switchport mode access
 interface FastEthernet8/1
  switchport access vlan 13
+ switchport mode access
 ! Following are the ports that are set to not trunk, and shutdown
 ! TODO: port security
-exit
-interface range FastEthernet4/1 - FastEthernet 7/1
+interface FastEthernet4/1
+ switchport mode access
+ shutdown
+interface FastEthernet5/1
+ switchport mode access
+ shutdown
+interface FastEthernet6/1
+ switchport mode access
+ shutdown
+interface FastEthernet7/1
  switchport mode access
  shutdown
 ```
