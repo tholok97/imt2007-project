@@ -15,11 +15,20 @@ Currently only planned to contain Packet Tracer implementation.
     * **FOR SIMPLICITY**
 * In this setup only guests cannot get a wired connection. They will have to rely on Wi-Fi
 * Remember to use cross-over between switches..
+* About `WLC_1`
+    * `LC_WLC1` given static IP of 192.168.11.2
+    * Chose "WLC2504" because it has a console interface
+    * Username/password for WLC1: cisco/NTNUiG1
+    * Passphrase for "staff" WLAN: ciscocisco
+    * Currently staff network is in management VLAN (?)
+    * Virtual IP address set to "192.0.2.1". (default)
+    * Currently the configuration for the WLC is not stored here :(
 
 ### Questions
 
 * How to handle DHCP when not on router?
 * How to handle NAT? (left unconfigured right now)
+* How to store config for WLC??
 
 ### TODO
 
@@ -169,4 +178,33 @@ interface FastEthernet7/1
  switchport access vlan 14
 interface FastEthernet8/1
  switchport access vlan 14
+```
+
+switch S4
+(same as S2, but with VLAN 11)
+```cisco
+! IN MY MIND I SHOULD'NT HAVE TO DO THIS. But if I leave it out I 
+! get "VLAN mismatch"
+interface FastEthernet0/1
+ switchport access vlan 11
+interface FastEthernet1/1
+ switchport access vlan 11
+interface FastEthernet2/1
+ switchport access vlan 11
+interface FastEthernet3/1
+ switchport access vlan 11
+interface FastEthernet4/1
+ switchport access vlan 11
+interface FastEthernet5/1
+ switchport access vlan 11
+interface FastEthernet5/1
+ switchport access vlan 11
+interface FastEthernet6/1
+ switchport access vlan 11
+interface FastEthernet7/1
+ switchport access vlan 11
+interface FastEthernet8/1
+ switchport access vlan 11
+interface FastEthernet9/1
+ switchport access vlan 11
 ```
