@@ -71,10 +71,21 @@ interface GigabitEthernet0/0/0.15
  ip address 192.168.15.1 255.255.255.0
 ```
 
-top switch
+switch S1
 ```cisco
+vlan 11
+ name MANAGEMENT
+vlan 12
+ name GUEST
+vlan 13
+ name STAFF
+vlan 14
+ name LAB
+vlan 15
+ name DMZ
+
 interface GigabitEthernet9/1
- switchport trunk allowed vlan 11-13
+ switchport trunk allowed vlan 11-15
  switchport mode trunk
 interface FastEthernet0/1
  switchport access vlan 11
@@ -108,4 +119,54 @@ interface FastEthernet6/1
 interface FastEthernet7/1
  switchport mode access
  shutdown
+```
+
+switch S2
+```cisco
+! IN MY MIND I SHOULD'NT HAVE TO DO THIS. But if I leave it out I 
+! get "VLAN mismatch"
+interface FastEthernet0/1
+ switchport access vlan 13
+interface FastEthernet1/1
+ switchport access vlan 13
+interface FastEthernet2/1
+ switchport access vlan 13
+interface FastEthernet3/1
+ switchport access vlan 13
+interface FastEthernet4/1
+ switchport access vlan 13
+interface FastEthernet5/1
+ switchport access vlan 13
+interface FastEthernet6/1
+ switchport access vlan 13
+interface FastEthernet7/1
+ switchport access vlan 13
+interface FastEthernet8/1
+ switchport access vlan 13
+```
+
+
+switch S3
+(same as S2, but with VLAN 14)
+```cisco
+! IN MY MIND I SHOULD'NT HAVE TO DO THIS. But if I leave it out I 
+! get "VLAN mismatch"
+interface FastEthernet0/1
+ switchport access vlan 14
+interface FastEthernet1/1
+ switchport access vlan 14
+interface FastEthernet2/1
+ switchport access vlan 14
+interface FastEthernet3/1
+ switchport access vlan 14
+interface FastEthernet4/1
+ switchport access vlan 14
+interface FastEthernet5/1
+ switchport access vlan 14
+interface FastEthernet6/1
+ switchport access vlan 14
+interface FastEthernet7/1
+ switchport access vlan 14
+interface FastEthernet8/1
+ switchport access vlan 14
 ```
