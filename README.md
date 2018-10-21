@@ -26,6 +26,7 @@ Currently only planned to contain Packet Tracer implementation.
     * Virtual IP address set to "192.0.2.1". (default)
     * Currently the configuration for the WLC is not stored here :(
     * Should have "service port" and "distribution port" like in book at page 235
+    * After initial setup remember to do AP group things to apply WLAN to ap
 
 ### Questions
 
