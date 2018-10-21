@@ -25,12 +25,14 @@ Currently only planned to contain Packet Tracer implementation.
     * Currently staff network is in management VLAN (?)
     * Virtual IP address set to "192.0.2.1". (default)
     * Currently the configuration for the WLC is not stored here :(
+    * Should have "service port" and "distribution port" like in book at page 235
 
 ### Questions
 
 * How to handle DHCP when not on router?
 * How to handle NAT? (left unconfigured right now)
 * How to store config for WLC??
+* Redundant WLC ports? (or only for HQ?)
 
 ### TODO
 
@@ -100,8 +102,8 @@ interface GigabitEthernet9/1
  switchport trunk allowed vlan 11-15
  switchport mode trunk
 interface FastEthernet0/1
- switchport access vlan 11
- switchport mode access
+ switchport trunk allowed vlan 11-15
+ switchport mode trunk
 interface FastEthernet1/1
  switchport access vlan 14
  switchport mode access
@@ -189,25 +191,48 @@ switch S4
 ! IN MY MIND I SHOULD'NT HAVE TO DO THIS. But if I leave it out I 
 ! get "VLAN mismatch"
 interface FastEthernet0/1
- switchport access vlan 11
+ switchport trunk allowed vlan 11-15
+ switchport mode trunk
+
+! WLC
 interface FastEthernet1/1
  switchport access vlan 11
+ switchport mode access
+
+! LAPTOP
 interface FastEthernet2/1
  switchport access vlan 11
+ switchport mode access
+
+! NOT USED
 interface FastEthernet3/1
- switchport access vlan 11
+ switchport trunk allowed vlan 11-15
+ switchport mode trunk
 interface FastEthernet4/1
- switchport access vlan 11
+ switchport trunk allowed vlan 11-15
+ switchport mode trunk
 interface FastEthernet5/1
- switchport access vlan 11
+ switchport trunk allowed vlan 11-15
+ switchport mode trunk
 interface FastEthernet5/1
- switchport access vlan 11
+ switchport trunk allowed vlan 11-15
+ switchport mode trunk
 interface FastEthernet6/1
- switchport access vlan 11
+ switchport trunk allowed vlan 11-15
+ switchport mode trunk
+
+! AP
 interface FastEthernet7/1
  switchport access vlan 11
+ switchport mode access
+
+! AP
 interface FastEthernet8/1
  switchport access vlan 11
+ switchport mode access
+
+! AP
 interface FastEthernet9/1
  switchport access vlan 11
+ switchport mode access
 ```
