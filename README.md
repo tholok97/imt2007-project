@@ -9,6 +9,7 @@ Currently only planned to contain Packet Tracer implementation.
 ### Notes
 
 * Will use "GLBP" for gateway redundancy and load balancing. An alternative would be "HSRP", but the load-balancing properties of GLBP seem like a good fit, since there could be a lot of traffic.
+    * Netacad 2.4.2.1 is relevant here.
 
 ## Learning Centre implementation
 
