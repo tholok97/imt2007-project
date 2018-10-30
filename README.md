@@ -19,6 +19,70 @@ Currently only planned to contain Packet Tracer implementation.
 
 * use "Hot Standby Router Protocol"?
 
+## Head Quarters implementation
+
+### Notes
+
+* Will use "GLBP" for gateway redundancy and load balancing. An alternative would be "HSRP", but the load-balancing properties of GLBP seem like a good fit, since there could be a lot of traffic.
+* For the actual implementation we will use HSRP, as GLBP is not supported in PT.
+    * Netacad 2.4.2.1 is relevant here.
+    
+### Config
+
+*Currently just proof-of-concept with two VLANs*
+
+HQ_R1
+```
+int g0/0
+ no shut
+int g0/0.11
+ encap dot1q 11
+ ip address 192.168.11.1 255.255.255.0
+ standby 11 ip 192.168.11.11
+int g0/0.12
+ encap dot1q 12
+ ip address 192.168.12.1 255.255.255.0
+ standby 12 ip 192.168.12.12
+```
+
+HQ_R2
+```
+int g0/0
+ no shut
+int g0/0.11
+ encap dot1q 11
+ ip address 192.168.11.2 255.255.255.0
+ standby 11 ip 192.168.11.11
+int g0/0.12
+ encap dot1q 12
+ ip address 192.168.12.2 255.255.255.0
+ standby 12 ip 192.168.12.12
+```
+
+HQ_S_Distribution
+```
+int f0/1
+ switchp mode trunk
+ switchp trunk allowed vlan 11-12
+int f1/1
+ switchp mode trunk
+ switchp trunk allowed vlan 11-12
+int f2/1
+ switchp mode trunk
+ switchp trunk allowed vlan 11-12
+int f3/1
+ switchp mode trunk
+ switchp trunk allowed vlan 11-12
+int f4/1
+ switchp mode trunk
+ switchp trunk allowed vlan 11-12
+int f5/1
+ switchp mode trunk
+ switchp trunk allowed vlan 11-12
+```
+
+The access layer switches will be the same as the distribution layer ones, but with access ports setup towards users.
+
 ## Learning Centre implementation
 
 ### Notes
