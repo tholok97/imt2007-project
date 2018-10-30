@@ -2,7 +2,22 @@
 
 **Keep in mind that the Packet Tracer .pkt file is binary, so be very careful about merging. Ideally "merges" should be done manually.**
 
-Currently only planned to contain Packet Tracer implementation.
+Currently only planned to contain Packet Tracer implementation. 
+
+## Head Quarters implementation
+
+### Useful links
+
+* video about access layer: https://www.youtube.com/watch?v=LZZLRwzKOAk
+
+### Notes
+
+* Remember `nonegotiate`
+* Remember acces-lists on access layer
+
+### Questions
+
+* use "Hot Standby Router Protocol"?
 
 ## Learning Centre implementation
 
