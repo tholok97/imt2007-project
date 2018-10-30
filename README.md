@@ -43,6 +43,18 @@ int g0/0.12
  encap dot1q 12
  ip address 192.168.12.1 255.255.255.0
  standby 12 ip 192.168.12.12
+int g0/0.13
+ encap dot1q 13
+ ip address 192.168.13.1 255.255.255.0
+ standby 13 ip 192.168.13.13
+int g0/0.14
+ encap dot1q 14
+ ip address 192.168.14.1 255.255.255.0
+ standby 14 ip 192.168.14.14
+int g0/0.15
+ encap dot1q 15
+ ip address 192.168.15.1 255.255.255.0
+ standby 15 ip 192.168.15.15
 ```
 
 HQ_R2
@@ -56,29 +68,46 @@ int g0/0.11
 int g0/0.12
  encap dot1q 12
  ip address 192.168.12.2 255.255.255.0
- standby 12 ip 192.168.12.12
+ standby 13 ip 192.168.12.12
+int g0/0.13
+ encap dot1q 13
+ ip address 192.168.13.2 255.255.255.0
+ standby 13 ip 192.168.13.13
+int g0/0.14
+ encap dot1q 14
+ ip address 192.168.14.2 255.255.255.0
+ standby 14 ip 192.168.14.14
+int g0/0.15
+ encap dot1q 15
+ ip address 192.168.15.2 255.255.255.0
+ standby 15 ip 192.168.15.15
 ```
 
 HQ_S_Distribution
 ```
+vlan 11
+vlan 12
+vlan 13
+vlan 14
+vlan 15
 int f0/1
  switchp mode trunk
- switchp trunk allowed vlan 11-12
+ switchp trunk allowed vlan 11-15
 int f1/1
  switchp mode trunk
- switchp trunk allowed vlan 11-12
+ switchp trunk allowed vlan 11-15
 int f2/1
  switchp mode trunk
- switchp trunk allowed vlan 11-12
+ switchp trunk allowed vlan 11-15
 int f3/1
  switchp mode trunk
- switchp trunk allowed vlan 11-12
+ switchp trunk allowed vlan 11-15
 int f4/1
  switchp mode trunk
- switchp trunk allowed vlan 11-12
+ switchp trunk allowed vlan 11-15
 int f5/1
  switchp mode trunk
- switchp trunk allowed vlan 11-12
+ switchp trunk allowed vlan 11-15
 ```
 
 The access layer switches will be the same as the distribution layer ones, but with access ports setup towards users.
