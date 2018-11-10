@@ -1,5 +1,7 @@
 # Repo for project in IMT2007
 
+The readme for the report is found in `README_report.md`.
+
 **Keep in mind that the Packet Tracer .pkt file is binary, so be very careful about merging. Ideally "merges" should be done manually.**
 
 Currently only planned to contain Packet Tracer implementation. 
