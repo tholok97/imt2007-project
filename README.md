@@ -7,17 +7,19 @@ The readme for the report is found in `README_report.md`.
 Currently only planned to contain Packet Tracer implementation. 
 
 ## Subnets and VLAN
-* Management   - 10.10.0.0 /16
+Subnets: 10.1.0.0 /16 (HQ) to 10.20.0.0 /16 (last branch)
+VLANS:
+* Management   - 10.x.10.0 /16
    * VLAN 10
-* Staff        - 10.20.0.0 /16
+* Staff        - 10.x.20.0 /16
    * VLAN 20
-* Services     - 10.30.0.0 /16
+* Services     - 10.x.30.0 /16
    * VLAN 30
-* LAB          - 10.40.0.0 /16
+* LAB          - 10.x.40.0 /16
    * VLAN 40
-* Guest        - 10.50.0.0 /16
+* Guest        - 10.x.50.0 /16
    * VLAN 50
-* Printers     - 10.60.0.0 /16
+* Printers     - 10.x.60.0 /16
    * VLAN 60
 * Blackhole VLAN - VLAN 99
 
