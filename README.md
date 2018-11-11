@@ -21,6 +21,8 @@ VLANS:
    * VLAN 50
 * Printers     - 10.x.60.0 /16
    * VLAN 60
+* DMZ          - 10.x.70.0 /16
+  * VLAN 70
 * Blackhole VLAN - VLAN 99
 
 ## Head Quarters implementation
