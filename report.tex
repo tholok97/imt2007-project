@@ -1,4 +1,5 @@
 % TODO: do we want to clearpage before \section's?
+% TODO: replace "'S" with "'s"
 
 \input{preamble.tex}
 
@@ -343,7 +344,18 @@ Power outage, natural disasters.
 
 \subsection{Wireless}
 
+% TODO: should use something other than PSK in the real setup?? google
+
 \textit{Discuss our wireless configuration}
+\\
+\\
+We've chosen to build our wireless solution with Wireless Access Controllers (WLC's) and Lightweight Access Points (LWAP'S). As we want as few resources as possible to be placed at the branch locations, the WLC's will be placed at the HQ. This means that the LWAP's at the branches might encounter situations with no access to WLC's, but as this connection will benefit from the same redundancy as the one provided for services this will be relatively rare. We'd rather put resources into our one HQ than to spread resources around to each of the 18 branches.
+\\
+\\
+The WLC's and LWAP's use CAPWAP to communicate, meaning all LWAP's are connected to access ports on the management VLAN. This unifies how we set up our AP's.
+\\
+\\
+Our Wireless setup consists of two WLAN's, one for staff and one for guests. Both are configured with WPA2 level security. The staff WLAN is tagged to the staff VLAN, and the guest WLAN is mapped to the guest VLAN, this way staff and guest users connected over Wi-Fi will have the same rights as those connected physically.
 
 \subsection{Lab}
 
