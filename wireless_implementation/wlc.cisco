@@ -1,0 +1,151 @@
+# WLC Config Begin <Mon Nov 12 16:54:49 2018>
+! Number of APs: 1
+! Power Supply 1: Absent 
+! Power Supply 2: Absent 
+! PID: AIR-CT2504-K9,  SN: PSZ19261RLK 
+! Product Version: 8.1.102.0 
+! 
+! ******************** PORT SUMMARY **********************
+!  
+!            STP   Admin   Physical   Physical   Link   Link
+! Pr  Type   Stat   Mode     Mode      Status   Status  Trap     POE  
+! -- ------- ---- ------- ---------- ---------- ------ ------- -------
+! 1  Normal  Forw Enable  Auto       100 Full   Up     Enable  N/A     
+! 2  Normal  Disa Enable  Auto       Auto       Down   Enable  N/A     
+! 3  Normal  Disa Enable  Auto       Auto       Down   Enable  Enable  (Power Off) 
+! 4  Normal  Disa Enable  Auto       Auto       Down   Enable  Enable  (Power Off) 
+! 
+! ******************** CDP NEIGHBOUR SUMMARY **********************
+! 
+! Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+!                   S - Switch, H - Host, I - IGMP, r - Repeater, 
+!                   M - Remotely Managed Device
+! 
+! Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+! Switch           Gig 0/0/1         159            S I     WS-C2960+ Fas 0/2
+
+transfer download filename superfile 
+transfer download serverip 192.168.10.11 
+transfer download path / 
+transfer upload filename superfile 
+transfer upload serverip 192.168.10.11 
+transfer upload datatype config 
+transfer upload path / 
+config mdns profile service add default-mdns-profile AirTunes 
+config mdns profile service add default-mdns-profile Airplay 
+config mdns profile service add default-mdns-profile HP_Photosmart_Printer_1 
+config mdns profile service add default-mdns-profile HP_Photosmart_Printer_2 
+config mdns profile service add default-mdns-profile HomeSharing 
+config mdns profile service add default-mdns-profile Printer-IPP 
+config mdns profile service add default-mdns-profile Printer-IPPS 
+config mdns profile service add default-mdns-profile Printer-LPD 
+config mdns profile service add default-mdns-profile Printer-SOCKET 
+config mdns profile create default-mdns-profile 
+config mdns service origin all AirTunes 
+config mdns service create AirTunes _raop._tcp.local. origin all lss disable 
+config mdns service origin all Airplay 
+config mdns service create Airplay _airplay._tcp.local. origin all lss disable 
+config mdns service origin all HP_Photosmart_Printer_1 
+config mdns service query enable HP_Photosmart_Printer_1 
+config mdns service create HP_Photosmart_Printer_1 _universal._sub._ipp._tcp.local. origin all lss disable query enable 
+config mdns service origin all HP_Photosmart_Printer_2 
+config mdns service query enable HP_Photosmart_Printer_2 
+config mdns service create HP_Photosmart_Printer_2 _cups._sub._ipp._tcp.local. origin all lss disable query enable 
+config mdns service origin all HomeSharing 
+config mdns service query enable HomeSharing 
+config mdns service create HomeSharing _home-sharing._tcp.local. origin all lss disable query enable 
+config mdns service origin all Printer-IPP 
+config mdns service create Printer-IPP _ipp._tcp.local. origin all lss disable 
+config mdns service origin all Printer-IPPS 
+config mdns service create Printer-IPPS _ipps._tcp.local. origin all lss disable 
+config mdns service origin all Printer-LPD 
+config mdns service create Printer-LPD _printer._tcp.local. origin all lss disable 
+config mdns service origin all Printer-SOCKET 
+config mdns service create Printer-SOCKET _pdl-datastream._tcp.local. origin all lss disable 
+config interface address management 192.168.10.10 255.255.255.0 192.168.10.1 
+config interface address virtual 192.168.255.254 
+config interface address dynamic-interface staff_interface 192.168.20.10 255.255.255.0 192.168.20.1 
+config interface address dynamic-interface guest 192.168.50.10 255.255.255.0 192.168.50.1 
+config interface dhcp management primary 192.168.10.1 
+config interface port management 1 
+config interface dhcp dynamic-interface staff_interface primary 192.168.20.1 
+config interface vlan staff_interface 20 
+config interface create staff_interface 20 
+config interface port staff_interface 1 
+config interface dhcp dynamic-interface guest primary 192.168.50.1 
+config interface vlan guest 50 
+config interface create guest 50 
+config interface port guest 1 
+config time ntp interval 10000 
+config time ntp server 1 129.241.0.123 
+config certificate generate webadmin 
+config ipv6 multicast mode multicast 
+config 802.11a cac voice sip codec g711 sample-interval 20 
+config 802.11a cac voice sip bandwidth 64 sample-interval 20 
+config 802.11b 11gsupport enable 
+config 802.11b cac voice sip codec g711 sample-interval 20 
+config 802.11b cac voice sip bandwidth 64 sample-interval 20 
+config mobility group domain mobility_group_1 
+config license boot base 
+config country NO 
+config network webmode enable 
+config network rf-network-name mobility_group_1 
+config network mgmt-via-wireless enable 
+config network multicast l2mcast disable service-port 
+config network multicast l2mcast disable virtual 
+config network multicast mode multicast 239.0.1.1 
+config network multicast mode multicast 
+config ap preferred-mode ipv4 all 
+config ap packet-dump truncate 0 
+config ap packet-dump capture-time 10 
+config ap packet-dump buffer-size 2048 
+config sysname wlc 
+config mgmtuser add encrypt admin 1 a74ca828ef76613bfa79b6b0ce7bcd65 1d89f36f05397b93149c6e6d2c139fbf9c3405e9 16 d189c1ad81a41a30719b1eb862e3f4790000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 read-write 
+config wlan radius_server acct interim-update disable 1 
+config wlan radius_server acct interim-update disable 2 
+config wlan session-timeout 1 0 
+config wlan interface 1 staff_interface 
+config wlan session-timeout 2 0 
+config wlan interface 2 guest 
+config wlan mfp client enable 1 
+config wlan create 1 STAFF_WLAN STAFF_WLAN 
+config wlan mfp client enable 2 
+config wlan create 2 GUEST_WLAN GUEST_WLAN 
+config wlan wmm allow 1 
+config wlan broadcast-ssid enable 1 
+config wlan wmm allow 2 
+config wlan broadcast-ssid enable 2 
+config wlan security wpa akm 802.1x disable 1 
+config wlan security wpa akm psk set-key hex encrypt 1 8f88d1cf010317e837f165018aa2b474 edeeba6b3b64cef777638c3712e011ebe08fcfbc 48 57e6138c40ef93656d314af0fd2116c030ec8a19ab7dbbbab3d240d0f557bb5a8b682669c2e43ce862cca4409571d06e000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 1 
+config wlan security wpa akm psk enable 1 
+config wlan security wpa enable 1 
+config wlan security web-auth server-precedence 1 local radius ldap 
+config wlan exclusionlist 1 60 
+config wlan enable 1 
+config wlan security wpa akm 802.1x disable 2 
+config wlan security wpa akm psk set-key hex encrypt 1 e4955ffa439c6dd54a687ca1451415e6 42431cd510badb76e563075ba5d2f63f351572e6 48 aad796bfb0715fc7111152812ac81788e49c2f50aec62625c7e4b371fa54d7ac4e8ec262cbb900410162723c322fca4c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 2 
+config wlan security wpa akm psk enable 2 
+config wlan security wpa enable 2 
+config wlan security web-auth server-precedence 2 local radius ldap 
+config wlan exclusionlist 2 60 
+config wlan enable 2 
+config sys-nas wlc 
+config database size 2048 
+config advanced probe-limit 2 500 
+config advanced 802.11a channel add 36 
+config advanced 802.11a channel add 40 
+config advanced 802.11a channel add 44 
+config advanced 802.11a channel add 48 
+config advanced 802.11a channel add 52 
+config advanced 802.11a channel add 56 
+config advanced 802.11a channel add 60 
+config advanced 802.11a channel add 64 
+config advanced 802.11b channel add 1 
+config advanced 802.11b channel add 6 
+config advanced 802.11b channel add 11 
+config advanced probe limit 2 500 
+config switchconfig strong-pwd lockout attempts mgmtuser 3 
+config switchconfig strong-pwd lockout time mgmtuser 5 
+config mesh convergence 
+
+# WLC Config End <Mon Nov 12 16:54:54 2018>
