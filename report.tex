@@ -1,7 +1,7 @@
 \input{preamble.tex}
 
-\title{A template \LaTeX{} report}
-\author{Author Authorsen}
+\title{Charity Organization - "SikreNorge"}
+\author{Our names and studnrs here..}
 
 \begin{document}
 
@@ -24,16 +24,20 @@
 \section{Business case}
 
 SikreNorge is a non-profit charity organization that provides information security services to businesses and institutions in Norway. The organization seeks to secure Norway by helping those who would not otherwise have the means to prioritize security.
-
-Financially SikreNorge relies on donations, government subsidies, and income from their web-shop. Businesses who donate are encouraged to publicise their contribution to show that they support the organization's mission. This way both the contributing businesses and SikreNorge gets good PR. Government subsidies are given with the intention and expectation that the organization will use these means to support local public and private institutions with information security tasks.
-
-The organization is reliant on local expertise in each county in the form of volunteers and hired professionals. Volunteers are expected and encouraged to gain security competence through the experts. Good candidates for volunteers are students doing technical studies, it could however be anyone. Where possible the organization will make agreements with local universities teaching information technology courses to encourage students to volunteer. The organization is also open to volunteer work as part of theses and course projects. Volunteers of the organization do work in exchange for practical information security experience. Both volunteers and hired professionals are expected to sign strict non-disclosure agreements regarding their work with businesses and institutions.
+\\
+\\
+Financially SikreNorge relies on donations, government subsidies, and income from their web-shop. Businesses who donate are encouraged to publicise their contribution to show that they support the organization's mission. This way both the contributing businesses and SikreNorge get good PR. Government subsidies are given with the intention and expectation that the organization will use these means to support local public and private institutions with information security tasks.
+\\
+\\
+The organization is reliant on local expertise in each county in the form of volunteers and hired professionals. Volunteers are expected and encouraged to gain security competence through the experts. Good candidates for volunteers are students doing technical studies. Where possible the organization will make agreements with local universities teaching information technology courses to encourage students to volunteer. The organization is also open to volunteer work as part of theses and course projects. Volunteers of the organization do work in exchange for practical information security experience. Both volunteers and hired professionals are expected to sign strict non-disclosure agreements regarding their work with businesses and institutions.
 
 \subsection{Locations}
 
 SikreNorge will establish learning centers in each of Norway's 19 counties. The headquarter lies in Oslo.
 
-Learning centers are meant as a hub for all the organizations activities in the applicable county. The centers has offices for the local management and the hired professionals. They also contain network sandbox areas for practicing network security(Virtual and otherwise), classrooms for security courses(Possibly lecture halls) , lecture halls(could also use classrooms or other offices) for seminars and general storage space. In addition to activities held at the centers, the organization can send consultants into the field to do evaluation or configuration on-site. Consultants are a mix of local hired professionals, volunteers and staff.
+% TODO note that the number of counties is changing
+
+Learning centers are meant as a hub for all the organizations activities in county. The centers has offices for local management and hired professionals. They also contain network sandbox areas for practicing network security, classrooms for security courses, lecture halls for seminars and general storage space. In addition to activities held at the centers, the organization can send consultants into the field to do evaluation or configuration on-site. Consultants are a mix of local hired professionals, volunteers and staff.
 
 The organization's headquarter provides the same services as learning centers, but also does the heavy lifting in terms of information technology services and infrastructure. The website, E-mail and management applications and all the large equipment too which one can connect from another center for data resources; are examples of services that are hosted here.
 
@@ -41,15 +45,21 @@ The organization's headquarter provides the same services as learning centers, b
 
 The organization includes a wide range of services, and the network must be set up to support these. Following is a brief discussion of some key services, along with some infrastructure concerns.
 
+% TODO more services?
+
 \subsubsection{On-site company consultation}
 
 Volunteers, hired professionals and staff  can be sent out to do consulting on-site at businesses or institutions. Access to the organizations internal services might be required during consultation, so the consultants should be able to reach them from on-site. Confidential information might be sent and received during this communication, so the technology chosen for this should focus on security.
-Teaching at learning centre
+
+\subsubsection{Teaching at learning centre}
+
 Businesses and institutions may visit a learning centre to take courses or to receive guidance. During this stay they will naturally want internet connectivity. In addition, access to some internal services might be needed for training purposes. A visitors access rights should be restricted as much as possible.
 
 \subsubsection{Network security laboratory}
 
 Each learning centre has a laboratory where visitors can explore hardware and software to learn about vulnerabilities and best practises. Labs are meant to be a sandbox area for learning about information security, so they should be separated from the rest of the distribution system in such a way that experiments from the lab cannot interfere with the rest of the learning centers operations.
+
+% TODO "separated from the rest of the distribution system" - currently this is not done
 
 \subsubsection{Public website}
 
@@ -60,41 +70,256 @@ SikreNorge's website includes information about the organizations offerings, onl
 The organization uses a website separate to the public website to manage internal logistics. Registered staff, businesses, institutions and overview of future work are examples of information that can be found here.
 
 \section{Security Policy}
+
+% NOTE BY THOMAS: This list was slightly changed from the one in docs, as LaTeX struggles with lists deeper than 4 levels :p
+
+\begin{enumerate}
+  \item Statement of policy
+  \begin{enumerate}
+    \item Scope and applicability
+    \begin{enumerate}
+      \item Our organization
+        \begin{enumerate}
+          \item Every member is expected to know the content of our policy and comply. Ignorance is equal to non compliance.
+        \end{enumerate}
+          \item Partners
+        \begin{enumerate}
+          \item To collaborate they are expected to know the content, whereas an equal understanding of security is key.
+        \end{enumerate}
+          \item Guests/Trainees
+        \begin{enumerate}
+          \item Should know key elements to ensure safe learning and usage when using our equipment. Coordinators should brief them before actual usage.
+        \end{enumerate}
+    \end{enumerate}
+  \end{enumerate}
+  \item Definition of technology addressed
+  \begin{enumerate}
+    \item Use of Internet
+    \begin{enumerate}   
+      \item E-mail
+      \item Browsing
+    \end{enumerate}
+    \item Use of organization equipment
+    \begin{enumerate}
+      \item Computers
+      \item Servers
+      \item Routers
+      \item switches
+    \end{enumerate}
+    \item Use of partners or other non-organizational equipment
+    \begin{enumerate}
+      \item Personal equipment
+      \item Tech brought by guest lecturers
+    \end{enumerate}
+    \item Use of telecommunications
+    \begin{enumerate}
+      \item Fax
+      \item Phone
+      \item VoIP
+    \end{enumerate}
+    \item Use of photocopy equipment
+    \begin{enumerate}
+      \item Hard copies
+      \item Photographs 
+      \item No personal documents: Passports etc.
+    \end{enumerate}
+  \end{enumerate}
+  \item Responsibilities
+  \begin{enumerate}
+    \item CISO 
+    \begin{enumerate}
+      \item Controls the overall structure of security and security management.
+      \item Must adhere to security guidelines and practice consistently, as they are a possible single-point-of-failure in the security scheme.
+      \item Must have It-Security background, in conjunction with management background.
+    \end{enumerate}
+    \item Branch office security managers
+    \begin{enumerate}
+       \item Manage security for their branch office.
+       \item Report to CISO
+    \end{enumerate}
+    \item Employees
+    \begin{enumerate}
+      \item Be loyal to the organization's security guidelines.
+      \item Understand Policy
+      \item Validate understanding of policy
+      \item Understand repercussions of policy insubordination
+    \end{enumerate}
+  \end{enumerate}
+  \item Authorized access
+  \begin{enumerate}
+    \item User access
+    \begin{enumerate}
+      \item Administration/management and other vital parts of the organizational systems are to be separated from normal users.
+      \item Employees have a level of clearance, and access thereafter. 
+      \item CISO have full access to systems.
+      \item Employees with access to confidential classified information or higher must sign a non-disclosure agreement.
+      \item Levels of classification on information:
+      \begin{enumerate}
+        \item Official - All can access.
+        \item Confidential - Employees
+        \item Restricted - Managers, CISO
+        \item Secret - Executives
+      \end{enumerate}
+    \end{enumerate}
+    \item Fair and responsible use
+    \begin{enumerate}
+      \item As a precaution, emails are to be treated critically.
+      \begin{enumerate}
+        \item Hyperlinks should not be clicked.
+        \item Images not to be loaded before sender is verified.
+        \item Autoload should remain off by default.
+        \item Attachments not to be downloaded/viewed unless verified sender.
+      \end{enumerate}
+      \item Passwords should have a certain standard.
+      \begin{enumerate}
+        \item Not easy to crack.
+        \item Least 10 characters.
+        \item Non dictionary words or other easily identifiable words.
+        \item Mix of characters (lower-, and uppercase), numbers and symbols.
+        \item Separate from personal passwords.
+        \item Password manager on organization equipment encouraged. Required for individuals with high clearance.
+      \end{enumerate}
+      \item VPN required off-site.
+    \end{enumerate}
+    \item Protection of privacy
+    \begin{enumerate}
+      \item Must adhere to GDPR regulations.
+      \item Must also comply with regulations from Datatilsynet.
+      \item Must comply with Norwegian and international laws
+    \end{enumerate}
+  \end{enumerate}
+  \item Prohibited usage of equipment
+  \begin{enumerate}
+    \item Disruptive use and misuse
+    \begin{enumerate}
+      \item No personal equipment in restricted areas.
+      \item USB devices should only be issued by the organization
+      \item Vital organizational equipment should not be brought off-site.
+      \item Restricted equipment should not be used for not-intended purposes.
+      \begin{enumerate}
+        \item Web surfing
+        \item Farming(Unless intended)
+        \item Hosting(Unless intended)
+        \item Packet sniffing(Wireshark, unless intended)
+      \end{enumerate}
+    \end{enumerate}
+    \item Criminal use
+    \item Offensive or harassing materials
+    \item Copyrighted, licensed, or other intellectual property
+  \end{enumerate}
+  \item Systems management
+  \begin{enumerate}
+    \item Management of stored materials
+    \begin{enumerate}
+      \item Authentication and authorisation should be managed by an AAA server and accounted.
+      \item Classified data need to be encrypted on the hard drive and in transfer - Partner and organizational data protected by non-disclosure contracts.
+      \item All organization equipment that have been used to store organisation or partner information must be disposed of in a safe manner.
+      \item Hard drives must be destroyed by the organization itself.
+      \item Printers must be in an enclosed network, and classified documents should only be printed on secure organization printers.
+    \end{enumerate}
+    \item Employer monitoring
+    \begin{enumerate}
+      \item Use of internet logged.
+      \item Organizational equipment inventory checked regularly.
+      \item Restricted area entry logged.
+      \begin{enumerate}
+        \item Physical - ID card entry log.
+        \item Digital - Credentials log.
+      \end{enumerate}
+    \end{enumerate}
+    \item Virus protection
+    \begin{enumerate}
+      \item Each branch need its own firewall.
+      \item Organization computers and phones with internet connection need antivirus.
+      \item Email etiquette, see Fair and responsible use( i ).
+    \end{enumerate}
+    \item Physical security
+    \begin{enumerate}
+      \item Limited access to restricted areas.
+      \begin{enumerate}
+        \item Must use ID-card to enter: Server rooms, Offices for high clearance individuals.
+      \end{enumerate}
+      \item Guest premises must be separated from working grounds and other vital instances.
+    \end{enumerate}
+    \item Encryption
+    \begin{enumerate}
+      \item Within the organization the use of asymmetric encryption with security level equal to SHA 3 or higher should be enforced.
+    \end{enumerate}
+  \end{enumerate}
+  \item Violation of policy
+  \begin{enumerate}
+    \item Procedures for reporting violations
+    \begin{enumerate}
+      \item As a security pushing organization, reporting violations of our policy is encouraged.
+      \item To ensure this practice the report can be submitted anonymously.
+    \end{enumerate}
+      \item Penalties for violations
+    \begin{enumerate}
+      \item Minor voilations can result in revoked clearance or access.
+      \item Serious violations:
+      \begin{enumerate}
+        \item Subject to dismissal.
+        \item Legal action.
+      \end{enumerate}
+    \end{enumerate}
+  \end{enumerate}
+  \item Policy review and modification
+  \begin{enumerate}
+    \item Scheduled review of policy modifications for modification
+    \begin{enumerate}
+      \item This organization will actively seek to be in the front of information security, to ensure we are able to offer our services with satisfaction. This policy is therefore an iterative peace of document which is subject to alteration if needed.
+    \end{enumerate}
+    \item Legal disclaimers
+  \end{enumerate}
+  \item Limitations of liability
+  \begin{enumerate}
+    \item Statements of liability
+    \begin{enumerate}
+      \item This organization is not liable if an employee does not comply with our policy.
+      \begin{enumerate}
+        \item The organisation will assist in prosecution if necessary.
+      \end{enumerate}
+    \end{enumerate}
+    \item Other disclaimers as needed
+  \end{enumerate}
+\end{enumerate}
+
+
 \section{Risk}
 \section{ICT}
 \section{Conclusion}
 
-\clearpage
-
-\textit{Everything beyond this point is from the template}
-
-\section{Introduction}
-
-This is a \LaTeX{} report template. It demonstrates cross-references, citations, images, and code examples with minted.
-
-\section{Examples}
-
-\subsection{Code}
-
-The following is a demonstration of how cross-references can be used to refer to appendix code. Citations are also used.
-\\
-\\
-Beaker can work with different hypervisors by using plugins. If a plugin for a particular hypervisor does not exist, an alternative is to use Vagrant to manage the SUT's, and instead install and run Beaker as part of Vagrant's provisioning process.~\cite{puppetmodulefunctionaltestingbeakerinsidevagrant}\cite{openstackpuppetmodulefunctionaltestingproposal} An example of this is included in appendix~\ref{beakerinsidevagrantexample}. This example would be used by running \mintinline[breaklines]{bash}{vagrant up --verbose && vagrant destroy --force --verbose}.
-
-\subsection{Images}
-
-Figure \ref{sunnmore} shows a picture of Sunnmørsalpane. You're welcome.
-
-\begin{figure}[H]   % H forces the picture to show up under the text
-\caption{Sunnmørsalpane}
-\centering
-\includegraphics[width=\textwidth]{sunnmore}
-\label{sunnmore}
-\end{figure}
-
-\section{Conclusion}
-
-This has been a demonstration of \LaTeX{} in use.
+%%% \clearpage
+%%% 
+%%% \textit{Everything beyond this point is from the template}
+%%% 
+%%% \section{Introduction}
+%%% 
+%%% This is a \LaTeX{} report template. It demonstrates cross-references, citations, images, and code examples with minted.
+%%% 
+%%% \section{Examples}
+%%% 
+%%% \subsection{Code}
+%%% 
+%%% The following is a demonstration of how cross-references can be used to refer to appendix code. Citations are also used.
+%%% \\
+%%% \\
+%%% Beaker can work with different hypervisors by using plugins. If a plugin for a particular hypervisor does not exist, an alternative is to use Vagrant to manage the SUT's, and instead install and run Beaker as part of Vagrant's provisioning process.~\cite{puppetmodulefunctionaltestingbeakerinsidevagrant}\cite{openstackpuppetmodulefunctionaltestingproposal} An example of this is included in appendix~\ref{beakerinsidevagrantexample}. This example would be used by running \mintinline[breaklines]{bash}{vagrant up --verbose && vagrant destroy --force --verbose}.
+%%% 
+%%% \subsection{Images}
+%%% 
+%%% Figure \ref{sunnmore} shows a picture of Sunnmørsalpane. You're welcome.
+%%% 
+%%% \begin{figure}[H]   % H forces the picture to show up under the text
+%%% \caption{Sunnmørsalpane}
+%%% \centering
+%%% \includegraphics[width=\textwidth]{sunnmore}
+%%% \label{sunnmore}
+%%% \end{figure}
+%%% 
+%%% \section{Conclusion}
+%%% 
+%%% This has been a demonstration of \LaTeX{} in use.
 
 % BEGINNING OF REFERENCES
 
@@ -112,90 +337,90 @@ This has been a demonstration of \LaTeX{} in use.
 \clearpage % make appendix start on own page
 \appendix
 
-\section{Beaker inside Vagrant example} \label{beakerinsidevagrantexample}
-
-\begin{minted}[fontsize=\tiny,linenos,breaklines]{ruby}
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-
-require 'vagrant-openstack-provider'
-
-#
-# This is quite the minimal configuration necessary
-# to start an OpenStack instance using Vagrant on
-# an OpenStack with Keystone v3 API
-#
-# NOTE: this example is heavily
-# inspired by http://my1.fr/blog/puppet-module-functional-testing-with-vagrant-openstack-and-beaker/
-#
-Vagrant.configure('2') do |config|
-
-  config.ssh.username = 'ubuntu'
-
-  config.vm.provider :openstack do |os, ov|
-    os.server_name                      = 'vagrant_machine_in_openstack'
-    os.security_groups                  = [ 'default', 'linux' ]
-    os.identity_api_version             = '3'
-    os.openstack_auth_url               = 'https://api.skyhigh.iik.ntnu.no:5000/v3'
-    os.project_name                     = '<PROJECTNAME>'
-    os.user_domain_name                 = 'NTNU'
-    os.project_domain_name              = 'NTNU'
-    os.username                         = '<USERNAME>'
-    os.password                         = '<PASSWORD>'
-    os.region                           = 'SkyHiGh'
-    os.floating_ip_pool                 = 'ntnu-internal'
-    os.floating_ip_pool_always_allocate = true
-    os.flavor                           = 'm1.small'
-    os.image                            = 'Ubuntu Server 16.04 LTS (Xenial Xerus) amd64'
-    os.networks                         = [ '<INTERNALNETID>' ]
-
-    ov.nfs.functional = false
-  end
-
-  # you could provision this machine using the same provisioning scripts used by 
-  # Heat, to create an exact duplicate
-  config.vm.provision "shell", path: "bootscriptFromHeat.sh"
-  
-
-  # shell to install beaker, setup ssh, and run beaker tests.
-  # written inline for sake of example
-  config.vm.provision "shell", inline: <<-SHELL
-    #!/bin/bash
-
-    # install deps
-    sudo apt-get update
-    sudo apt-get install -y libxml2-dev libxslt-dev zlib1g-dev git ruby ruby-dev build-essential
-
-    # prepare ssh
-    echo "" | sudo tee -a /etc/ssh/sshd_config
-    echo "Match address 127.0.0.1" | sudo tee -a /etc/ssh/sshd_config
-    echo "    PermitRootLogin without-password" | sudo tee -a /etc/ssh/sshd_config
-    echo "" | sudo tee -a /etc/ssh/sshd_config
-    echo "Match address ::1" | sudo tee -a /etc/ssh/sshd_config
-    echo "    PermitRootLogin without-password" | sudo tee -a /etc/ssh/sshd_config
-    mkdir -p .ssh
-    ssh-keygen -f ~/.ssh/id_rsa -b 2048 -C "beaker key" -P ""
-    sudo mkdir -p /root/.ssh
-    sudo rm /root/.ssh/authorized_keys
-    cat ~/.ssh/id_rsa.pub | sudo tee -a /root/.ssh/authorized_keys
-    sudo service ssh restart
-   
-    # prepare gems
-    # this uses my gossinbacup module as an example, but it would be
-    # possible to have the module as a parameter to this process
-    git clone https://github.com/tholok97/gossinbackup
-    cd gossinbackup
-    sudo gem install bundler --no-rdoc --no-ri --verbose
-    bundle install
-
-    # run tests
-    # this relies on SUT yaml definitions with hyporvisor set to "none",
-    # like here: https://github.com/openstack/puppet-keystone/blob/master/spec/acceptance/nodesets/nodepool-xenial.yml
-    export BEAKER_debug=yes
-    bundle exec rspec spec/acceptance
-SHELL
-
-end
-\end{minted}
+%%% \section{Beaker inside Vagrant example} \label{beakerinsidevagrantexample}
+%%% 
+%%% \begin{minted}[fontsize=\tiny,linenos,breaklines]{ruby}
+%%% # -*- mode: ruby -*-
+%%% # vi: set ft=ruby :
+%%% 
+%%% require 'vagrant-openstack-provider'
+%%% 
+%%% #
+%%% # This is quite the minimal configuration necessary
+%%% # to start an OpenStack instance using Vagrant on
+%%% # an OpenStack with Keystone v3 API
+%%% #
+%%% # NOTE: this example is heavily
+%%% # inspired by http://my1.fr/blog/puppet-module-functional-testing-with-vagrant-openstack-and-beaker/
+%%% #
+%%% Vagrant.configure('2') do |config|
+%%% 
+%%%   config.ssh.username = 'ubuntu'
+%%% 
+%%%   config.vm.provider :openstack do |os, ov|
+%%%     os.server_name                      = 'vagrant_machine_in_openstack'
+%%%     os.security_groups                  = [ 'default', 'linux' ]
+%%%     os.identity_api_version             = '3'
+%%%     os.openstack_auth_url               = 'https://api.skyhigh.iik.ntnu.no:5000/v3'
+%%%     os.project_name                     = '<PROJECTNAME>'
+%%%     os.user_domain_name                 = 'NTNU'
+%%%     os.project_domain_name              = 'NTNU'
+%%%     os.username                         = '<USERNAME>'
+%%%     os.password                         = '<PASSWORD>'
+%%%     os.region                           = 'SkyHiGh'
+%%%     os.floating_ip_pool                 = 'ntnu-internal'
+%%%     os.floating_ip_pool_always_allocate = true
+%%%     os.flavor                           = 'm1.small'
+%%%     os.image                            = 'Ubuntu Server 16.04 LTS (Xenial Xerus) amd64'
+%%%     os.networks                         = [ '<INTERNALNETID>' ]
+%%% 
+%%%     ov.nfs.functional = false
+%%%   end
+%%% 
+%%%   # you could provision this machine using the same provisioning scripts used by 
+%%%   # Heat, to create an exact duplicate
+%%%   config.vm.provision "shell", path: "bootscriptFromHeat.sh"
+%%%   
+%%% 
+%%%   # shell to install beaker, setup ssh, and run beaker tests.
+%%%   # written inline for sake of example
+%%%   config.vm.provision "shell", inline: <<-SHELL
+%%%     #!/bin/bash
+%%% 
+%%%     # install deps
+%%%     sudo apt-get update
+%%%     sudo apt-get install -y libxml2-dev libxslt-dev zlib1g-dev git ruby ruby-dev build-essential
+%%% 
+%%%     # prepare ssh
+%%%     echo "" | sudo tee -a /etc/ssh/sshd_config
+%%%     echo "Match address 127.0.0.1" | sudo tee -a /etc/ssh/sshd_config
+%%%     echo "    PermitRootLogin without-password" | sudo tee -a /etc/ssh/sshd_config
+%%%     echo "" | sudo tee -a /etc/ssh/sshd_config
+%%%     echo "Match address ::1" | sudo tee -a /etc/ssh/sshd_config
+%%%     echo "    PermitRootLogin without-password" | sudo tee -a /etc/ssh/sshd_config
+%%%     mkdir -p .ssh
+%%%     ssh-keygen -f ~/.ssh/id_rsa -b 2048 -C "beaker key" -P ""
+%%%     sudo mkdir -p /root/.ssh
+%%%     sudo rm /root/.ssh/authorized_keys
+%%%     cat ~/.ssh/id_rsa.pub | sudo tee -a /root/.ssh/authorized_keys
+%%%     sudo service ssh restart
+%%%    
+%%%     # prepare gems
+%%%     # this uses my gossinbacup module as an example, but it would be
+%%%     # possible to have the module as a parameter to this process
+%%%     git clone https://github.com/tholok97/gossinbackup
+%%%     cd gossinbackup
+%%%     sudo gem install bundler --no-rdoc --no-ri --verbose
+%%%     bundle install
+%%% 
+%%%     # run tests
+%%%     # this relies on SUT yaml definitions with hyporvisor set to "none",
+%%%     # like here: https://github.com/openstack/puppet-keystone/blob/master/spec/acceptance/nodesets/nodepool-xenial.yml
+%%%     export BEAKER_debug=yes
+%%%     bundle exec rspec spec/acceptance
+%%% SHELL
+%%% 
+%%% end
+%%% \end{minted}
 
 \end{document}
