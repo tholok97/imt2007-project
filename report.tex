@@ -1,25 +1,39 @@
-% TODO: do we want to clearpage before \section's?
-% TODO: centre vs center
-% TODO: clean up \\\\'s to look good and uniform
-% TODO: call our PT implementation a demo?
-% TODO: Run spellchecker
-% TODO: formatting for IP addresses? :/
-% TODO: replace "'S" with "'s"
-% TODO: branch -> learning centre
-% TODO: Gjøre guests større?
-% TODO: VLANs to VLAN's and so on
-% TODO: Make it clear that we are focusing on saving costs. Redundancy at the HQ for example is a luxury
+% TODO: 
+% * fix organisation/organization
+% * give lab access switches special treatment?
+% * do we want to clearpage before \section's?
+% * Phyical security!
+% * centre vs center
+% * clean up \\\\'s to look good and uniform
+% * call our PT implementation a demo?
+% * Run spellchecker
+% * formatting for IP addresses? :/
+% * replace "'S" with "'s"
+% * branch -> learning centre
+% * Gjøre guests større?
+% * VLANs to VLAN's and so on
+% * Make it clear that we are focusing on saving costs. Redundancy at the HQ for example is a luxury
 
 \input{preamble.tex}
 
 \title{Charity Organization - "SikreNorge"}
-\author{Our names and studnrs here..}
+
+% TODO: replace 923 with actual student number
+\author{
+  Job Nestor Bahner, 923\\
+  Johannes Borgen, 923\\
+  Abdisalan Hussein, 923\\
+  Sam Roen, 923\\
+  Thomas Løkkeborg, 923
+}
 
 \begin{document}
 
 \maketitle
 
-\abstract{TBA: A summary of what will be discussed in the report.}
+\begin{abstract}
+  SikreNorge is a non-profit charity organization with locations all over Norway. In this report we will discuss how we would implement a network infrastructure for the organization.
+\end{abstract}
 
 \thispagestyle{empty}
 
@@ -82,6 +96,8 @@ SikreNorge's website includes information about the organizations offerings, onl
 The organization uses a website separate to the public website to manage internal logistics. Registered staff, businesses, institutions and overview of future work are examples of information that can be found here.
 
 % TODO: refer do the bave and below sections in the ict implementation discussion
+
+\clearpage
 
 \section{Security Policy}
 
@@ -314,6 +330,8 @@ The organization uses a website separate to the public website to manage interna
 \end{enumerate}
 
 
+\clearpage
+
 \section{Risk assesment}
 
 \textit{Following was copied from docs:}
@@ -334,6 +352,8 @@ As everyone else we are at risk of human error and/or failure without mischievou
 \\
 \\
 Power outage, natural disasters.
+
+\clearpage
 
 \section{ICT and Network Infrastructure}
 
@@ -433,9 +453,14 @@ We don't consider the branch site as critical infrastructure. Rather than provid
 
 \subsection{Head Quarters network discussion}
 
+\subsubsection{Layout}
 
+Initially we aimed for a three-tier architecture~\cite{todo}, but found out that we a collapsed-core architecture~\cite{todo} heavy enough. A collapsed-core architecture provides similar efficiency benefits as the three-tier architecture, but with a focus on saving costs. We have two routers and two switches set up to combine the core and distribution layer into a single layer. The services and management resources are given special treatment and placed in it's own segment of the network, while the rest of the network is set up to use access switches with connections to both distribution/core layer switches to provide redundancy.
+\\
+\\
+Phyically each access layer switch is configured with access ports based on what users are found around the switch. Switches placed in the offices will have staff and management ports, while switches in lecture halls and such will have guest ports. The switches LWAP's are connected need to be management ports. 
 
-% \subsubsection{...}
+% TODO: elaborate?
 
 \subsubsection{Redundancy}
 
@@ -455,6 +480,8 @@ As we have have two gateways we need to use a "First Hop Redundancy" protocol to
 \subsection{Our demo Packet Tracer implementation}
 
 \textit{Discuss our demo PT implementation, with a special note about what we did for wireless. refer to appendix}
+
+\clearpage
 
 \section{Conclusion}
 TBA
