@@ -344,24 +344,6 @@ Power outage, natural disasters.
 
 \subsection{Subnetting and VLANs}
 
-% Subnets: 10.1.0.0 /16 (HQ) to 10.20.0.0 /16 (last branch) VLANS:
-% 
-% Management - 10.x.10.0 /16
-% VLAN 10
-% Staff - 10.x.20.0 /16
-% VLAN 20
-% Services - 10.x.30.0 /16
-% VLAN 30
-% LAB - 10.x.40.0 /16
-% VLAN 40
-% Guest - 10.x.50.0 /16
-% VLAN 50
-% Printers - 10.x.60.0 /16
-% VLAN 60
-% DMZ - 10.x.70.0 /16
-% VLAN 70
-% Blackhole VLAN - VLAN 99
-
 When deciding how to do our subnets and VLAN's we decided to go for simplicity. We chose to subnet our private addresses from the 10.0.0.0/8 private address range, as it gave us plenty of space to the subnets up how we wanted. We dedicate the second octet to indicate what location the subnet belongs to, where the value 1 indicates the HQ, and a value above 1 indicates a branch site. For example: 10.1.x.x is a subnet the HQ, and 10.2.x.x is a subnet at the first learning centre and so on. This lets us create subnets that look very similar across locations, while letting a network engineer quickly see what location a particular IP address belongs to. We dedicate the third octet to indicate what VLAN the subnet belongs to, with the value of the octet being the same as the VLAN id. 10.1.10.x is a subnet for the management vlan of the HQ, and 10.10.60.x is a subnet for the printer VLAN of location nr 9. Combined with the fact that we reserve the first 10 hosts for static IP's in each subnet range, this leaves us with 244 available dynamic host addresses. For the learning centres this is not a problem, as 244 guests are unlikely to be connected to the network at the same time. The HQ is more brittle, but we've condluded that 244 hosts should be enough there as well. Table \ref{vlansubnettable} shows our VLAN's with their corresponding subnets.
 
 % FIXME: H necessary?
@@ -379,7 +361,7 @@ Lab            & 40      & 10.x.40.0/24 & 10.x.40.1 - 10.x.40.10 & 244 \\ \hline
 Guest          & 50      & 10.x.50.0/24 & 10.x.50.1 - 10.x.50.10 & 244 \\ \hline
 Printer        & 60      & 10.x.60.0/24 & 10.x.60.1 - 10.x.60.10 & 244 \\ \hline
 DMZ            & 70      & 10.x.70.0/24 & 10.x.70.1 - 10.x.70.10 & 244 \\ \hline
-Blackhole VLAN & 99      & 10.x.99.0/24 & 10.x.99.1 - 10.x.99.10 & 244 \\ \hline
+Blackhole VLAN & 99      & N/A          & N/A                    & N/A \\ \hline
 \end{tabular}
 \end{table}
 
