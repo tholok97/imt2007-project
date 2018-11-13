@@ -1,9 +1,14 @@
 % TODO: do we want to clearpage before \section's?
+% TODO: centre vs center
+% TODO: clean up \\\\'s to look good and uniform
+% TODO: call our PT implementation a demo?
+% TODO: Run spellchecker
 % TODO: formatting for IP addresses? :/
 % TODO: replace "'S" with "'s"
 % TODO: branch -> learning centre
 % TODO: Gjøre guests større?
 % TODO: VLANs to VLAN's and so on
+% TODO: Make it clear that we are focusing on saving costs. Redundancy at the HQ for example is a luxury
 
 \input{preamble.tex}
 
@@ -43,14 +48,16 @@ The organization is reliant on local expertise in each county in the form of vol
 SikreNorge will establish learning centers in each of Norway's 19 counties. The headquarter lies in Oslo.
 
 % TODO note that the number of counties is changing
-
-Learning centers are meant as a hub for all the organizations activities in county. The centers has offices for local management and hired professionals. They also contain network sandbox areas for practicing network security, classrooms for security courses, lecture halls for seminars and general storage space. In addition to activities held at the centers, the organization can send consultants into the field to do evaluation or configuration on-site. Consultants are a mix of local hired professionals, volunteers and staff.
-
-The organization's headquarter provides the same services as learning centers, but also does the heavy lifting in terms of information technology services and infrastructure. The website, E-mail and management applications and all the large equipment too which one can connect from another center for data resources; are examples of services that are hosted here.
+\\
+\\
+Learning centers are meant as a hub for all the organizations activities in the county. The centers have offices for local management and hired professionals. They also contain network sandbox areas for practicing network security, classrooms for security courses, lecture halls for seminars and general storage space. In addition to activities held at the centers, the organization can send consultants into the field to do evaluation or configuration on-site. Consultants are a mix of local hired professionals, volunteers and staff.
+\\
+\\
+The organization's headquarter provides the same services as learning centers, but also does the heavy lifting in terms of information technology services and infrastructure. The website, E-mail, management applications, and all the large equipment to which one can connect from another center for data resources are examples of services that are hosted here.
 
 \subsection{Services}
 
-The organization includes a wide range of services, and the network must be set up to support these. Following is a brief discussion of some key services, along with some infrastructure concerns.
+The organization includes a wide range of services, and the network must be set up to support these. Following is a brief discussion of key services, along with some infrastructure concerns.
 
 % TODO more services?
 
@@ -75,6 +82,8 @@ SikreNorge's website includes information about the organizations offerings, onl
 \subsubsection{Management website}
 
 The organization uses a website separate to the public website to manage internal logistics. Registered staff, businesses, institutions and overview of future work are examples of information that can be found here.
+
+% TODO: refer do the bave and below sections in the ict implementation discussion
 
 \section{Security Policy}
 
@@ -338,6 +347,14 @@ Power outage, natural disasters.
 
 \textit{Show logical and phyical views, and provide some discussion around them}
 
+
+\begin{figure}[H]
+\caption{Phyical view of the network (TEMPORARY)}
+\centering
+\includegraphics[width=\textwidth]{physicalviewtemp}
+\label{physicalview}
+\end{figure}
+
 \subsection{WAN}
 
 \textit{Discuss our WAN setup}
@@ -347,6 +364,7 @@ Power outage, natural disasters.
 When deciding how to do our subnets and VLAN's we decided to go for simplicity. We chose to subnet our private addresses from the 10.0.0.0/8 private address range, as it gave us plenty of space to the subnets up how we wanted. We dedicate the second octet to indicate what location the subnet belongs to, where the value 1 indicates the HQ, and a value above 1 indicates a branch site. For example: 10.1.x.x is a subnet the HQ, and 10.2.x.x is a subnet at the first learning centre and so on. This lets us create subnets that look very similar across locations, while letting a network engineer quickly see what location a particular IP address belongs to. We dedicate the third octet to indicate what VLAN the subnet belongs to, with the value of the octet being the same as the VLAN id. 10.1.10.x is a subnet for the management vlan of the HQ, and 10.10.60.x is a subnet for the printer VLAN of location nr 9. Combined with the fact that we reserve the first 10 hosts for static IP's in each subnet range, this leaves us with 244 available dynamic host addresses. For the learning centres this is not a problem, as 244 guests are unlikely to be connected to the network at the same time. The HQ is more brittle, but we've condluded that 244 hosts should be enough there as well. Table \ref{vlansubnettable} shows our VLAN's with their corresponding subnets.
 
 % FIXME: H necessary?
+% Forces table to show up under text
 \begin{table}[H]
 \caption{Table of VLANs with corresponding subnets}
 \label{vlansubnettable}
@@ -369,9 +387,6 @@ Blackhole VLAN & 99      & N/A          & N/A                    & N/A \\ \hline
 
 % TODO: should use something other than PSK in the real setup?? google
 
-\textit{Discuss our wireless configuration}
-\\
-\\
 We've chosen to build our wireless solution with Wireless Access Controllers (WLC's) and Lightweight Access Points (LWAP'S). As we want as few resources as possible to be placed at the branch locations, the WLC's will be placed at the HQ. This means that the LWAP's at the branches might encounter situations with no access to WLC's, but as this connection will benefit from the same redundancy as the one provided for services this will be relatively rare. We'd rather put resources into our one HQ than to spread resources around to each of the 18 branches.
 \\
 \\
@@ -382,27 +397,51 @@ Our Wireless setup consists of two WLAN's, one for staff and one for guests. Bot
 
 \subsection{Lab}
 
-\textit{Discuss how we implemented the lab environment}
+%\textit{Discuss how we implemented the lab environment}
+
+The purpose of the labs was to provide an environmet where visitors could experiment freely with information security concepts. This means that it is a security risk by design, so we have to be careful how we implement it. The labs will have their own physical switch, and the kinds of traffic that may pass through will be heavily restricted. Only browsing is allowed, so we allow outgoing connections on port 80 and 443 (WHAT ELSE THOUGH? KEMMERICH SAID THIS WASN'T ENOUGH). 
+\\
+\\
+Some networking equipment will be placed in the lab to be used for experimentation, but we don't consider this a part of our network infrastructure.
+
+% TODO: what traffic to allow? not just 80 443
+% TODO: clean up plural vs singular
+% TODO: elaborate
 
 \subsection{Branch network discussion}
 
-\textit{Discuss topics specific to the branch network setup}
+% TODO more sections?
+%\textit{Discuss topics specific to the branch network setup}
+
+As seen in Figure \ref{physicalview}, the branch network is very simple. As all resources are located at the HQ, each branch only needs a router, a few switches and a few LWAP's to function. Each branch site will not have much traffic, so we can justify saving costs by placing the firewall, local DHCP server and the VPN termation at the router itself. The LWAP's are configured through CAPWAP tunnels going to the WLC's at HQ. We could have set up redundant WLC functionality on each branch site, but decided against it because the cost of configuring this for each branch would be too high.
+\\
+\\
+We don't consider the branch site as critical infrastructure. Rather than providing each branch site with redundancy, we place all resources at the HQ, and focus on providing redundancy there. This means that a branch might go down for a few days every once in a while. We consider this an accepted risk.
 
 \subsection{Head Quarters network discussion}
 
-\textit{Discuss topics specific to the HQ network setup}
+
+
+% \subsubsection{...}
 
 \subsubsection{Redundancy}
 
-\textit{Discuss how redundancy is achived at HQ}
+As all of the branch sites rely on the HQ to operate, redundancy was an important topic to address. What really needs redundancy are the services and management resources. The fact that the rest of the HQ gets some redundancy is really just a bonus. As shown in Figure \ref{physicalview}, the HQ has two links to the ISP through a duplicated setup of routers and switches. Important services and management resources are placed in the middle of the network, in between the two routers, as shown. They have dual ethernet connections, one going to each ISP link. This way, if any of the equipment forming one of the connections goes down, the services and management resources will still have internet connectivity.
+\\
+\\
+As we have have two gateways we need to use a "First Hop Redundancy" protocol to manage the deafult gateway. The options we looked at were HSRP, VRRP and GLBP. We went with GLBP because in addition to providing the redundancy we need, it also does load balancing, letting us utilize both of the gateway routers to their fullest. HSRP and VRRP would've provided redundancy, but not load balancing.
 
-\subsubsection{Services}
 
-\textit{Discuss how services are handled at HQ}
+% TODO add note about use of HSRP in demo implementation?
+% TODO refer to diagrams!!!!!!!!!! "as seen in \ref{...}" and so on
 
-\subsection{Our Packet Tracer implementation}
+% not needed? talked about in above subsection
+%\subsubsection{Services}
+%\textit{Discuss how services are handled at HQ}
 
-\textit{Discuss our PT implementation, with a special note about what we did for wireless. refer to appendix}
+\subsection{Our demo Packet Tracer implementation}
+
+\textit{Discuss our demo PT implementation, with a special note about what we did for wireless. refer to appendix}
 
 \section{Conclusion}
 TBA
