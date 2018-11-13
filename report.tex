@@ -14,6 +14,11 @@
 % * VLANs to VLAN's and so on
 % * Make it clear that we are focusing on saving costs. Redundancy at the HQ for example is a luxury
 
+% command to make notes to us in the document
+\newcommand{\notetous}[1] {
+  \textbf{\textit{\textcolor{red}{#1}}}
+}
+
 \input{preamble.tex}
 
 \title{Charity Organization - "SikreNorge"}
@@ -334,7 +339,7 @@ The organization uses a website separate to the public website to manage interna
 
 \section{Risk assesment}
 
-\textit{Following was copied from docs:}
+\notetous{Following was copied from docs:}
 
 One of the biggest risks is the theft, loss or unauthorized access of confidential data. Especially data that may be stored about partners and others we offer services to.
 \\
@@ -373,28 +378,37 @@ Power outage, natural disasters.
 %   * what goves over WAN
 %   * "remote commuting" (if that's what it's called)
 
-\textit{Short flavortext about what will be discussed}
+\notetous{Short flavortext about what will be discussed}
+
+% make sure to emphasize that the goal was cost-savings
 
 
 \subsection{Diagrams}
 
-\textit{Show logical and phyical views, and provide some discussion around them}
+\notetous{Show logical and phyical views, and provide some discussion around them. The diagrams included are only temporary, proper ones will be added later.}
 
 
 \begin{figure}[H]
 \caption{Phyical view of the network (TEMPORARY)}
 \centering
-\includegraphics[width=\textwidth]{physicalviewtemp}
+\includegraphics[width=\textwidth]{physicalview}
 \label{physicalview}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Logical view of the network (TEMPORARY}
+\centering
+\includegraphics[width=\textwidth]{logicalviewtemp}
+\label{logicalview}
 \end{figure}
 
 \subsection{WAN}
 
-\textit{Discuss our WAN setup}
+\notetous{Discuss our WAN setup}
 
-\subsection{Subnetting and VLANs}
+\subsection{VLAN's and Subnets}
 
-When deciding how to do our subnets and VLAN's we decided to go for simplicity. We chose to subnet our private addresses from the 10.0.0.0/8 private address range, as it gave us plenty of space to the subnets up how we wanted. We dedicate the second octet to indicate what location the subnet belongs to, where the value 1 indicates the HQ, and a value above 1 indicates a branch site. For example: 10.1.x.x is a subnet the HQ, and 10.2.x.x is a subnet at the first learning centre and so on. This lets us create subnets that look very similar across locations, while letting a network engineer quickly see what location a particular IP address belongs to. We dedicate the third octet to indicate what VLAN the subnet belongs to, with the value of the octet being the same as the VLAN id. 10.1.10.x is a subnet for the management vlan of the HQ, and 10.10.60.x is a subnet for the printer VLAN of location nr 9. Combined with the fact that we reserve the first 10 hosts for static IP's in each subnet range, this leaves us with 244 available dynamic host addresses. For the learning centres this is not a problem, as 244 guests are unlikely to be connected to the network at the same time. The HQ is more brittle, but we've condluded that 244 hosts should be enough there as well. Table \ref{vlansubnettable} shows our VLAN's with their corresponding subnets.
+The goal when designing our VLAN's and subnets was simplicity. We chose to subnet our private addresses from the 10.0.0.0/8 private address range, as it gave us plenty of space to the subnets up how we wanted. We dedicate the second octet to indicate what location the subnet belongs to, where the value 1 indicates the HQ, and a value above 1 indicates a branch site. For example: 10.1.x.x is a subnet the HQ, and 10.2.x.x is a subnet at the first learning centre and so on. This lets us create subnets that look very similar across locations, while letting a network engineer quickly see what location a particular IP address belongs to. We dedicate the third octet to indicate what VLAN the subnet belongs to, with the value of the octet being the same as the VLAN id. 10.1.10.x is a subnet for the management vlan of the HQ, and 10.10.60.x is a subnet for the printer VLAN of location nr 9. Combined with the fact that we reserve the first 10 hosts for static IP's in each subnet range, this leaves us with 244 available dynamic host addresses. For the learning centres this is not a problem, as 244 guests are unlikely to be connected to the network at the same time. The HQ is more brittle, but we've condluded that 244 hosts should be enough there as well. Table \ref{vlansubnettable} shows our VLAN's with their corresponding subnets.
 
 % FIXME: H necessary?
 % Forces table to show up under text
@@ -430,7 +444,7 @@ Our Wireless setup consists of two WLAN's, one for staff and one for guests. Bot
 
 \subsection{Lab}
 
-%\textit{Discuss how we implemented the lab environment}
+%\notetous{Discuss how we implemented the lab environment}
 
 The purpose of the labs was to provide an environmet where visitors could experiment freely with information security concepts. This means that it is a security risk by design, so we have to be careful how we implement it. The labs will have their own physical switch, and the kinds of traffic that may pass through will be heavily restricted. Only browsing is allowed, so we allow outgoing connections on port 80 and 443 (WHAT ELSE THOUGH? KEMMERICH SAID THIS WASN'T ENOUGH). 
 \\
@@ -444,7 +458,7 @@ Some networking equipment will be placed in the lab to be used for experimentati
 \subsection{Branch network discussion}
 
 % TODO more sections?
-%\textit{Discuss topics specific to the branch network setup}
+%\notetous{Discuss topics specific to the branch network setup}
 
 As seen in Figure \ref{physicalview}, the branch network is very simple. As all resources are located at the HQ, each branch only needs a router, a few switches and a few LWAP's to function. Each branch site will not have much traffic, so we can justify saving costs by placing the firewall, local DHCP server and the VPN termation at the router itself. The LWAP's are configured through CAPWAP tunnels going to the WLC's at HQ. We could have set up redundant WLC functionality on each branch site, but decided against it because the cost of configuring this for each branch would be too high.
 \\
@@ -475,16 +489,23 @@ As we have have two gateways we need to use a "First Hop Redundancy" protocol to
 
 % not needed? talked about in above subsection
 %\subsubsection{Services}
-%\textit{Discuss how services are handled at HQ}
+%\notetous{Discuss how services are handled at HQ}
 
-\subsection{Our demo Packet Tracer implementation}
+\subsection{Our proof-of-concept implementation}
 
-\textit{Discuss our demo PT implementation, with a special note about what we did for wireless. refer to appendix}
+\notetous{Discuss our demo PT implementation, with a special note about what we did for wireless. refer to appendix.}
+
+% make sure to include that:
+% * HSRP instead of GLBP
+% * wireless not configured in packet tracer
+% * list of what is implemented and what isn't?
+% * explain how we simplified WAN for the demo
 
 \clearpage
 
 \section{Conclusion}
-TBA
+
+\notetous{An amazing conclusion that will knock the socks of Ernst boiiiiiiiiiiiiiiiiiii}
 
 % BEGINNING OF REFERENCES
 
