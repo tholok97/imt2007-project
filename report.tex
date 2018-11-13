@@ -48,8 +48,6 @@ The organization is reliant on local expertise in each county in the form of vol
 SikreNorge will establish learning centers in each of Norway's 19 counties. The headquarter lies in Oslo.
 
 % TODO note that the number of counties is changing
-\\
-\\
 Learning centers are meant as a hub for all the organizations activities in the county. The centers have offices for local management and hired professionals. They also contain network sandbox areas for practicing network security, classrooms for security courses, lecture halls for seminars and general storage space. In addition to activities held at the centers, the organization can send consultants into the field to do evaluation or configuration on-site. Consultants are a mix of local hired professionals, volunteers and staff.
 \\
 \\
@@ -89,215 +87,230 @@ The organization uses a website separate to the public website to manage interna
 
 % NOTE BY THOMAS: This list was slightly changed from the one in docs, as LaTeX struggles with lists deeper than 4 levels :p
 
+\subsection{Statement of policy}
+
 \begin{enumerate}
-  \item Statement of policy
+  \item Scope and applicability
   \begin{enumerate}
-    \item Scope and applicability
-    \begin{enumerate}
-      \item Our organization
-        \begin{enumerate}
-          \item Every member is expected to know the content of our policy and comply. Ignorance is equal to non compliance.
-        \end{enumerate}
-          \item Partners
-        \begin{enumerate}
-          \item To collaborate they are expected to know the content, whereas an equal understanding of security is key.
-        \end{enumerate}
-          \item Guests/Trainees
-        \begin{enumerate}
-          \item Should know key elements to ensure safe learning and usage when using our equipment. Coordinators should brief them before actual usage.
-        \end{enumerate}
-    \end{enumerate}
-  \end{enumerate}
-  \item Definition of technology addressed
-  \begin{enumerate}
-    \item Use of Internet
-    \begin{enumerate}   
-      \item E-mail
-      \item Browsing
-    \end{enumerate}
-    \item Use of organization equipment
-    \begin{enumerate}
-      \item Computers
-      \item Servers
-      \item Routers
-      \item switches
-    \end{enumerate}
-    \item Use of partners or other non-organizational equipment
-    \begin{enumerate}
-      \item Personal equipment
-      \item Tech brought by guest lecturers
-    \end{enumerate}
-    \item Use of telecommunications
-    \begin{enumerate}
-      \item Fax
-      \item Phone
-      \item VoIP
-    \end{enumerate}
-    \item Use of photocopy equipment
-    \begin{enumerate}
-      \item Hard copies
-      \item Photographs 
-      \item No personal documents: Passports etc.
-    \end{enumerate}
-  \end{enumerate}
-  \item Responsibilities
-  \begin{enumerate}
-    \item CISO 
-    \begin{enumerate}
-      \item Controls the overall structure of security and security management.
-      \item Must adhere to security guidelines and practice consistently, as they are a possible single-point-of-failure in the security scheme.
-      \item Must have It-Security background, in conjunction with management background.
-    \end{enumerate}
-    \item Branch office security managers
-    \begin{enumerate}
-       \item Manage security for their branch office.
-       \item Report to CISO
-    \end{enumerate}
-    \item Employees
-    \begin{enumerate}
-      \item Be loyal to the organization's security guidelines.
-      \item Understand Policy
-      \item Validate understanding of policy
-      \item Understand repercussions of policy insubordination
-    \end{enumerate}
-  \end{enumerate}
-  \item Authorized access
-  \begin{enumerate}
-    \item User access
-    \begin{enumerate}
-      \item Administration/management and other vital parts of the organizational systems are to be separated from normal users.
-      \item Employees have a level of clearance, and access thereafter. 
-      \item CISO have full access to systems.
-      \item Employees with access to confidential classified information or higher must sign a non-disclosure agreement.
-      \item Levels of classification on information:
+    \item Our organization
       \begin{enumerate}
-        \item Official - All can access.
-        \item Confidential - Employees
-        \item Restricted - Managers, CISO
-        \item Secret - Executives
+        \item Every member is expected to know the content of our policy and comply. Ignorance is equal to non compliance.
       \end{enumerate}
-    \end{enumerate}
-    \item Fair and responsible use
-    \begin{enumerate}
-      \item As a precaution, emails are to be treated critically.
+        \item Partners
       \begin{enumerate}
-        \item Hyperlinks should not be clicked.
-        \item Images not to be loaded before sender is verified.
-        \item Autoload should remain off by default.
-        \item Attachments not to be downloaded/viewed unless verified sender.
+        \item To collaborate they are expected to know the content, whereas an equal understanding of security is key.
       \end{enumerate}
-      \item Passwords should have a certain standard.
+        \item Guests/Trainees
       \begin{enumerate}
-        \item Not easy to crack.
-        \item Least 10 characters.
-        \item Non dictionary words or other easily identifiable words.
-        \item Mix of characters (lower-, and uppercase), numbers and symbols.
-        \item Separate from personal passwords.
-        \item Password manager on organization equipment encouraged. Required for individuals with high clearance.
+        \item Should know key elements to ensure safe learning and usage when using our equipment. Coordinators should brief them before actual usage.
       \end{enumerate}
-      \item VPN required off-site.
-    \end{enumerate}
-    \item Protection of privacy
-    \begin{enumerate}
-      \item Must adhere to GDPR regulations.
-      \item Must also comply with regulations from Datatilsynet.
-      \item Must comply with Norwegian and international laws
-    \end{enumerate}
   \end{enumerate}
-  \item Prohibited usage of equipment
+\end{enumerate}
+
+\subsection{Definition of technology addressed}
+
+\begin{enumerate}
+  \item Use of Internet
+  \begin{enumerate}   
+    \item E-mail
+    \item Browsing
+  \end{enumerate}
+  \item Use of organization equipment
   \begin{enumerate}
-    \item Disruptive use and misuse
-    \begin{enumerate}
-      \item No personal equipment in restricted areas.
-      \item USB devices should only be issued by the organization
-      \item Vital organizational equipment should not be brought off-site.
-      \item Restricted equipment should not be used for not-intended purposes.
-      \begin{enumerate}
-        \item Web surfing
-        \item Farming(Unless intended)
-        \item Hosting(Unless intended)
-        \item Packet sniffing(Wireshark, unless intended)
-      \end{enumerate}
-    \end{enumerate}
-    \item Criminal use
-    \item Offensive or harassing materials
-    \item Copyrighted, licensed, or other intellectual property
+    \item Computers
+    \item Servers
+    \item Routers
+    \item switches
   \end{enumerate}
-  \item Systems management
+  \item Use of partners or other non-organizational equipment
   \begin{enumerate}
-    \item Management of stored materials
-    \begin{enumerate}
-      \item Authentication and authorisation should be managed by an AAA server and accounted.
-      \item Classified data need to be encrypted on the hard drive and in transfer - Partner and organizational data protected by non-disclosure contracts.
-      \item All organization equipment that have been used to store organisation or partner information must be disposed of in a safe manner.
-      \item Hard drives must be destroyed by the organization itself.
-      \item Printers must be in an enclosed network, and classified documents should only be printed on secure organization printers.
-    \end{enumerate}
-    \item Employer monitoring
-    \begin{enumerate}
-      \item Use of internet logged.
-      \item Organizational equipment inventory checked regularly.
-      \item Restricted area entry logged.
-      \begin{enumerate}
-        \item Physical - ID card entry log.
-        \item Digital - Credentials log.
-      \end{enumerate}
-    \end{enumerate}
-    \item Virus protection
-    \begin{enumerate}
-      \item Each branch need its own firewall.
-      \item Organization computers and phones with internet connection need antivirus.
-      \item Email etiquette, see Fair and responsible use( i ).
-    \end{enumerate}
-    \item Physical security
-    \begin{enumerate}
-      \item Limited access to restricted areas.
-      \begin{enumerate}
-        \item Must use ID-card to enter: Server rooms, Offices for high clearance individuals.
-      \end{enumerate}
-      \item Guest premises must be separated from working grounds and other vital instances.
-    \end{enumerate}
-    \item Encryption
-    \begin{enumerate}
-      \item Within the organization the use of asymmetric encryption with security level equal to SHA 3 or higher should be enforced.
-    \end{enumerate}
+    \item Personal equipment
+    \item Tech brought by guest lecturers
   \end{enumerate}
-  \item Violation of policy
+  \item Use of telecommunications
   \begin{enumerate}
-    \item Procedures for reporting violations
-    \begin{enumerate}
-      \item As a security pushing organization, reporting violations of our policy is encouraged.
-      \item To ensure this practice the report can be submitted anonymously.
-    \end{enumerate}
-      \item Penalties for violations
-    \begin{enumerate}
-      \item Minor voilations can result in revoked clearance or access.
-      \item Serious violations:
-      \begin{enumerate}
-        \item Subject to dismissal.
-        \item Legal action.
-      \end{enumerate}
-    \end{enumerate}
+    \item Fax
+    \item Phone
+    \item VoIP
   \end{enumerate}
-  \item Policy review and modification
+  \item Use of photocopy equipment
   \begin{enumerate}
-    \item Scheduled review of policy modifications for modification
-    \begin{enumerate}
-      \item This organization will actively seek to be in the front of information security, to ensure we are able to offer our services with satisfaction. This policy is therefore an iterative peace of document which is subject to alteration if needed.
-    \end{enumerate}
-    \item Legal disclaimers
+    \item Hard copies
+    \item Photographs 
+    \item No personal documents: Passports etc.
   \end{enumerate}
-  \item Limitations of liability
+\end{enumerate}
+
+\subsection{Responsibilities}
+
+\begin{enumerate}
+  \item CISO 
   \begin{enumerate}
-    \item Statements of liability
-    \begin{enumerate}
-      \item This organization is not liable if an employee does not comply with our policy.
-      \begin{enumerate}
-        \item The organisation will assist in prosecution if necessary.
-      \end{enumerate}
-    \end{enumerate}
-    \item Other disclaimers as needed
+    \item Controls the overall structure of security and security management.
+    \item Must adhere to security guidelines and practice consistently, as they are a possible single-point-of-failure in the security scheme.
+    \item Must have It-Security background, in conjunction with management background.
   \end{enumerate}
+  \item Branch office security managers
+  \begin{enumerate}
+     \item Manage security for their branch office.
+     \item Report to CISO
+  \end{enumerate}
+  \item Employees
+  \begin{enumerate}
+    \item Be loyal to the organization's security guidelines.
+    \item Understand Policy
+    \item Validate understanding of policy
+    \item Understand repercussions of policy insubordination
+  \end{enumerate}
+\end{enumerate}
+
+\subsection{Authorized access}
+
+\begin{enumerate}
+  \item User access
+  \begin{enumerate}
+    \item Administration/management and other vital parts of the organizational systems are to be separated from normal users.
+    \item Employees have a level of clearance, and access thereafter. 
+    \item CISO have full access to systems.
+    \item Employees with access to confidential classified information or higher must sign a non-disclosure agreement.
+    \item Levels of classification on information:
+    \begin{enumerate}
+      \item Official - All can access.
+      \item Confidential - Employees
+      \item Restricted - Managers, CISO
+      \item Secret - Executives
+    \end{enumerate}
+  \end{enumerate}
+  \item Fair and responsible use
+  \begin{enumerate}
+    \item As a precaution, emails are to be treated critically.
+    \begin{enumerate}
+      \item Hyperlinks should not be clicked.
+      \item Images not to be loaded before sender is verified.
+      \item Autoload should remain off by default.
+      \item Attachments not to be downloaded/viewed unless verified sender.
+    \end{enumerate}
+    \item Passwords should have a certain standard.
+    \begin{enumerate}
+      \item Not easy to crack.
+      \item Least 10 characters.
+      \item Non dictionary words or other easily identifiable words.
+      \item Mix of characters (lower-, and uppercase), numbers and symbols.
+      \item Separate from personal passwords.
+      \item Password manager on organization equipment encouraged. Required for individuals with high clearance.
+    \end{enumerate}
+    \item VPN required off-site.
+  \end{enumerate}
+  \item Protection of privacy
+  \begin{enumerate}
+    \item Must adhere to GDPR regulations.
+    \item Must also comply with regulations from Datatilsynet.
+    \item Must comply with Norwegian and international laws
+  \end{enumerate}
+\end{enumerate}
+
+\subsection{Prohibited usage of equipment}
+
+\begin{enumerate}
+  \item Disruptive use and misuse
+  \begin{enumerate}
+    \item No personal equipment in restricted areas.
+    \item USB devices should only be issued by the organization
+    \item Vital organizational equipment should not be brought off-site.
+    \item Restricted equipment should not be used for not-intended purposes.
+    \begin{enumerate}
+      \item Web surfing
+      \item Farming(Unless intended)
+      \item Hosting(Unless intended)
+      \item Packet sniffing(Wireshark, unless intended)
+    \end{enumerate}
+  \end{enumerate}
+  \item Criminal use
+  \item Offensive or harassing materials
+  \item Copyrighted, licensed, or other intellectual property
+\end{enumerate}
+
+\subsection{Systems management}
+
+\begin{enumerate}
+  \item Management of stored materials
+  \begin{enumerate}
+    \item Authentication and authorisation should be managed by an AAA server and accounted.
+    \item Classified data need to be encrypted on the hard drive and in transfer - Partner and organizational data protected by non-disclosure contracts.
+    \item All organization equipment that have been used to store organisation or partner information must be disposed of in a safe manner.
+    \item Hard drives must be destroyed by the organization itself.
+    \item Printers must be in an enclosed network, and classified documents should only be printed on secure organization printers.
+  \end{enumerate}
+  \item Employer monitoring
+  \begin{enumerate}
+    \item Use of internet logged.
+    \item Organizational equipment inventory checked regularly.
+    \item Restricted area entry logged.
+    \begin{enumerate}
+      \item Physical - ID card entry log.
+      \item Digital - Credentials log.
+    \end{enumerate}
+  \end{enumerate}
+  \item Virus protection
+  \begin{enumerate}
+    \item Each branch need its own firewall.
+    \item Organization computers and phones with internet connection need antivirus.
+    \item Email etiquette, see Fair and responsible use( i ).
+  \end{enumerate}
+  \item Physical security
+  \begin{enumerate}
+    \item Limited access to restricted areas.
+    \begin{enumerate}
+      \item Must use ID-card to enter: Server rooms, Offices for high clearance individuals.
+    \end{enumerate}
+    \item Guest premises must be separated from working grounds and other vital instances.
+  \end{enumerate}
+  \item Encryption
+  \begin{enumerate}
+    \item Within the organization the use of asymmetric encryption with security level equal to SHA 3 or higher should be enforced.
+  \end{enumerate}
+\end{enumerate}
+
+\subsection{Violation of policy}
+
+\begin{enumerate}
+  \item Procedures for reporting violations
+  \begin{enumerate}
+    \item As a security pushing organization, reporting violations of our policy is encouraged.
+    \item To ensure this practice the report can be submitted anonymously.
+  \end{enumerate}
+    \item Penalties for violations
+  \begin{enumerate}
+    \item Minor voilations can result in revoked clearance or access.
+    \item Serious violations:
+    \begin{enumerate}
+      \item Subject to dismissal.
+      \item Legal action.
+    \end{enumerate}
+  \end{enumerate}
+\end{enumerate}
+
+\subsection{Policy review and modification}
+
+\begin{enumerate}
+  \item Scheduled review of policy modifications for modification
+  \begin{enumerate}
+    \item This organization will actively seek to be in the front of information security, to ensure we are able to offer our services with satisfaction. This policy is therefore an iterative peace of document which is subject to alteration if needed.
+  \end{enumerate}
+  \item Legal disclaimers
+\end{enumerate}
+
+\subsection{Limitations of liability}
+
+\begin{enumerate}
+  \item Statements of liability
+  \begin{enumerate}
+    \item This organization is not liable if an employee does not comply with our policy.
+    \begin{enumerate}
+      \item The organisation will assist in prosecution if necessary.
+    \end{enumerate}
+  \end{enumerate}
+  \item Other disclaimers as needed
 \end{enumerate}
 
 
