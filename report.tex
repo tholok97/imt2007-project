@@ -595,7 +595,7 @@ As layer 2 can be the weakest link in our network infrastructure we will impleme
 
 \textbf{Management traffic}: Whereas Lab have a separate switch, management and staff share the same switch. For additional security all access ports on this switch use PVLAN edge to make it difficult for a man-in-the middle attack against management traffic.
 
-\textbf{DHCP, ARP and IP spoofing attacks}: To prevent rogue DHCP servers and DHCP starvation we will use DHCP Snooping. While our upstream ports will be set to trusted, access port will have a limit to how many DHCP request it can send per second. However, it may take some time for the DHCP Snooping to finish the binding table. In interaction with DHCP Snooping we will use DAI (Dynamic ARP Inspection) to prevent ARP spoofing and poisoning. Then the switch relay only valid ARP replies.
+\textbf{DHCP, ARP and IP spoofing attacks}: To prevent rogue DHCP servers and DHCP starvation we will use DHCP Snooping. While our upstream ports will be set to trusted, access port will have a limit to how many DHCP request it can send per second. However, it may take some time for the DHCP Snooping to finish the binding table. In interaction with DHCP Snooping we will use DAI (Dynamic ARP Inspection) to prevent ARP spoofing and poisoning. Then the switch relay only valid ARP replies. In addition we will implement IPSG (IP Source Guard) to prevent IP address spoofing.
 
 
 \subsection{Our proof-of-concept implementation}
