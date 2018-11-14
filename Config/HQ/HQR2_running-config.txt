@@ -1,0 +1,112 @@
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname HQ_R2
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO1941/K9 sn FTX1524X14M-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0.10
+ encapsulation dot1Q 10
+ ip address 10.1.10.2 255.255.255.0
+ standby 10 ip 10.1.10.10
+!
+interface GigabitEthernet0/0.20
+ encapsulation dot1Q 20
+ ip address 10.1.20.2 255.255.255.0
+ standby 20 ip 10.1.20.20
+!
+interface GigabitEthernet0/0.30
+ encapsulation dot1Q 30
+ ip address 10.1.30.2 255.255.255.0
+ standby 30 ip 10.1.30.30
+!
+interface GigabitEthernet0/0.40
+ encapsulation dot1Q 40
+ ip address 10.1.40.2 255.255.255.0
+ standby 40 ip 10.1.40.40
+!
+interface GigabitEthernet0/0.50
+ encapsulation dot1Q 50
+ ip address 10.1.50.2 255.255.255.0
+ standby 50 ip 10.1.50.50
+!
+interface GigabitEthernet0/0.60
+ encapsulation dot1Q 60
+ ip address 10.1.60.2 255.255.255.0
+ standby 60 ip 10.1.60.60
+!
+interface GigabitEthernet0/0.70
+ encapsulation dot1Q 70
+ ip address 10.1.70.2 255.255.255.0
+ standby 70 ip 10.1.70.70
+!
+interface GigabitEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
