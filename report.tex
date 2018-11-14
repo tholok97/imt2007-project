@@ -349,9 +349,8 @@ The organization uses a website separate to the public website to manage interna
 
 \section{Risk assessment}
 
-\notetous{See comments for structure of this section}
-
 \subsection{Unauthorized access to confidential data}
+
 \textbf{Description}: We may store information about our partners and others we offer services to. This data can be discovered security flaws or other compromising information. Meanwhile, the information vital for our organization to perform our services. Unauthorized individuals may try to steal or view this information.
 
 \textbf{Impact}: Our organization rely on our reputation. Therefore, the impact of losing confidential information is critical.
@@ -379,16 +378,57 @@ The organization uses a website separate to the public website to manage interna
 
 \textbf{Verdict}: This is an accepted risk. To solve this we would have to implement redundancy at each of our 18 branch locations, which would be costly. The problem is addressed at the HQ however, as this is the main reason we have redundant gateways set up there.
 
-\subsection{Ernst pointing out a major flaw in our infrastructure}
 
-\textbf{Description}: Ernst has immense power over us as students, and will give feedback on our infrastructure during the presentation.
+\subsection{Leakage of confidential information by employee or volunteer}
 
-\textbf{Impact}: Loss of confidence and will to live. If Ernst isn't happy we aren't happy.
+\textbf{Description}: Since we rely on hired professionals and volunteers who must have some level of access to perform their work a risk is leakage.
 
-\textbf{Likelyhood}: The likelyhood is increasing, as Johannes is working hard on making our setup presentable.
+\textbf{Impact}: We handle confidential data about our clients, so a leak would be catastrophic.
 
-\textbf{Verdict}: There's not much we can do about this, other than to hope and pray for a happy Ernst.
+\textbf{Likelyhood}: All employees are screened before they get access to the organizations resources. In addition, employes are on a need-to-know basis, so they only have access to resources related to projects they are involved in. This decreases the likelyhood somewhat, but as explained in the verdict we feel this problem should be addressed at a higher level.
 
+\textbf{Verdict}: Network security measures like AAA and logging are in place to support mitigating the issue, but measures at higher levels than that defined by this report are needed, so we judge it to be outside our scope to address this fully.
+
+\subsection{DDoS on our website}
+
+\textbf{Description}: Our role as a information security organization could make us a potential target for DDoS.
+
+\textbf{Impact}: A DDoS would be targeted at our public website. This website going down means potential loss of incoming through donations and purchases in the webshop, but we deem this not to be a huge issue because we are a non-profit organization, and wouldn't miss out on much due to a little downtime. The DDoS would put a strain on our gateway networking equipment, however, meaning internal services would be impacted.
+
+\textbf{Likelyhood}: We deem this to be fearly likely, as we are a public organization focused around infromation security.
+
+\textbf{Verdict}: This is an issue we have to address. Because the only publicly reachable resource is our website, and since that website does not contain any of our client's confidential information, we could set in place a process to bring our website up on a public cloud provider. This is beyond the scope of this project, but worth mentioning. 
+
+
+\subsection{Failure due to natural disaster at the HQ}
+
+\textbf{Description}: A natural disaster could bring down our infrastructure.
+
+\textbf{Impact}: The HQ going down due to natural disaster would likely mean a halt in all activity at both HQ and all branch sites. In addition we could loose data due to physical destruction of resources.
+
+\textbf{Likelyhood}: Not very likely, as we will place the HQ in a safe location.
+
+\textbf{Verdict}: The impact would be so catastrophic that we have to address this despite the low likelyhood. Essential services and management systems will be placed in racks that can take a beating\cite{todo}, and we will implement backup routines to make sure physically loosing the resources at HQ does not mean loosing essential data.
+
+\subsection{Failure due to power outage at branch site}
+
+\textbf{Description}: A power outage at a branch site is a possbible event.
+
+\textbf{Impact}: A power outage means all the networking equipment at the branch will go down. All activity at the branch will likely halt until the issue is fixed.
+
+\textbf{Likelyhood}: Fearly likely.
+
+\textbf{Verdict}: We could have set up UPS batteries to mitiage the issue, but as everything important is stored at HQ we decide to save costs by not doing this. A UPS system would also only provide us with a little bit of time before we would run out of power anyways, so the branch would go down either way.
+
+\subsection{Failure due to power outage at HQ}
+
+\textbf{Description}: A power outage at a branch site is a possbible event.
+
+\textbf{Impact}: A power outage means that all networking equipment at the HQ would go down. This effectively means that all activity at the HQ would halt, and all activity involving internal resources would halt at branch sites. The impact would be huge.
+
+\textbf{Likelyhood}: Fearly likely
+
+\textbf{Verdict}: We mitigate this by installing UPS batteries for the services and essential networking equipment. This way services could shut down safely in the event of a power outage, or even operate as normal through a short amount of time.
 
 %\notetous{Following was copied from docs:}
 
