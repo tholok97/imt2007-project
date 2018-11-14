@@ -417,10 +417,30 @@ The organization uses a website separate to the public website to manage interna
 % make sure to emphasize that the goal was cost-savings
 
 
-\subsection{Diagrams}
+\subsection{Layout and Diagrams}
 
 \notetous{Show logical and phyical views, and provide some discussion around them. The diagrams included are only temporary, proper ones will be added later.}
 
+The following digrams shows a few different views of our network infrastructure. Short explanations of the diagrams are included.
+
+\subsubsection{Logical view}
+
+%Figure \ref{logicalview} shows a logical view of our network infrastructure. We will explain the choices we made in detail later in this report, but we feel we should make some points about the diagram itself. 
+
+The diagram in Figure \ref{logicalview} shows a view of our infrastructure. We've put the routers inside the distribution system to show that we have chosen a collapsed core solution. Note that the "distribution system" on the branch site really just consists of a single router and a few switches, but we felt the terminology still fit. The "services and management resources" area is placed above the distribution system to indicate that this is given it's own dedicated switches. The lab has it's own access layer area in the diagram to indicate that it will be given special treatment.
+
+\begin{figure}[H]
+\caption{Logical view of the network (TEMPORARY}
+\centering
+\includegraphics[width=\textwidth]{logicalview}
+\label{logicalview}
+\end{figure}
+
+\subsubsection{Physical view}
+
+We've used screenshots of our Packet Tracer implementation to produce the diagrams seen in Figure \ref{physicalviewhq} and \ref{physicalviewbranch}.
+
+\notetous{More info around diagrams? idk if there is more to say}
 
 \begin{figure}[H]
 \caption{Physical view of HQ (TEMPORARY)}
@@ -436,12 +456,6 @@ The organization uses a website separate to the public website to manage interna
 \label{physicalviewbranch}
 \end{figure}
 
-\begin{figure}[H]
-\caption{Logical view of the network (TEMPORARY}
-\centering
-\includegraphics[width=\textwidth]{logicalviewtemp}
-\label{logicalview}
-\end{figure}
 
 \subsection{WAN}
 
