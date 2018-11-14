@@ -119,11 +119,11 @@ The organization uses a website separate to the public website to manage interna
       \end{enumerate}
         \item Partners
       \begin{enumerate}
-        \item To collaborate they are expected to know the content, whereas an equal understanding of security is key.
+        \item They are expected to learn and know the content, whereas an equal understanding of security is key.
       \end{enumerate}
         \item Guests/Trainees
       \begin{enumerate}
-        \item Should know key elements to ensure safe learning and usage when using our equipment. Coordinators should brief them before actual usage.
+        \item Must know key elements to ensure safe learning and usage when using our equipment. Coordinators must brief them before actual usage.
       \end{enumerate}
   \end{enumerate}
 \end{enumerate}
@@ -169,19 +169,19 @@ The organization uses a website separate to the public website to manage interna
   \begin{enumerate}
     \item Controls the overall structure of security and security management.
     \item Must adhere to security guidelines and practice consistently, as they are a possible single-point-of-failure in the security scheme.
-    \item Must have It-Security background, in conjunction with management background.
+    \item Must have IT-Security background, in conjunction with management background.
   \end{enumerate}
   \item Branch office security managers
   \begin{enumerate}
      \item Manage security for their branch office.
-     \item Report to CISO
+     \item Report to CISO.
   \end{enumerate}
   \item Employees
   \begin{enumerate}
     \item Be loyal to the organization's security guidelines.
-    \item Understand Policy
-    \item Validate understanding of policy
-    \item Understand repercussions of policy insubordination
+    \item Understand Policy.
+    \item Validate understanding of policy.
+    \item Understand repercussions of policy insubordination.
   \end{enumerate}
 \end{enumerate}
 
@@ -190,11 +190,11 @@ The organization uses a website separate to the public website to manage interna
 \begin{enumerate}
   \item User access
   \begin{enumerate}
-    \item Administration/management and other vital parts of the organizational systems are to be separated from normal users.
+    \item Administration, management and other vital parts of the organizational systems must be separated from normal users.
     \item Employees have a level of clearance, and access thereafter. 
-    \item CISO have full access to systems.
-    \item Employees with access to confidential classified information or higher must sign a non-disclosure agreement.
-    \item Levels of classification on information:
+    \item CISO have full access to systems, except those classified as secret.
+    \item Employees with access to confidential information or higher must sign a non-disclosure agreement.
+    \item Levels of classification, where higher levels have access of the lower:
     \begin{enumerate}
       \item Official - All can access.
       \item Confidential - Employees
@@ -206,11 +206,11 @@ The organization uses a website separate to the public website to manage interna
   \begin{enumerate}
     \item As a precaution, emails are to be treated critically.
     \begin{enumerate}
-      \item Hyperlinks should not be clicked.
+      \item Hyperlinks must not be clicked, instead copied and pasted into the search bar.
       \item Images not to be loaded before sender is verified.
       \item Autoload should remain off by default.
-      \item Attachments not to be downloaded/viewed unless verified sender.
-      \item DMARC and SPF shall be implemented
+      \item Attachments not to be downloaded or viewed unless verified sender.
+      \item The email server must have DMARC, SPF and DKIM.
     \end{enumerate}
     \item Passwords should have a certain standard.
     \begin{enumerate}
@@ -236,14 +236,20 @@ The organization uses a website separate to the public website to manage interna
   \item Disruptive use and misuse
   \begin{enumerate}
     \item No personal equipment in restricted areas.
-    \item USB devices should only be issued by the organization
+    \item USB devices must only be issued by the organization and only these can be used on organization equipment.
     \item Vital organizational equipment should not be brought off-site.
-    \item Restricted equipment should not be used for not-intended purposes.
+    \item Restricted equipment must not be used for not-intended purposes.
     \begin{enumerate}
-      \item Web surfing
-      \item Farming(Unless intended)
-      \item Hosting(Unless intended)
-      \item Packet sniffing(Wireshark, unless intended)
+      \item Web surfing.
+      \item email.
+      \item Farming(Unless intended).
+      \item Hosting(Unless intended).
+      \item Packet sniffing(Wireshark, unless intended).
+    \end{enumerate}
+    \item Users with high level of access must not use their accounts to perform non-vital and possibly compromising tasks.
+    \begin{enumerate}
+        \item Web surfing.
+        \item Use email.
     \end{enumerate}
   \end{enumerate}
   \item Criminal use
@@ -369,8 +375,6 @@ The organization uses a website separate to the public website to manage interna
 \textbf{Verdict}: There's not much we can do about this, other than to hope and pray for a happy Ernst.
 
 
-
-
 %\notetous{Following was copied from docs:}
 
 %One of the biggest risks is the theft, loss or unauthorized access of confidential data. Especially data that may be stored about partners and others we offer services to.
@@ -441,7 +445,7 @@ The organization uses a website separate to the public website to manage interna
 
 \subsection{WAN}
 
-We have implemented wAN technologies.
+For the site to site WAN between HQ and branches, we have implemented an IPsec tunnel that traerses the internet.
 
 \subsection{VLAN's and Subnets}
 
