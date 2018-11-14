@@ -1,4 +1,5 @@
 % TODO: 
+% * Fix HQ vs Head Quarters
 % * fix up ~ before \ref and \cite
 % * fix organisation/organization
 % * give lab access switches special treatment?
@@ -336,14 +337,39 @@ The organization uses a website separate to the public website to manage interna
 
 \section{Risk assessment}
 
+\notetous{See comments for structure of this section}
 
-\subsection{Risk 1}
+% Structure:
+%
+% REPEAT FOR EVERY RISK
+% \subsection{Title of risk}
+% \textbf{Description}: description....
+% \textbf{Impact}: impact.....
+% \textbf{Likelyhood}: likelyhood.....
+% \textbf{Verdict}: verdict.....
 
-Blabla about risk 1
+\subsection{Branch loosing connection to HQ}
+
+\textbf{Description}: Each branch is reliant on a WAN connection to HQ for services and management resources. This connection is made through a VPN tunnel.
+
+\textbf{Impact}: Staff would loose access to all internal services, and networking equipment would loose access to management resources at the HQ. Staff and guests would still be able to browse the internet like normal.
+
+\textbf{Likelyhood}: We have redundant connections at the HQ, but each branch only has a single gateway router. This router is bound to fail every once in a while, and the connection will break with it. The connection could break the HQ end as well, and this a much more serious problem, but this should be very unlikely compared with the connection breaking at the branch end.
+
+\textbf{Verdict}: This is an accepted risk. To solve this we would have to implement redundancy at each of our 18 branch locations, which would be costly. The problem is addressed at the HQ however, as this is the main reason we have redundant gateways set up there.
+
+\subsection{Ernst pointing out a major flaw in our infrastructure}
+
+\textbf{Description}: Ernst has immense power over us as students, and will give feedback on our infrastructure during the presentation.
+
+\textbf{Impact}: Loss of confidence and will to live. If Ernst isn't happy we aren't happy.
+
+\textbf{Likelyhood}: The likelyhood is increasing, as Johannes is working hard on making our setup presentable.
+
+\textbf{Verdict}: There's not much we can do about this, other than to hope and pray for a happy Ernst.
 
 
 
-\subsection{Risk 2}
 
 %\notetous{Following was copied from docs:}
 
