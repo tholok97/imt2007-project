@@ -59,11 +59,10 @@
 SikreNorge is a non-profit charity organization that provides information security services to businesses and institutions in Norway. The organization seeks to secure Norway by helping those who would not otherwise have the means to prioritize security.
 \\
 \\
-Financially SikreNorge relies on donations, government subsidies, and income from their web-shop. Businesses who donate are encouraged to publicise their contribution to show that they support the organization's mission. This way both the contributing businesses and SikreNorge get good PR. Government subsidies are given with the intention and expectation that the organization will use these means to support local public and private institutions with information security tasks.
-\\
-\\
 The organization is reliant on local expertise in each county in the form of volunteers and hired professionals. Volunteers are expected and encouraged to gain security competence through the experts. Good candidates for volunteers are students doing technical studies. Where possible the organization will make agreements with local universities teaching information technology courses to encourage students to volunteer. The organization is also open to volunteer work as part of theses and course projects. Volunteers of the organization do work in exchange for practical information security experience. Both volunteers and hired professionals are expected to sign strict non-disclosure agreements regarding their work with businesses and institutions.
-
+\\
+\\
+Financially SikreNorge relies on donations, government subsidies, and income from their web-shop. Businesses who donate are encouraged to publicise their contribution to show that they support the organization's mission. This way both the contributing businesses and SikreNorge get good PR. Government subsidies are given with the intention and expectation that the organization will use these means to support local public and private institutions with information security tasks.
 \subsection{Locations}
 
 SikreNorge will establish learning centers in each of Norway's 19 counties. The headquarter lies in Oslo.
@@ -210,10 +209,10 @@ The organization uses a website separate to the public website to manage interna
       \item Images not to be loaded before sender is verified.
       \item Autoload should remain off by default.
       \item Attachments not to be downloaded/viewed unless verified sender.
+      \item DMARC and SPF shall be implemented
     \end{enumerate}
     \item Passwords should have a certain standard.
     \begin{enumerate}
-      \item Not easy to crack.
       \item Least 10 characters.
       \item Non dictionary words or other easily identifiable words.
       \item Mix of characters (lower-, and uppercase), numbers and symbols.
@@ -335,26 +334,35 @@ The organization uses a website separate to the public website to manage interna
 \end{enumerate}
 
 
-\section{Risk assesment}
+\section{Risk assessment}
 
-\notetous{Following was copied from docs:}
 
-One of the biggest risks is the theft, loss or unauthorized access of confidential data. Especially data that may be stored about partners and others we offer services to.
-\\
-\\
-Since we rely on hired professionals and volunteers which must have some level of access to perform their work. A possible risk may be infiltration and espionage as well as theft of assets under the disguise of altruism.
-\\
-\\
-Others may also try to gain physical unauthorized access to our and partner premises.
-\\
-\\
-Our role in the public can make us a target for Distributed Denial of Service attacks (DDoS).
-\\
-\\
-As everyone else we are at risk of human error and/or failure without mischievous or criminal intent. 
-\\
-\\
-Power outage, natural disasters.
+\subsection{Risk 1}
+
+Blabla about risk 1
+
+
+
+\subsection{Risk 2}
+
+%\notetous{Following was copied from docs:}
+
+%One of the biggest risks is the theft, loss or unauthorized access of confidential data. Especially data that may be stored about partners and others we offer services to.
+%\\
+%\\
+%Since we rely on hired professionals and volunteers which must have some level of access to perform their work. A possible risk may be infiltration and espionage as well as theft of assets under the disguise of altruism.
+%\\
+%\\
+%Others may also try to gain physical unauthorized access to our and partner premises.
+%\\
+%\\
+%Our role in the public can make us a target for Distributed Denial of Service attacks (DDoS).
+%\\
+%\\
+%As everyone else we are at risk of human error and/or failure without mischievous or criminal intent. 
+%\\
+%\\
+%Power outage, natural disasters.
 
 \section{ICT and Network Infrastructure}
 
@@ -407,11 +415,13 @@ Power outage, natural disasters.
 
 \subsection{WAN}
 
-\notetous{Discuss our WAN setup}
+We have implemented wAN technologies.
 
 \subsection{VLAN's and Subnets}
 
 The goal when designing our VLAN's and subnets was simplicity. We chose to subnet our private addresses from the 10.0.0.0/8 private address range, as it gave us plenty of space to the subnets up how we wanted. We dedicate the second octet to indicate what location the subnet belongs to, where the value 1 indicates the HQ, and a value above 1 indicates a branch site. For example: 10.1.x.x is a subnet the HQ, and 10.2.x.x is a subnet at the first learning centre and so on. This lets us create subnets that look very similar across locations, while letting a network engineer quickly see what location a particular IP address belongs to. We dedicate the third octet to indicate what VLAN the subnet belongs to, with the value of the octet being the same as the VLAN id. 10.1.10.x is a subnet for the management vlan of the HQ, and 10.10.60.x is a subnet for the printer VLAN of location nr 9. Combined with the fact that we reserve the first 10 hosts for static IP's in each subnet range, this leaves us with 244 available dynamic host addresses. For the learning centres this is not a problem, as 244 guests are unlikely to be connected to the network at the same time. The HQ is more brittle, but we've condluded that 244 hosts should be enough there as well. Table \ref{vlansubnettable} shows our VLAN's with their corresponding subnets.
+
+% TODO: 10.0.x.x = ipsec (subnet bruk mellom WAN linker)
 
 % FIXME: H necessary?
 % Forces table to show up under text
