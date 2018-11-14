@@ -262,11 +262,17 @@ The organization uses a website separate to the public website to manage interna
 \begin{enumerate}
   \item Management of stored materials
   \begin{enumerate}
-    \item Authentication and authorisation should be managed by an AAA server and accounted.
+    \item Authentication and authorization should be managed by an AAA server.
+    \item All access to restricted equipment and actions must be logged on a server.
     \item Classified data need to be encrypted on the hard drive and in transfer - Partner and organizational data protected by non-disclosure contracts.
-    \item All organization equipment that have been used to store organisation or partner information must be disposed of in a safe manner.
+    \item All organization equipment that have been used to store organization or partner information must be disposed of in a safe manner.
     \item Hard drives must be destroyed by the organization itself.
     \item Printers must be in an enclosed network, and classified documents should only be printed on secure organization printers.
+  \end{enumerate}
+  \item Documentation
+  \begin{enumerate}
+      \item Important assets and equipment must be properly documented for the purpose of maintenance and operations.
+      \item All configurations must be stored on a safe server for easy system recovery.
   \end{enumerate}
   \item Employer monitoring
   \begin{enumerate}
@@ -280,21 +286,21 @@ The organization uses a website separate to the public website to manage interna
   \end{enumerate}
   \item Virus protection
   \begin{enumerate}
-    \item Each branch need its own firewall.
-    \item Organization computers and phones with internet connection need antivirus.
-    \item Email etiquette, see Fair and responsible use( i ).
+    \item Each branch must have its own firewall mechanism to filter unwanted traffic.
+    \item Organization computers and smart-phones with internet connection must have anti-virus.
+    \item Email etiquette, see "Fair and responsible use (a)".
   \end{enumerate}
   \item Physical security
   \begin{enumerate}
     \item Limited access to restricted areas.
     \begin{enumerate}
-      \item Must use ID-card to enter: Server rooms, Offices for high clearance individuals.
+      \item Must use ID-card to enter: Server rooms and Offices for high clearance individuals.
     \end{enumerate}
     \item Guest premises must be separated from working grounds and other vital instances.
   \end{enumerate}
   \item Encryption
   \begin{enumerate}
-    \item Within the organization the use of asymmetric encryption with security level equal to SHA 3 or higher should be enforced.
+    \item Within the organization the use of asymmetric encryption with security level equal to SHA 3 or higher must be enforced.
   \end{enumerate}
 \end{enumerate}
 
@@ -308,7 +314,7 @@ The organization uses a website separate to the public website to manage interna
   \end{enumerate}
     \item Penalties for violations
   \begin{enumerate}
-    \item Minor voilations can result in revoked clearance or access.
+    \item Minor violations can result in revoked clearance or access.
     \item Serious violations:
     \begin{enumerate}
       \item Subject to dismissal.
@@ -334,7 +340,7 @@ The organization uses a website separate to the public website to manage interna
   \begin{enumerate}
     \item This organization is not liable if an employee does not comply with our policy.
     \begin{enumerate}
-      \item The organisation will assist in prosecution if necessary.
+      \item The organization will assist in prosecution if necessary.
     \end{enumerate}
   \end{enumerate}
   \item Other disclaimers as needed
@@ -345,9 +351,18 @@ The organization uses a website separate to the public website to manage interna
 
 \notetous{See comments for structure of this section}
 
-% Structure:
+\subsection{Unauthorized access to confidential data}
+\textbf{Description}: We may store information about our partners and others we offer services to. This data can be discovered security flaws or other compromising information. Meanwhile, the information vital for our organization to perform our services. Unauthorized individuals may try to steal or view this information.
+
+\textbf{Impact}: Our organization rely on our reputation. Therefore, the impact of losing confidential information is critical.
+
+\textbf{Likelyhood}: As this information is one of our most important assets, it is a target for people with mischievous intent. Before 
+
+\textbf{Verdict}: Access to confidential data must be secured with AAA and logged. It must be stored encrypted on a safe server. In precessing is must also be encrypted and never be transferred over unsecured links in plaintext.
+
+ %ecryptedn Structure:
 %
-% REPEAT FOR EVERY RISK
+% REPEAT FOR EVERY, RISK
 % \subsection{Title of risk}
 % \textbf{Description}: description....
 % \textbf{Impact}: impact.....
@@ -459,11 +474,18 @@ We've used screenshots of our Packet Tracer implementation to produce the diagra
 
 \subsection{WAN}
 
-For the site to site WAN between HQ and branches, we have implemented an IPsec tunnel that traerses the internet.
+For the site to site WAN between HQ and branches, we have implemented an IPsec tunnel that traverses the internet, in order to connect branches and HQ without having to pay for a leased line, which is too expensive for us and therfore the reason to NOT use PPP or PPPoE, that cannot be transmitted over the internet as they are L2 protocols. IPsec on the other hand is a L3 protocol and therefore can be transmitted over the internet, which is a very affordable medium, also safe with IPsec encryption and we also don't really need the bandwidth of a leased line.
+
+
 
 \subsection{VLAN's and Subnets}
 
-The goal when designing our VLAN's and subnets was simplicity. We chose to subnet our private addresses from the 10.0.0.0/8 private address range, as it gave us plenty of space to the subnets up how we wanted. We dedicate the second octet to indicate what location the subnet belongs to, where the value 1 indicates the HQ, and a value above 1 indicates a branch site. For example: 10.1.x.x is a subnet the HQ, and 10.2.x.x is a subnet at the first learning centre and so on. This lets us create subnets that look very similar across locations, while letting a network engineer quickly see what location a particular IP address belongs to. We dedicate the third octet to indicate what VLAN the subnet belongs to, with the value of the octet being the same as the VLAN id. 10.1.10.x is a subnet for the management vlan of the HQ, and 10.10.60.x is a subnet for the printer VLAN of location nr 9. Combined with the fact that we reserve the first 10 hosts for static IP's in each subnet range, this leaves us with 244 available dynamic host addresses. For the learning centres this is not a problem, as 244 guests are unlikely to be connected to the network at the same time. The HQ is more brittle, but we've condluded that 244 hosts should be enough there as well. Table \ref{vlansubnettable} shows our VLAN's with their corresponding subnets.
+The goal when designing our VLAN's and subnets was simplicity. We chose to subnet our private addresses from the 10.0.0.0/8 private address range, as it gave us plenty of space to the subnets up how we wanted.
+We dedicate the second octet to indicate what location the subnet belongs to, where the value 1 indicates the HQ, and a value above 1 indicates a branch site. For example: 10.1.x.x is a subnet the HQ, and 10.2.x.x is a subnet at the first learning centre and so on.
+
+This lets us create subnets that look very similar across locations, while letting a network engineer quickly see what location a particular IP address belongs to. We dedicate the third octet to indicate what VLAN the subnet belongs to, with the value of the octet being the same as the VLAN id. 10.1.10.x is a subnet for the management vlan of the HQ, and 10.10.60.x is a subnet for the printer VLAN of location nr 9. Combined with the fact that we reserve the first 10 hosts for static IP's in each subnet range, this leaves us with 244 available dynamic host addresses.
+
+For the learning centres this is not a problem, as 244 guests are unlikely to be connected to the network at the same time. The HQ is more brittle, but we've condluded that 244 hosts should be enough there as well. Table \ref{vlansubnettable} shows our VLAN's with their corresponding subnets.
 
 % TODO: 10.0.x.x = ipsec (subnet bruk mellom WAN linker)
 
@@ -491,7 +513,9 @@ Blackhole VLAN & 99      & N/A          & N/A                    & N/A \\ \hline
 
 % TODO: should use something other than PSK in the real setup?? google
 
-We've chosen to build our wireless solution with Wireless Access Controllers (WLC's) and Lightweight Access Points (LWAP'S). As we want as few resources as possible to be placed at the branch locations, the WLC's will be placed at the HQ. This means that the LWAP's at the branches might encounter situations with no access to WLC's, but as this connection will benefit from the same redundancy as the one provided for services this will be relatively rare. We'd rather put resources into our one HQ than to spread resources around to each of the 18 branches.
+We've chosen to build our wireless solution with Wireless Access Controllers (WLC's) and Lightweight Access Points (LWAP'S). As we want as few resources as possible to be placed at the branch locations, the WLC's will be placed at the HQ.
+
+This means that the LWAP's at the branches might encounter situations with no access to WLC's, but as this connection will benefit from the same redundancy as the one provided for services this will be relatively rare. We'd rather put resources into our one HQ than to spread resources around to each of the 18 branches.
 \\
 \\
 The WLC's and LWAP's use CAPWAP to communicate, meaning all LWAP's are connected to access ports on the management VLAN. This unifies how we set up our AP's.
@@ -517,7 +541,9 @@ Some networking equipment will be placed in the lab to be used for experimentati
 % TODO more sections?
 %\notetous{Discuss topics specific to the branch network setup}
 
-As seen in Figure \ref{physicalviewbranch}, the branch network is very simple. As all resources are located at the HQ, each branch only needs a router, a few switches and a few LWAP's to function. Each branch site will not have much traffic, so we can justify saving costs by placing the firewall, local DHCP server and the VPN termation at the router itself. The LWAP's are configured through CAPWAP tunnels going to the WLC's at HQ. We could have set up redundant WLC functionality on each branch site, but decided against it because the cost of configuring this for each branch would be too high.
+As seen in Figure \ref{physicalviewbranch}, the branch network is very simple. As all resources are located at the HQ, each branch only needs a router, a few switches and a few LWAP's to function. Each branch site will not have much traffic, so we can justify saving costs by placing the firewall, local DHCP server and the VPN termation at the router itself.
+
+The LWAP's are configured through CAPWAP tunnels going to the WLC's at HQ. We could have set up redundant WLC functionality on each branch site, but decided against it because the cost of configuring this for each branch would be too high.
 \\
 \\
 We don't consider the branch site as critical infrastructure. Rather than providing each branch site with redundancy, we place all resources at the HQ, and focus on providing redundancy there. This means that a branch might go down for a few days every once in a while. We consider this an accepted risk.
@@ -526,7 +552,9 @@ We don't consider the branch site as critical infrastructure. Rather than provid
 
 \subsubsection{Layout}
 
-Initially we aimed for a three-tier architecture~\cite{todo}, but found out that we a collapsed-core architecture~\cite{todo} heavy enough. A collapsed-core architecture provides similar efficiency benefits as the three-tier architecture, but with a focus on saving costs. We have two routers and two switches set up to combine the core and distribution layer into a single layer. The services and management resources are given special treatment and placed in it's own segment of the network, while the rest of the network is set up to use access switches with connections to both distribution/core layer switches to provide redundancy.
+Initially we aimed for a three-tier architecture~\cite{todo}, but found out that we a collapsed-core architecture~\cite{todo} heavy enough. A collapsed-core architecture provides similar efficiency benefits as the three-tier architecture, but with a focus on saving costs.
+
+We have two routers and two switches set up to combine the core and distribution layer into a single layer. The services and management resources are given special treatment and placed in it's own segment of the network, while the rest of the network is set up to use access switches with connections to both distribution/core layer switches to provide redundancy.
 \\
 \\
 Phyically each access layer switch is configured with access ports based on what users are found around the switch. Switches placed in the offices will have staff and management ports, while switches in lecture halls and such will have guest ports. The switches LWAP's are connected need to be management ports. 
@@ -535,7 +563,9 @@ Phyically each access layer switch is configured with access ports based on what
 
 \subsubsection{Redundancy}
 
-As all of the branch sites rely on the HQ to operate, redundancy was an important topic to address. What really needs redundancy are the services and management resources. The fact that the rest of the HQ gets some redundancy is really just a bonus. As shown in Figure~\ref{physicalviewhq}, the HQ has two links to the ISP through a duplicated setup of routers and switches. Important services and management resources are placed in the middle of the network, in between the two routers, as shown. They have dual ethernet connections, one going to each ISP link. This way, if any of the equipment forming one of the connections goes down, the services and management resources will still have internet connectivity.
+As all of the branch sites rely on the HQ to operate, redundancy was an important topic to address. What really needs redundancy are the services and management resources. The fact that the rest of the HQ gets some redundancy is really just a bonus.
+
+As shown in Figure~\ref{physicalviewhq}, the HQ has two links to the ISP through a duplicated setup of routers and switches. Important services and management resources are placed in the middle of the network, in between the two routers, as shown. They have dual ethernet connections, one going to each ISP link. This way, if any of the equipment forming one of the connections goes down, the services and management resources will still have internet connectivity.
 \\
 \\
 As we have have two gateways we need to use a "First Hop Redundancy" protocol to manage the deafult gateway. The options we looked at were HSRP, VRRP and GLBP. We went with GLBP because in addition to providing the redundancy we need, it also does load balancing, letting us utilize both of the gateway routers to their fullest. HSRP and VRRP would've provided redundancy, but not load balancing.
