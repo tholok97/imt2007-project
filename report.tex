@@ -390,10 +390,17 @@ Power outage, natural disasters.
 
 
 \begin{figure}[H]
-\caption{Phyical view of the network (TEMPORARY)}
+\caption{Physical view of HQ (TEMPORARY)}
 \centering
-\includegraphics[width=\textwidth]{physicalview}
-\label{physicalview}
+\includegraphics[width=\textwidth]{physicalviewhq}
+\label{physicalviewhq}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Physical view of Branch (TEMPORARY)}
+\centering
+\includegraphics[width=\textwidth]{physicalviewbranch}
+\label{physicalviewbranch}
 \end{figure}
 
 \begin{figure}[H]
@@ -461,7 +468,7 @@ Some networking equipment will be placed in the lab to be used for experimentati
 % TODO more sections?
 %\notetous{Discuss topics specific to the branch network setup}
 
-As seen in Figure \ref{physicalview}, the branch network is very simple. As all resources are located at the HQ, each branch only needs a router, a few switches and a few LWAP's to function. Each branch site will not have much traffic, so we can justify saving costs by placing the firewall, local DHCP server and the VPN termation at the router itself. The LWAP's are configured through CAPWAP tunnels going to the WLC's at HQ. We could have set up redundant WLC functionality on each branch site, but decided against it because the cost of configuring this for each branch would be too high.
+As seen in Figure \ref{physicalviewbranch}, the branch network is very simple. As all resources are located at the HQ, each branch only needs a router, a few switches and a few LWAP's to function. Each branch site will not have much traffic, so we can justify saving costs by placing the firewall, local DHCP server and the VPN termation at the router itself. The LWAP's are configured through CAPWAP tunnels going to the WLC's at HQ. We could have set up redundant WLC functionality on each branch site, but decided against it because the cost of configuring this for each branch would be too high.
 \\
 \\
 We don't consider the branch site as critical infrastructure. Rather than providing each branch site with redundancy, we place all resources at the HQ, and focus on providing redundancy there. This means that a branch might go down for a few days every once in a while. We consider this an accepted risk.
@@ -479,7 +486,7 @@ Phyically each access layer switch is configured with access ports based on what
 
 \subsubsection{Redundancy}
 
-As all of the branch sites rely on the HQ to operate, redundancy was an important topic to address. What really needs redundancy are the services and management resources. The fact that the rest of the HQ gets some redundancy is really just a bonus. As shown in Figure \ref{physicalview}, the HQ has two links to the ISP through a duplicated setup of routers and switches. Important services and management resources are placed in the middle of the network, in between the two routers, as shown. They have dual ethernet connections, one going to each ISP link. This way, if any of the equipment forming one of the connections goes down, the services and management resources will still have internet connectivity.
+As all of the branch sites rely on the HQ to operate, redundancy was an important topic to address. What really needs redundancy are the services and management resources. The fact that the rest of the HQ gets some redundancy is really just a bonus. As shown in Figure \ref{physicalviewhq}, the HQ has two links to the ISP through a duplicated setup of routers and switches. Important services and management resources are placed in the middle of the network, in between the two routers, as shown. They have dual ethernet connections, one going to each ISP link. This way, if any of the equipment forming one of the connections goes down, the services and management resources will still have internet connectivity.
 \\
 \\
 As we have have two gateways we need to use a "First Hop Redundancy" protocol to manage the deafult gateway. The options we looked at were HSRP, VRRP and GLBP. We went with GLBP because in addition to providing the redundancy we need, it also does load balancing, letting us utilize both of the gateway routers to their fullest. HSRP and VRRP would've provided redundancy, but not load balancing.
@@ -502,6 +509,10 @@ As we have have two gateways we need to use a "First Hop Redundancy" protocol to
 % * list of what is implemented and what isn't?
 % * explain how we simplified WAN for the demo
 
+\subsubsection{The wireless demo configuration}
+
+We had trouble with implementing WLC's and LWAP's properly in Packet Tracer, so we decided configure a physical WLC as a proof-of-concept of how the WLC at HQ in our demo would look like. The exported configuration is provided in appendix \ref{configwlc}. Two WLAN's Staff and Guest are set up with WPA2+PSK security. Note that the addresses used in the configuration file are wrong. All addresses starting with 192.168 should really start with 10.1. We configured it like this because we had trouble with the 10.0.0.0/8 range in the cisco lab.
+
 \clearpage
 
 \section{Conclusion}
@@ -523,5 +534,14 @@ As we have have two gateways we need to use a "First Hop Redundancy" protocol to
 
 \clearpage % make appendix start on own page
 \appendix
+
+\section{Our demo Packet Tracer implementation} \label{config}
+
+\notetous{TODO: Add configuration files here.}
+
+\subsection{(Physical) WLC configuration} \label{configwlc}
+
+\inputminted[fontsize=\tiny,linenos,breaklines]{text}{./wirelessimplementation/wlc.cisco}
+
 
 \end{document}
