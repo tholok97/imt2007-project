@@ -1,4 +1,5 @@
 % TODO: 
+% * fix up ~ before \ref and \cite
 % * fix organisation/organization
 % * give lab access switches special treatment?
 % * do we want to clearpage before \section's?
@@ -102,8 +103,6 @@ SikreNorge's website includes information about the organizations offerings, onl
 The organization uses a website separate to the public website to manage internal logistics. Registered staff, businesses, institutions and overview of future work are examples of information that can be found here.
 
 % TODO: refer do the bave and below sections in the ict implementation discussion
-
-\clearpage
 
 \section{Security Policy}
 
@@ -336,8 +335,6 @@ The organization uses a website separate to the public website to manage interna
 \end{enumerate}
 
 
-\clearpage
-
 \section{Risk assesment}
 
 \notetous{Following was copied from docs:}
@@ -358,8 +355,6 @@ As everyone else we are at risk of human error and/or failure without mischievou
 \\
 \\
 Power outage, natural disasters.
-
-\clearpage
 
 \section{ICT and Network Infrastructure}
 
@@ -486,7 +481,7 @@ Phyically each access layer switch is configured with access ports based on what
 
 \subsubsection{Redundancy}
 
-As all of the branch sites rely on the HQ to operate, redundancy was an important topic to address. What really needs redundancy are the services and management resources. The fact that the rest of the HQ gets some redundancy is really just a bonus. As shown in Figure \ref{physicalviewhq}, the HQ has two links to the ISP through a duplicated setup of routers and switches. Important services and management resources are placed in the middle of the network, in between the two routers, as shown. They have dual ethernet connections, one going to each ISP link. This way, if any of the equipment forming one of the connections goes down, the services and management resources will still have internet connectivity.
+As all of the branch sites rely on the HQ to operate, redundancy was an important topic to address. What really needs redundancy are the services and management resources. The fact that the rest of the HQ gets some redundancy is really just a bonus. As shown in Figure~\ref{physicalviewhq}, the HQ has two links to the ISP through a duplicated setup of routers and switches. Important services and management resources are placed in the middle of the network, in between the two routers, as shown. They have dual ethernet connections, one going to each ISP link. This way, if any of the equipment forming one of the connections goes down, the services and management resources will still have internet connectivity.
 \\
 \\
 As we have have two gateways we need to use a "First Hop Redundancy" protocol to manage the deafult gateway. The options we looked at were HSRP, VRRP and GLBP. We went with GLBP because in addition to providing the redundancy we need, it also does load balancing, letting us utilize both of the gateway routers to their fullest. HSRP and VRRP would've provided redundancy, but not load balancing.
@@ -512,8 +507,6 @@ As we have have two gateways we need to use a "First Hop Redundancy" protocol to
 \subsubsection{The wireless demo configuration}
 
 We had trouble with implementing WLC's and LWAP's properly in Packet Tracer, so we decided configure a physical WLC as a proof-of-concept of how the WLC at HQ in our demo would look like. The exported configuration is provided in appendix \ref{configwlc}. Two WLAN's Staff and Guest are set up with WPA2+PSK security. Note that the addresses used in the configuration file are wrong. All addresses starting with 192.168 should really start with 10.1. We configured it like this because we had trouble with the 10.0.0.0/8 range in the cisco lab.
-
-\clearpage
 
 \section{Conclusion}
 
