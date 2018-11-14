@@ -1,0 +1,149 @@
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname HQ_R1
+!
+!
+!
+!
+ip dhcp excluded-address 10.1.10.1 10.1.10.10
+ip dhcp excluded-address 10.1.20.1 10.1.20.10
+ip dhcp excluded-address 10.1.30.1 10.1.30.10
+ip dhcp excluded-address 10.1.40.1 10.1.40.10
+ip dhcp excluded-address 10.1.50.1 10.1.50.10
+ip dhcp excluded-address 10.1.60.1 10.1.60.10
+ip dhcp excluded-address 10.1.70.1 10.1.70.10
+!
+ip dhcp pool VLAN_MANAGEMENT
+ network 10.1.10.0 255.255.255.0
+ default-router 10.1.10.1
+ip dhcp pool VLAN_STAFF
+ network 10.1.20.0 255.255.255.0
+ default-router 10.1.20.1
+ip dhcp pool VLAN_SERVICES
+ network 10.1.30.0 255.255.255.0
+ default-router 10.1.30.1
+ip dhcp pool VLAN_LAB
+ network 10.1.40.0 255.255.255.0
+ default-router 10.1.40.1
+ip dhcp pool VLAN_GUEST
+ network 10.1.50.0 255.255.255.0
+ default-router 10.1.50.1
+ip dhcp pool VLAN_PRINTERS
+ network 10.1.60.0 255.255.255.0
+ default-router 10.1.60.1
+ip dhcp pool VLAN_DMZ
+ network 10.1.70.0 255.255.255.0
+ default-router 10.1.70.1
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO1941/K9 sn FTX1524Y2CP-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0.10
+ encapsulation dot1Q 10
+ ip address 10.1.10.1 255.255.255.0
+ standby 10 ip 10.1.10.10
+!
+interface GigabitEthernet0/0.20
+ encapsulation dot1Q 20
+ ip address 10.1.20.1 255.255.255.0
+ standby 20 ip 10.1.20.20
+!
+interface GigabitEthernet0/0.30
+ encapsulation dot1Q 30
+ ip address 10.1.30.1 255.255.255.0
+ standby 30 ip 10.1.30.30
+!
+interface GigabitEthernet0/0.40
+ encapsulation dot1Q 40
+ ip address 10.1.40.1 255.255.255.0
+ standby 40 ip 10.1.40.40
+!
+interface GigabitEthernet0/0.50
+ encapsulation dot1Q 50
+ ip address 10.1.50.1 255.255.255.0
+ standby 50 ip 10.1.50.50
+!
+interface GigabitEthernet0/0.60
+ encapsulation dot1Q 60
+ ip address 10.1.60.1 255.255.255.0
+ standby 60 ip 10.1.60.60
+!
+interface GigabitEthernet0/0.70
+ encapsulation dot1Q 70
+ ip address 10.1.70.1 255.255.255.0
+ standby 70 ip 10.1.70.70
+!
+interface GigabitEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Serial0/1/0
+ ip address 10.1.0.2 255.255.255.0
+ clock rate 2000000
+!
+interface Serial0/1/1
+ no ip address
+ clock rate 2000000
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+ip route 10.2.0.0 255.255.0.0 10.1.0.3
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
