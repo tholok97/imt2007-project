@@ -16,6 +16,7 @@
 % * VLANs to VLAN's and so on
 % * Make it clear that we are focusing on saving costs. Redundancy at the HQ for example is a luxury
 % * Setup a pingable host in the services segment to use for demonstration
+% * Write about firewalls, defence-in-depth, etc. in ICT discussion
 
 % command to make notes to us in the document
 \newcommand{\notetous}[1] {
@@ -128,40 +129,6 @@ The organization uses a website separate to the public website to manage interna
   \end{enumerate}
 \end{enumerate}
 
-\subsection{Definition of technology addressed}
-
-\begin{enumerate}
-  \item Use of Internet
-  \begin{enumerate}   
-    \item E-mail
-    \item Browsing
-  \end{enumerate}
-  \item Use of organization equipment
-  \begin{enumerate}
-    \item Computers
-    \item Servers
-    \item Routers
-    \item switches
-  \end{enumerate}
-  \item Use of partners or other non-organizational equipment
-  \begin{enumerate}
-    \item Personal equipment
-    \item Tech brought by guest lecturers
-  \end{enumerate}
-  \item Use of telecommunications
-  \begin{enumerate}
-    \item Fax
-    \item Phone
-    \item VoIP
-  \end{enumerate}
-  \item Use of photocopy equipment
-  \begin{enumerate}
-    \item Hard copies
-    \item Photographs 
-    \item No personal documents: Passports etc.
-  \end{enumerate}
-\end{enumerate}
-
 \subsection{Responsibilities}
 
 \begin{enumerate}
@@ -176,7 +143,7 @@ The organization uses a website separate to the public website to manage interna
      \item Manage security for their branch office.
      \item Report to CISO.
   \end{enumerate}
-  \item Employees
+  \item Employees and volunteers
   \begin{enumerate}
     \item Be loyal to the organization's security guidelines.
     \item Understand Policy.
@@ -194,10 +161,11 @@ The organization uses a website separate to the public website to manage interna
     \item Employees have a level of clearance, and access thereafter. 
     \item CISO have full access to systems, except those classified as secret.
     \item Employees with access to confidential information or higher must sign a non-disclosure agreement.
+    \item Volunteers may have access to certain confidential information to perform their work, but their access is defined along the lines of a need to know basis.
     \item Levels of classification, where higher levels have access of the lower:
     \begin{enumerate}
       \item Official - All can access.
-      \item Confidential - Employees
+      \item Confidential - Employees, volunteers
       \item Restricted - Managers, CISO
       \item Secret - Executives
     \end{enumerate}
@@ -330,7 +298,6 @@ The organization uses a website separate to the public website to manage interna
   \begin{enumerate}
     \item This organization will actively seek to be in the front of information security, to ensure we are able to offer our services with satisfaction. This policy is therefore an iterative peace of document which is subject to alteration if needed.
   \end{enumerate}
-  \item Legal disclaimers
 \end{enumerate}
 
 \subsection{Limitations of liability}
@@ -343,7 +310,6 @@ The organization uses a website separate to the public website to manage interna
       \item The organization will assist in prosecution if necessary.
     \end{enumerate}
   \end{enumerate}
-  \item Other disclaimers as needed
 \end{enumerate}
 
 
@@ -516,7 +482,7 @@ We've used screenshots of our Packet Tracer implementation to produce the diagra
 
 For the site to site WAN between HQ and branches, we have implemented an IPsec tunnel that traverses the internet, in order to connect branches and HQ without having to pay for a leased line, which is too expensive for us and therfore the reason to NOT use PPP or PPPoE, that cannot be transmitted over the internet as they are L2 protocols. IPsec on the other hand is a L3 protocol and therefore can be transmitted over the internet, which is a very affordable medium, also safe with IPsec encryption and we also don't really need the bandwidth of a leased line.
 
-
+We also want to be able to VPN to HQ from an off-site location, so we could have a VPN server with a pool of temporary IP addresses for remote locations. This VPN would pass through an IPsec tunnel forwarded by the ISP, to an off-site client.
 
 \subsection{VLAN's and Subnets}
 
@@ -617,6 +583,20 @@ As we have have two gateways we need to use a "First Hop Redundancy" protocol to
 % not needed? talked about in above subsection
 %\subsubsection{Services}
 %\notetous{Discuss how services are handled at HQ}
+
+\subsection{Methods for hardening}
+
+\subsubsection{Layer 2}
+As layer 2 can be the weakest link in our network infrastructure we will implement different methods to prevent or mitigate potential attacks:
+
+\textbf{CAM table attack}: To prevent flooding of a switch's CAM table all access ports have port-security implemented. This also prevents DHCP starvation.
+
+\textbf{VLAN hopping and double-tagging attack}: To prevent an attacker from spoofing a switch trunk all ports have disabled DTP(auto trunking). Ports available to users are explicitly assigned as access ports. To prevent a double-tagging attack trunks have a native BLACKHOLE VLAN. Ports which are not in use are disabled. They are also configured as access ports to the BLACKHOLE VLAN to force awareness of the configuration when turned back on.
+
+\textbf{Management traffic}: Whereas Lab have a separate switch, management and staff share the same switch. For additional security all access ports on this switch use PVLAN edge to make it difficult for a man-in-the middle attack against management traffic.
+
+\textbf{DHCP, ARP and IP spoofing attacks}: To prevent rogue DHCP servers and DHCP starvation we will use DHCP Snooping. While our upstream ports will be set to trusted, access port will have a limit to how many DHCP request it can send per second. However, it may take some time for the DHCP Snooping to finish the binding table. In addition we will use DAI (Dynamic ARP Inspection) to prevent ARP spoofing and poisoning. Then only valid
+
 
 \subsection{Our proof-of-concept implementation}
 
