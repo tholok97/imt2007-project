@@ -1,14 +1,11 @@
 % TODO: 
+% * note in WAN section about our demo should be moved to the demo section
 % * add prefix to \refs. "section \ref{..}" for example
-% * branch site / branch location <- make consistent
 % * make sure sections about HQ and branch appear in a consistent order :D *muh consistency*
-% * Fix HQ vs Head Quarters
 % * fix up ~ before \ref and \cite
-% * fix organisation/organization
 % * give lab access switches special treatment?
-% * do we want to clearpage before \section's?
+% * do we want to clearpage before \sections?
 % * Phyical security!
-% * centre vs center
 % * clean up \\\\'s to look good and uniform
 % * call our PT implementation a demo?
 % * Run spellchecker
@@ -16,7 +13,6 @@
 % * replace "'S" with "'s"
 % * branch -> learning centre
 % * Gjøre guests større?
-% * VLANs to VLAN's and so on
 % * Make it clear that we are focusing on saving costs. Redundancy at the HQ for example is a luxury
 % * Setup a pingable host in the services segment to use for demonstration
 % * Write about firewalls, defence-in-depth, etc. in ICT discussion
@@ -28,15 +24,15 @@
 
 \input{preamble.tex}
 
-\title{Charity Organization - "SikreNorge"}
+\title{Charity organisation - "SikreNorge"}
 
 % TODO: replace 923 with actual student number
 \author{
   Job Nestor Bahner, 494300\\
-  Johannes Borgen, 923\\
+  Johannes Borgen, 494336\\
   Abdisalan Hussein, 923\\
   Sam Roen, 923\\
-  Thomas Løkkeborg, 923
+  Thomas Løkkeborg, 473157
 }
 
 \begin{document}
@@ -44,7 +40,7 @@
 \maketitle
 
 \begin{abstract}
-SikreNorge is a non-profit charity organization with locations all over Norway. In this report we will discuss how we would implement a network infrastructure for the organization.
+SikreNorge is a non-profit charity organisation with locations all over Norway. In this report we will discuss how we would implement a network infrastructure for the organisation.
 \end{abstract}
 
 \thispagestyle{empty}
@@ -61,33 +57,33 @@ SikreNorge is a non-profit charity organization with locations all over Norway. 
 
 \section{Business case}
 
-SikreNorge is a non-profit charity organization that provides information security services to businesses and institutions in Norway. The organization seeks to secure Norway by helping those who would not otherwise have the means to prioritize security.
+SikreNorge is a non-profit charity organisation that provides information security services to businesses and institutions in Norway. The organisation seeks to secure Norway by helping those who would not otherwise have the means to prioritize security.
 \\
 \\
-The organization is reliant on local expertise in each county in the form of volunteers and hired professionals. Volunteers are expected and encouraged to gain security competence through the experts. Good candidates for volunteers are students doing technical studies. Where possible the organization will make agreements with local universities teaching information technology courses to encourage students to volunteer. The organization is also open to volunteer work as part of theses and course projects. Volunteers of the organization do work in exchange for practical information security experience. Both volunteers and hired professionals are expected to sign strict non-disclosure agreements regarding their work with businesses and institutions.
+The organisation is reliant on local expertise in each county in the form of volunteers and hired professionals. Volunteers are expected and encouraged to gain security competence through the experts. Good candidates for volunteers are students doing technical studies. Where possible the organisation will make agreements with local universities teaching information technology courses to encourage students to volunteer. The organisation is also open to volunteer work as part of theses and course projects. Volunteers of the organisation do work in exchange for practical information security experience. Both volunteers and hired professionals are expected to sign strict non-disclosure agreements regarding their work with businesses and institutions.
 \\
 \\
-Financially SikreNorge relies on donations, government subsidies, and income from their web-shop. Businesses who donate are encouraged to publicise their contribution to show that they support the organization's mission. This way both the contributing businesses and SikreNorge get good PR. Government subsidies are given with the intention and expectation that the organization will use these means to support local public and private institutions with information security tasks.
+Financially SikreNorge relies on donations, government subsidies, and income from their web-shop. Businesses who donate are encouraged to publicise their contribution to show that they support the organisations mission. This way both the contributing businesses and SikreNorge get good PR. Government subsidies are given with the intention and expectation that the organisation will use these means to support local public and private institutions with information security tasks.
 
 \subsection{Locations}
 
-SikreNorge will establish learning centers in each of Norway's 19 counties. The headquarter lies in Oslo.
+SikreNorge will establish learning centres in each of Norways 19 counties. The headquarter lies in Oslo.
 
 % TODO note that the number of counties is changing
-Learning centers are meant as a hub for all the organizations activities in the county. The centers have offices for local management and hired professionals. They also contain network sandbox areas for practicing network security, classrooms for security courses, lecture halls for seminars and general storage space. In addition to activities held at the centers, the organization can send consultants into the field to do evaluation or configuration on-site. Consultants are a mix of local hired professionals, volunteers and staff.
+Learning centres are meant as a hub for all the organisations activities in the county. The centres have offices for local management and hired professionals. They also contain network sandbox areas for practicing network security, classrooms for security courses, lecture halls for seminars and general storage space. In addition to activities held at the centres, the organisation can send consultants into the field to do evaluation or configuration on-site. Consultants are a mix of local hired professionals, volunteers and staff.
 \\
 \\
-The organization's headquarter provides the same services as learning centers, but also does the heavy lifting in terms of information technology services and infrastructure. The website, E-mail, management applications, and all the large equipment to which one can connect from another center for data resources are examples of services that are hosted here.
+The organisations headquarter provides the same services as learning centres, but also does the heavy lifting in terms of information technology services and infrastructure. The website, E-mail, management applications, and all the large equipment to which one can connect from another centre for data resources are examples of services that are hosted here.
 
 \subsection{Services}
 
-The organization includes a wide range of services, and the network must be set up to support these. Following is a brief discussion of key services, along with some infrastructure concerns.
+The organisation includes a wide range of services, and the network must be set up to support these. Following is a brief discussion of key services, along with some infrastructure concerns.
 
 % TODO more services?
 
 \subsubsection{On-site company consultation}
 
-Volunteers, hired professionals and staff  can be sent out to do consulting on-site at businesses or institutions. Access to the organizations internal services might be required during consultation, so the consultants should be able to reach them from on-site. Confidential information might be sent and received during this communication, so the technology chosen for this should focus on security.
+Volunteers, hired professionals and staff  can be sent out to do consulting on-site at businesses or institutions. Access to the organisations internal services might be required during consultation, so the consultants should be able to reach them from on-site. Confidential information might be sent and received during this communication, so the technology chosen for this should focus on security.
 
 \subsubsection{Teaching at learning centre}
 
@@ -95,17 +91,17 @@ Businesses and institutions may visit a learning centre to take courses or to re
 
 \subsubsection{Network security laboratory}
 
-Each learning centre has a laboratory where visitors can explore hardware and software to learn about vulnerabilities and best practises. Labs are meant to be a sandbox area for learning about information security, so they should be separated from the rest of the distribution system in such a way that experiments from the lab cannot interfere with the rest of the learning centers operations.
+Each learning centre has a laboratory where visitors can explore hardware and software to learn about vulnerabilities and best practises. Labs are meant to be a sandbox area for learning about information security, so they should be separated from the rest of the distribution system in such a way that experiments from the lab cannot interfere with the rest of the learning centres operations.
 
 % TODO "separated from the rest of the distribution system" - currently this is not done
 
 \subsubsection{Public website}
 
-SikreNorge's website includes information about the organizations offerings, online courses and a web-shop. Some of the website's information and courses might build upon internal services, so the infrastructure should support communication to allow this. The web-shop will sell T-shirts, coffee mugs, posters and more to further information security awareness and good practise. The shop allows buyers to register accounts for easy shopping.
+SikreNorges website includes information about the organisations offerings, online courses and a web-shop. Some of the websites information and courses might build upon internal services, so the infrastructure should support communication to allow this. The web-shop will sell T-shirts, coffee mugs, posters and more to further information security awareness and good practise. The shop allows buyers to register accounts for easy shopping.
 
 \subsubsection{Management website}
 
-The organization uses a website separate to the public website to manage internal logistics. Registered staff, businesses, institutions and overview of future work are examples of information that can be found here.
+The organisation uses a website separate to the public website to manage internal logistics. Registered staff, businesses, institutions and overview of future work are examples of information that can be found here.
 
 % TODO: refer do the bave and below sections in the ict implementation discussion
 
@@ -136,20 +132,49 @@ The organization uses a website separate to the public website to manage interna
 \subsection{Responsibilities}
 
 \begin{enumerate}
-  \item CISO 
-  \begin{enumerate}
-    \item Controls the overall structure of security and security management.
-    \item Must adhere to security guidelines and practice consistently, as they are a possible single-point-of-failure in the security scheme.
-    \item Must have IT-Security background, in conjunction with management background.
+  \item Chief Executive Officer (CEO)
+   \begin{enumerate}
+      \item Responsible for the organizations success.
+      \item Executives report to the CEO.
   \end{enumerate}
+  \item Chief Technology Officer (CTO)
+   \begin{enumerate}
+      \item Responsible for technology infrastructure
+      \begin{enumerate}
+        \item Identify and evaluate new technology.
+        \item Maintaining and improving existing systems.
+        \item Give and delegate counseling about technology to clients.
+      \end{enumerate}
+  \end{enumerate}
+  \item Chief Information Officer (CIO)
+   \begin{enumerate}
+      \item Responsible for IT and computer systems.
+      \begin{enumerate}
+          \item Responsible for our web server.
+      \end{enumerate}
+      \item Direct deployment of new technology in collaboration with CTO.
+  \end{enumerate}
+  \item Chief Security Officer (CSO)
+   \begin{enumerate}
+      \item Responsible for the organizations security strategy and programs as well as safeguarding our intellectual property.
+      \begin{enumerate}
+          \item Responsible for our personnel's security awareness and delegate counseling of clients regarding awareness.
+      \end{enumerate}
+  \end{enumerate}
+  \item Chief Information Security Officer (CISO)
+  \begin{enumerate}
+    \item Controls the overall structure of security and security management through our security policy.
+  \end{enumerate}
+  \item All executives must have IT-Security background, in conjunction with management background.
   \item Branch office security managers
   \begin{enumerate}
      \item Manage security for their branch office.
      \item Report to CISO.
   \end{enumerate}
+  \item All executives and managers must adhere to security guidelines and practice consistently, as they are a possible single-point-of-failure in the security scheme.
   \item Employees and volunteers
   \begin{enumerate}
-    \item Be loyal to the organization's security guidelines.
+    \item Be loyal to the organizations security guidelines.
     \item Understand Policy.
     \item Validate understanding of policy.
     \item Understand repercussions of policy insubordination.
@@ -163,15 +188,15 @@ The organization uses a website separate to the public website to manage interna
   \begin{enumerate}
     \item Administration, management and other vital parts of the organizational systems must be separated from normal users.
     \item Employees have a level of clearance, and access thereafter. 
-    \item CISO have full access to systems, except those classified as secret.
+    \item Executives have full access to systems, except those classified as secret.
     \item Employees with access to confidential information or higher must sign a non-disclosure agreement.
     \item Volunteers may have access to certain confidential information to perform their work, but their access is defined along the lines of a need to know basis.
     \item Levels of classification, where higher levels have access of the lower:
     \begin{enumerate}
       \item Official - All can access.
       \item Confidential - Employees, volunteers
-      \item Restricted - Managers, CISO
-      \item Secret - Executives
+      \item Restricted - Managers, Executives
+      \item Secret - CEO, board of directors
     \end{enumerate}
   \end{enumerate}
   \item Fair and responsible use
@@ -249,7 +274,7 @@ The organization uses a website separate to the public website to manage interna
   \item Employer monitoring
   \begin{enumerate}
     \item Use of internet logged.
-    \item Organizational equipment inventory checked regularly.
+    \item organizational equipment inventory checked regularly.
     \item Restricted area entry logged.
     \begin{enumerate}
       \item Physical - ID card entry log.
@@ -259,7 +284,7 @@ The organization uses a website separate to the public website to manage interna
   \item Virus protection
   \begin{enumerate}
     \item Each branch must have its own firewall mechanism to filter unwanted traffic.
-    \item Organization computers and smart-phones with internet connection must have anti-virus.
+    \item organization computers and smart-phones with internet connection must have anti-virus.
     \item Email etiquette, see "Fair and responsible use (a)".
   \end{enumerate}
   \item Physical security
@@ -300,7 +325,7 @@ The organization uses a website separate to the public website to manage interna
 \begin{enumerate}
   \item Scheduled review of policy modifications for modification
   \begin{enumerate}
-    \item This organization will actively seek to be in the front of information security, to ensure we are able to offer our services with satisfaction. This policy is therefore an iterative peace of document which is subject to alteration if needed.
+    \item This organization will actively seek to be in the front of information security, to ensure we are able to offer our services with satisfaction. This policy is therefore an iterative peace of document which is subject to alteration if needed as the CISO see fit.
   \end{enumerate}
 \end{enumerate}
 
@@ -321,9 +346,9 @@ The organization uses a website separate to the public website to manage interna
 
 \subsection{Unauthorized access to confidential data}
 
-\textbf{Description}: We may store information about our partners and others we offer services to. This data can be discovered security flaws or other compromising information. Unauthorized individuals may try to steal or view this information. Meanwhile, this data is vital for our organization to perform our services. 
+\textbf{Description}: We may store information about our partners and others we offer services to. This data can be discovered security flaws or other compromising information. Unauthorized individuals may try to steal or view this information. Meanwhile, this data is vital for our organisation to perform our services. 
 
-\textbf{Impact}: Our organization rely on our reputation. Therefore, the impact of losing confidential information is critical and in a worst case scenario put us out of business.
+\textbf{Impact}: Our organisation rely on our reputation. Therefore, the impact of losing confidential information is critical and in a worst case scenario put us out of business.
 
 \textbf{Likelyhood}: As this information is one of our most important assets, it is a target for people with mischievous intent. Therefore, the likelyhood of someone trying to gain access and control over this information is great.
 
@@ -355,34 +380,34 @@ The organization uses a website separate to the public website to manage interna
 
 \textbf{Impact}: We handle confidential data about our clients, so a leak would be catastrophic.
 
-\textbf{Likelyhood}: All employees are screened before they get access to the organizations resources. In addition, employes are on a need-to-know basis, so they only have access to resources related to projects they are involved in. This decreases the likelyhood somewhat, but as explained in the verdict we feel this problem should be addressed at a higher level.
+\textbf{Likelyhood}: All employees are screened before they get access to the organisations resources. In addition, employes are on a need-to-know basis, so they only have access to resources related to projects they are involved in. This decreases the likelyhood somewhat, but as explained in the verdict we feel this problem should be addressed at a higher level.
 
 \textbf{Verdict}: Network security measures like AAA and logging are in place to support mitigating the issue, but measures at higher levels than that defined by this report are needed, so we judge it to be outside our scope to address this fully.
 
 \subsection{DDoS on our website}
 
-\textbf{Description}: Our role as a information security organization could make us a potential target for DDoS.
+\textbf{Description}: Our role as a information security organisation could make us a potential target for DDoS.
 
-\textbf{Impact}: A DDoS would be targeted at our public website. This website going down means potential loss of incoming through donations and purchases in the webshop, but we deem this not to be a huge issue because we are a non-profit organization, and wouldn't miss out on much due to a little downtime. The DDoS would put a strain on our gateway networking equipment, however, meaning internal services would be impacted.
+\textbf{Impact}: A DDoS would be targeted at our public website. This website going down means potential loss of incoming through donations and purchases in the webshop, but we deem this not to be a huge issue because we are a non-profit organisation, and wouldn't miss out on much due to a little downtime. The DDoS would put a strain on our gateway networking equipment, however, meaning internal services would be impacted.
 
-\textbf{Likelyhood}: We deem this to be fearly likely, as we are a public organization focused around infromation security.
+\textbf{Likelyhood}: We deem this to be fearly likely, as we are a public organisation focused around infromation security.
 
-\textbf{Verdict}: This is an issue we have to address. Because the only publicly reachable resource is our website, and since that website does not contain any of our client's confidential information, we could set in place a process to bring our website up on a public cloud provider. This is beyond the scope of this project, but worth mentioning. 
+\textbf{Verdict}: This is an issue we have to address. Because the only publicly reachable resource is our website, and since that website does not contain any of our clients confidential information, we could set in place a process to bring our website up on a public cloud provider. This is beyond the scope of this project, but worth mentioning. 
 
 
 \subsection{Failure due to natural disaster at the HQ}
 
 \textbf{Description}: A natural disaster could bring down our infrastructure.
 
-\textbf{Impact}: The HQ going down due to natural disaster would likely mean a halt in all activity at both HQ and all branch sites. In addition we could loose data due to physical destruction of resources.
+\textbf{Impact}: The HQ going down due to natural disaster would likely mean a halt in all activity at both HQ and all branch locations. In addition we could loose data due to physical destruction of resources.
 
 \textbf{Likelyhood}: Not very likely, as we will place the HQ in a safe location.
 
 \textbf{Verdict}: The impact would be so catastrophic that we have to address this despite the low likelyhood. Essential services and management systems will be placed in racks that can take a beating\cite{todo}, and we will implement backup routines to make sure physically loosing the resources at HQ does not mean loosing essential data.
 
-\subsection{Failure due to power outage at branch site}
+\subsection{Failure due to power outage at branch location}
 
-\textbf{Description}: A power outage at a branch site is a possbible event.
+\textbf{Description}: A power outage at a branch location is a possbible event.
 
 \textbf{Impact}: A power outage means all the networking equipment at the branch will go down. All activity at the branch will likely halt until the issue is fixed.
 
@@ -392,9 +417,9 @@ The organization uses a website separate to the public website to manage interna
 
 \subsection{Failure due to power outage at HQ}
 
-\textbf{Description}: A power outage at a branch site is a possbible event.
+\textbf{Description}: A power outage at a branch location is a possbible event.
 
-\textbf{Impact}: A power outage means that all networking equipment at the HQ would go down. This effectively means that all activity at the HQ would halt, and all activity involving internal resources would halt at branch sites. The impact would be huge.
+\textbf{Impact}: A power outage means that all networking equipment at the HQ would go down. This effectively means that all activity at the HQ would halt, and all activity involving internal resources would halt at branch locations. The impact would be huge.
 
 \textbf{Likelyhood}: Fearly likely
 
@@ -452,11 +477,11 @@ The following digrams shows a few different views of our network infrastructure.
 
 %Figure \ref{logicalview} shows a logical view of our network infrastructure. We will explain the choices we made in detail later in this report, but we feel we should make some points about the diagram itself. 
 
-The diagram in Figure \ref{logicalview} shows a view of our infrastructure. We've put the routers inside the distribution system to show that we have chosen a collapsed core solution. Note that the "distribution system" on the branch site really just consists of a single router and a few switches, but we felt the terminology still fit. The "services and management resources" area is placed above the distribution system to indicate that this is given it's own dedicated switches. The lab has it's own access layer area in the diagram to indicate that it will be given special treatment.
+The diagram in Figure \ref{logicalview} shows a view of our infrastructure. We've put the routers inside the distribution system to show that we have chosen a collapsed core solution. Note that the "distribution system" on the branch location really just consists of a single router and a few switches, but we felt the terminology still fit. The "services and management resources" area is placed above the distribution system to indicate that this is given its own dedicated switches. The lab has its own access layer area in the diagram to indicate that it will be given special treatment.
 
 \begin{figure}[H]
 \caption{Logical view of the network}
-\centering
+\centreing
 \includegraphics[width=\textwidth]{logicalview}
 \label{logicalview}
 \end{figure}
@@ -471,14 +496,14 @@ We've used screenshots of our Packet Tracer implementation to produce the diagra
 
 \begin{figure}[H]
 \caption{Physical view of HQ (TEMPORARY)}
-\centering
+\centreing
 \includegraphics[width=\textwidth]{physicalviewhq}
 \label{physicalviewhq}
 \end{figure}
 
 \begin{figure}[H]
 \caption{Physical view of Branch (TEMPORARY)}
-\centering
+\centreing
 \includegraphics[width=\textwidth]{physicalviewbranch}
 \label{physicalviewbranch}
 \end{figure}
@@ -490,14 +515,18 @@ For the site to site WAN between HQ and branches, we have implemented an IPsec t
 
 We also want to be able to VPN to HQ from an off-site location, so we could have a VPN server with a pool of temporary IP addresses for remote locations. This VPN would pass through an IPsec tunnel forwarded by the ISP, to an off-site client.
 
-\subsection{VLAN's and Subnets}
+We have simulated the internet as a router connected to the HQ and the branches. This router will not provide any connection other than function as a representative router for an internet connection. 
 
-The goal when designing our VLAN's and subnets was simplicity. We chose to subnet our private addresses from the 10.0.0.0/8 private address range, as it gave us plenty of space to the subnets up how we wanted.
-We dedicate the second octet to indicate what location the subnet belongs to, where the value 1 indicates the HQ, and a value above 1 indicates a branch site. For example: 10.1.x.x is a subnet the HQ, and 10.2.x.x is a subnet at the first learning centre and so on.
+The WAN conection is a series of serial cables from branhes and HQ to eachother, where there are own subnets between the edge routers. The IPsec encrytion is configured between the edge routers only, and serves as an end to end encryption, to avoid MIM attacks, snooping and revelation of sensitive information.
 
-This lets us create subnets that look very similar across locations, while letting a network engineer quickly see what location a particular IP address belongs to. We dedicate the third octet to indicate what VLAN the subnet belongs to, with the value of the octet being the same as the VLAN id. 10.1.10.x is a subnet for the management vlan of the HQ, and 10.10.60.x is a subnet for the printer VLAN of location nr 9. Combined with the fact that we reserve the first 10 hosts for static IP's in each subnet range, this leaves us with 244 available dynamic host addresses.
+\subsection{VLANs and Subnets}
 
-For the learning centres this is not a problem, as 244 guests are unlikely to be connected to the network at the same time. The HQ is more brittle, but we've condluded that 244 hosts should be enough there as well. Table \ref{vlansubnettable} shows our VLAN's with their corresponding subnets.
+The goal when designing our VLANs and subnets was simplicity. We chose to subnet our private addresses from the 10.0.0.0/8 private address range, as it gave us plenty of space to the subnets up how we wanted.
+We dedicate the second octet to indicate what location the subnet belongs to, where the value 1 indicates the HQ, and a value above 1 indicates a branch location. For example: 10.1.x.x is a subnet the HQ, and 10.2.x.x is a subnet at the first learning centre and so on.
+
+This lets us create subnets that look very similar across locations, while letting a network engineer quickly see what location a particular IP address belongs to. We dedicate the third octet to indicate what VLAN the subnet belongs to, with the value of the octet being the same as the VLAN id. 10.1.10.x is a subnet for the management vlan of the HQ, and 10.10.60.x is a subnet for the printer VLAN of location nr 9. Combined with the fact that we reserve the first 10 hosts for static IPs in each subnet range, this leaves us with 244 available dynamic host addresses.
+
+For the learning centres this is not a problem, as 244 guests are unlikely to be connected to the network at the same time. The HQ is more brittle, but we've condluded that 244 hosts should be enough there as well. Table \ref{vlansubnettable} shows our VLANs with their corresponding subnets.
 
 % TODO: 10.0.x.x = ipsec (subnet bruk mellom WAN linker)
 
@@ -525,16 +554,16 @@ Blackhole VLAN & 99      & N/A          & N/A                    & N/A \\ \hline
 
 % TODO: should use something other than PSK in the real setup?? google
 
-We've chosen to build our wireless solution with Wireless Access Controllers (WLC's) and Lightweight Access Points (LWAP'S). As we want as few resources as possible to be placed at the branch locations, the WLC's will be placed at the HQ. We will have redundancy in WLC by the use of the "High Availability" features that Cisco provides.
+We've chosen to build our wireless solution with Wireless Access Controllers (WLCs) and Lightweight Access Points (LWAPs). As we want as few resources as possible to be placed at the branch locations, the WLCs will be placed at the HQ. We will have redundancy in WLC by the use of the "High Availability" features that Cisco provides.
 \\
 \\
-This means that the LWAP's at the branches might encounter situations with no access to WLC's, but as this connection will benefit from the same redundancy as the one provided for services this will be relatively rare. We'd rather put resources into our one HQ than to spread resources around to each of the 18 branches.
+This means that the LWAPs at the branches might encounter situations with no access to WLCs, but as this connection will benefit from the same redundancy as the one provided for services this will be relatively rare. We'd rather put resources into our one HQ than to spread resources around to each of the 18 branches.
 \\
 \\
-The WLC's and LWAP's use CAPWAP to communicate, meaning all LWAP's are connected to access ports on the management VLAN. This unifies how we set up our AP's.
+The WLCs and LWAPs use CAPWAP to communicate, meaning all LWAPs are connected to access ports on the management VLAN. This unifies how we set up our APs.
 \\
 \\
-Our Wireless setup consists of two WLAN's, one for staff and one for guests. Both are configured with WPA2 level security. The staff WLAN is tagged to the staff VLAN, and the guest WLAN is mapped to the guest VLAN, this way staff and guest users connected over Wi-Fi will have the same rights as those connected physically.
+Our Wireless setup consists of two WLANs, one for staff and one for guests. Both are configured with WPA2 level security. The staff WLAN is tagged to the staff VLAN, and the guest WLAN is mapped to the guest VLAN, this way staff and guest users connected over Wi-Fi will have the same rights as those connected physically.
 
 \subsection{Lab}
 
@@ -554,29 +583,29 @@ Some networking equipment will be placed in the lab to be used for experimentati
 % TODO more sections?
 %\notetous{Discuss topics specific to the branch network setup}
 
-As seen in Figure \ref{physicalviewbranch}, the branch network is very simple. As all resources are located at the HQ, each branch only needs a router, a few switches and a few LWAP's to function. Each branch site will not have much traffic, so we can justify saving costs by placing the firewall, local DHCP server and the VPN termation at the router itself.
+As seen in Figure \ref{physicalviewbranch}, the branch network is very simple. As all resources are located at the HQ, each branch only needs a router, a few switches and a few LWAPs to function. Each branch location will not have much traffic, so we can justify saving costs by placing the firewall, local DHCP server and the VPN termation at the router itself.
 
-The LWAP's are configured through CAPWAP tunnels going to the WLC's at HQ. We could have set up redundant WLC functionality on each branch site, but decided against it because the cost of configuring this for each branch would be too high.
+The LWAPs are configured through CAPWAP tunnels going to the WLCs at HQ. We could have set up redundant WLC functionality on each branch location, but decided against it because the cost of configuring this for each branch would be too high.
 \\
 \\
-We don't consider the branch site as critical infrastructure. Rather than providing each branch site with redundancy, we place all resources at the HQ, and focus on providing redundancy there. This means that a branch might go down for a few days every once in a while. We consider this an accepted risk.
+We don't consider the branch location as critical infrastructure. Rather than providing each branch location with redundancy, we place all resources at the HQ, and focus on providing redundancy there. This means that a branch might go down for a few days every once in a while. We consider this an accepted risk.
 
-\subsection{Head Quarters network discussion}
+\subsection{HQ network discussion}
 
 \subsubsection{Layout}
 
 Initially we aimed for a three-tier architecture~\cite{todo}, but found out that we a collapsed-core architecture~\cite{todo} heavy enough. A collapsed-core architecture provides similar efficiency benefits as the three-tier architecture, but with a focus on saving costs.
 
-We have two routers and two switches set up to combine the core and distribution layer into a single layer. The services and management resources are given special treatment and placed in it's own segment of the network, while the rest of the network is set up to use access switches with connections to both distribution/core layer switches to provide redundancy.
+We have two routers and two switches set up to combine the core and distribution layer into a single layer. The services and management resources are given special treatment and placed in its own segment of the network, while the rest of the network is set up to use access switches with connections to both distribution/core layer switches to provide redundancy.
 \\
 \\
-Phyically each access layer switch is configured with access ports based on what users are found around the switch. Switches placed in the offices will have staff and management ports, while switches in lecture halls and such will have guest ports. The switches LWAP's are connected need to be management ports. 
+Phyically each access layer switch is configured with access ports based on what users are found around the switch. Switches placed in the offices will have staff and management ports, while switches in lecture halls and such will have guest ports. The switches LWAPs are connected need to be management ports. 
 
 % TODO: elaborate?
 
 \subsubsection{Redundancy}
 
-As all of the branch sites rely on the HQ to operate, redundancy was an important topic to address. What really needs redundancy are the services and management resources. The fact that the rest of the HQ gets some redundancy is really just a bonus.
+As all of the branch locations rely on the HQ to operate, redundancy was an important topic to address. What really needs redundancy are the services and management resources. The fact that the rest of the HQ gets some redundancy is really just a bonus.
 
 As shown in Figure~\ref{physicalviewhq}, the HQ has two links to the ISP through a duplicated setup of routers and switches. Important services and management resources are placed in the middle of the network, in between the two routers, as shown. They have dual ethernet connections, one going to each ISP link. This way, if any of the equipment forming one of the connections goes down, the services and management resources will still have internet connectivity.
 \\
@@ -593,17 +622,40 @@ As we have have two gateways we need to use a "First Hop Redundancy" protocol to
 
 \subsection{Methods for hardening}
 
-\subsubsection{Layer 2}
+\subsubsection{Physical security}
+
+\textbf{Device access}:
+
+\textbf{Premise access}:
+
+\subsubsection{Securing the LAN}
 As layer 2 can be the weakest link in our network infrastructure we will implement different methods to prevent or mitigate potential attacks:
 
-\textbf{CAM table attack}: To prevent flooding of a switch's CAM table all access ports have port-security implemented. This also prevents DHCP starvation.
+\textbf{Management and staff switch}: Whereas Lab have a separate switch, management and staff share the same switch. Staff and management computers are connected physically and for new users to connect an admin must configure a new access port. For additional security all access ports on this switch use PVLAN edge to make it more difficult for a man-in-the middle attack against management traffic.
+
+\textbf{STP manipulation attacks}: Our switches, especially in HQ, are set up for redundancy and use STP to prevent loops. All access port will have configured with PortFast and BPDU Guard to prevent an attacker becoming the root bridge.
+
+\textbf{CAM table attack}: To prevent flooding of a switchs CAM table all access ports have port-security implemented. This also helps mitigate a DHCP starvation attack.
 
 \textbf{VLAN hopping and double-tagging attack}: To prevent an attacker from spoofing a switch trunk all ports have disabled DTP(auto trunking). Ports available to users are explicitly assigned as access ports. To prevent a double-tagging attack trunks have a native BLACKHOLE VLAN. Ports which are not in use are disabled. They are also configured as access ports to the BLACKHOLE VLAN to force awareness of the configuration when turned back on.
 
-\textbf{Management traffic}: Whereas Lab have a separate switch, management and staff share the same switch. For additional security all access ports on this switch use PVLAN edge to make it difficult for a man-in-the middle attack against management traffic.
+\textbf{DHCP spoofing and DHCP starvation attacks}: To prevent rogue DHCP servers and further mitigate DHCP starvation we will use DHCP Snooping. It will be enabled for all user VLANs. While our upstream ports will be set to trusted, access port will have a limit to how many DHCP request it can send per second. However, we must take into account that it may take some time for the DHCP Snooping to finish the binding table. 
 
-\textbf{DHCP, ARP and IP spoofing attacks}: To prevent rogue DHCP servers and DHCP starvation we will use DHCP Snooping. While our upstream ports will be set to trusted, access port will have a limit to how many DHCP request it can send per second. However, it may take some time for the DHCP Snooping to finish the binding table. In interaction with DHCP Snooping we will use DAI (Dynamic ARP Inspection) to prevent ARP spoofing and poisoning. Then the switch relay only valid ARP replies. In addition we will implement IPSG (IP Source Guard) to prevent IP address spoofing.
+\textbf{ARP spoofing and ARP poisoning attacks}: In interaction with DHCP Snooping we will use DAI (Dynamic ARP Inspection) to prevent ARP spoofing and poisoning. Then the switch relays only valid ARP replies. Like DCHP snooping it will be enabled for user VLANs and trusted ports will be on the same upstream interfaces. 
 
+\textbf{IP and MAC spoofing attacks}: In addition we will implement IPSG (IP Source Guard) to prevent IP address and MAC address spoofing. It will be configured on untrusted access ports.
+
+\subsubsection{Securing network infrastructure}
+
+\textbf{Securing the router}: We use a defense-in-depth approach with a DMZ. Between our internal router an edge router we will have a firewall which will allow external networks to access our web server. On our edge router we will disable unnecessary services with the use of Ciscos auto secure function. All management access to router must be with the use of AAA and SSH. Remote access must have an established VPN connection beforehand.
+
+\textbf{Authentication Authorization and Accounting}: Users within our network will have role-based access to devices and actions. We will implement this with the use of a Tacacs+ server. The system admin of the site will also have a local-case user if connection to the server is lost.
+
+\textbf{ACLs}: In our infrastructure everyone should not be able to communicate with certain devices, or other users. The lab could be a potential security threat to the rest of our network. Therefore, we will implement ACLs that only allow the lab to only browse the internet, otherwise it should be a completely closed environment. Telnet will be explicitly disabled with the use of ACL. Only staff, services and management can communicate from branch to HQ and vice versa. Staff may only access the database to get documents required in their work.
+
+\subsubsection{Endpoint security}
+
+\textbf{Malware and virus prevention}: All endpoint devices must have software that prevents infection and spread of malware and viruses. 
 
 \subsection{Our demo Packet Tracer implementation}
 
@@ -617,7 +669,7 @@ As part of the project we implemented part of our infrastructure in Packet Trace
 
 \subsubsection{HQ demo configuration}
 
-Figure \ref{physicalviewhq} is taken from our PT implementation of the HQ. As you can see we have configured three access layer switches with a few machines attached to different access ports. The services and management resources area is set up with it's own dedicated switches connected to the "distribution system", which is really just two switches connected to two gateway routers. The left gateway router shows how defence-in-depth would be implemented, and also does our VPN connection to the branch site. The firewall is not plugged in, and the DMZ is not set up. In reality the firewall would be placed between the two routers, and traffic from the public web would be routed to a DMZ connected to the firewall, as illustrated by Figure \ref{logicalview}. The setup would be duplicated on the right gateway router.
+Figure \ref{physicalviewhq} is taken from our PT implementation of the HQ. As you can see we have configured three access layer switches with a few machines attached to different access ports. The services and management resources area is set up with its own dedicated switches connected to the "distribution system", which is really just two switches connected to two gateway routers. The left gateway router shows how defence-in-depth would be implemented, and also does our VPN connection to the branch location. The firewall is not plugged in, and the DMZ is not set up. In reality the firewall would be placed between the two routers, and traffic from the public web would be routed to a DMZ connected to the firewall, as illustrated by Figure \ref{logicalview}. The setup would be duplicated on the right gateway router.
 \\
 \\
 In reality we would like to use GLBP for "first hop redundancy" and load balancing, but we did not figure out a way to do this in Packet Tracer. For demonstration purposes we configured HSRP on the routers instead.
@@ -632,11 +684,11 @@ The WLC would in reality be coupled with at least one standby controller, but we
 \subsubsection{Branch demo configuration}
 
 As all the branches have similar configuration, we only implemented one in our demo. Figure \ref{physicalviewbranch} shows our implementation. % <- TODO: REWRITE
-The router is very similar to how it would be configured in reality, the only different being that a firewall has not been set up. The LWAP's connected to the main switch are intended to be placed around the building, and would get their configuration from the WLC at HQ.
+The router is very similar to how it would be configured in reality, the only different being that a firewall has not been set up. The LWAPs connected to the main switch are intended to be placed around the building, and would get their configuration from the WLC at HQ.
 
 \subsubsection{Wireless demo configuration} \label{demowireless}
 
-We had trouble with implementing WLC's and LWAP's properly in Packet Tracer, so we decided configure a physical WLC as a proof-of-concept of how the WLC at HQ in our demo would look like. The exported configuration is provided in appendix \ref{configwlc}. Two WLAN's Staff and Guest are set up with WPA2+PSK security. Note that the addresses used in the configuration file are wrong. All addresses starting with 192.168 should really start with 10.1. We configured it like this because we had trouble with the 10.0.0.0/8 range in the cisco lab.
+We had trouble with implementing WLCs and LWAPs properly in Packet Tracer, so we decided configure a physical WLC as a proof-of-concept of how the WLC at HQ in our demo would look like. The exported configuration is provided in appendix \ref{configwlc}. Two WLANs Staff and Guest are set up with WPA2+PSK security. Note that the addresses used in the configuration file are wrong. All addresses starting with 192.168 should really start with 10.1. We configured it like this because we had trouble with the 10.0.0.0/8 range in the cisco lab.
 
 \section{Conclusion}
 
