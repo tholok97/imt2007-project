@@ -1,4 +1,7 @@
 % TODO: 
+% * add prefix to \refs. "section \ref{..}" for example
+% * branch site / branch location <- make consistent
+% * make sure sections about HQ and branch appear in a consistent order :D *muh consistency*
 % * Fix HQ vs Head Quarters
 % * fix up ~ before \ref and \cite
 % * fix organisation/organization
@@ -519,8 +522,9 @@ Blackhole VLAN & 99      & N/A          & N/A                    & N/A \\ \hline
 
 % TODO: should use something other than PSK in the real setup?? google
 
-We've chosen to build our wireless solution with Wireless Access Controllers (WLC's) and Lightweight Access Points (LWAP'S). As we want as few resources as possible to be placed at the branch locations, the WLC's will be placed at the HQ.
-
+We've chosen to build our wireless solution with Wireless Access Controllers (WLC's) and Lightweight Access Points (LWAP'S). As we want as few resources as possible to be placed at the branch locations, the WLC's will be placed at the HQ. We will have redundancy in WLC by the use of the "High Availability" features that Cisco provides.
+\\
+\\
 This means that the LWAP's at the branches might encounter situations with no access to WLC's, but as this connection will benefit from the same redundancy as the one provided for services this will be relatively rare. We'd rather put resources into our one HQ than to spread resources around to each of the 18 branches.
 \\
 \\
@@ -598,9 +602,7 @@ As layer 2 can be the weakest link in our network infrastructure we will impleme
 \textbf{DHCP, ARP and IP spoofing attacks}: To prevent rogue DHCP servers and DHCP starvation we will use DHCP Snooping. While our upstream ports will be set to trusted, access port will have a limit to how many DHCP request it can send per second. However, it may take some time for the DHCP Snooping to finish the binding table. In interaction with DHCP Snooping we will use DAI (Dynamic ARP Inspection) to prevent ARP spoofing and poisoning. Then the switch relay only valid ARP replies. In addition we will implement IPSG (IP Source Guard) to prevent IP address spoofing.
 
 
-\subsection{Our proof-of-concept implementation}
-
-\notetous{Discuss our demo PT implementation, with a special note about what we did for wireless. refer to appendix.}
+\subsection{Our demo Packet Tracer implementation}
 
 % make sure to include that:
 % * HSRP instead of GLBP
@@ -608,7 +610,28 @@ As layer 2 can be the weakest link in our network infrastructure we will impleme
 % * list of what is implemented and what isn't?
 % * explain how we simplified WAN for the demo
 
-\subsubsection{The wireless demo configuration}
+As part of the project we implemented part of our infrastructure in Packet Tracer. The configuration can be found in appendix \ref{config}. This section will provide some discussion around the demo implementation.
+
+\subsubsection{HQ demo configuration}
+
+Figure \ref{physicalviewhq} is taken from our PT implementation of the HQ. As you can see we have configured three access layer switches with a few machines attached to different access ports. The services and management resources area is set up with it's own dedicated switches connected to the "distribution system", which is really just two switches connected to two gateway routers. The left gateway router shows how defence-in-depth would be implemented, and also does our VPN connection to the branch site. The firewall is not plugged in, and the DMZ is not set up. In reality the firewall would be placed between the two routers, and traffic from the public web would be routed to a DMZ connected to the firewall, as illustrated by Figure \ref{logicalview}. The setup would be duplicated on the right gateway router.
+\\
+\\
+In reality we would like to use GLBP for "first hop redundancy" and load balancing, but we did not figure out a way to do this in Packet Tracer. For demonstration purposes we configured HSRP on the routers instead.
+\\
+\\
+The WLC would in reality be coupled with at least one standby controller, but we've only included one for the demo. It is plugged in, but does nothing. See \ref{demowireless} for further discussion on this topic.
+
+% TODO: add lwaps to PT
+% TODO: add refs to appendix configs
+\notetous{Johannes could add notes about security measures that were implemented?}
+
+\subsubsection{Branch demo configuration}
+
+As all the branches have similar configuration, we only implemented one in our demo. Figure \ref{physicalviewbranch} shows our implementation. % <- TODO: REWRITE
+The router is very similar to how it would be configured in reality, the only different being that a firewall has not been set up. The LWAP's connected to the main switch are intended to be placed around the building, and would get their configuration from the WLC at HQ.
+
+\subsubsection{Wireless demo configuration} \label{demowireless}
 
 We had trouble with implementing WLC's and LWAP's properly in Packet Tracer, so we decided configure a physical WLC as a proof-of-concept of how the WLC at HQ in our demo would look like. The exported configuration is provided in appendix \ref{configwlc}. Two WLAN's Staff and Guest are set up with WPA2+PSK security. Note that the addresses used in the configuration file are wrong. All addresses starting with 192.168 should really start with 10.1. We configured it like this because we had trouble with the 10.0.0.0/8 range in the cisco lab.
 
