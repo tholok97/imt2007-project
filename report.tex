@@ -44,7 +44,7 @@
 \maketitle
 
 \begin{abstract}
-  SikreNorge is a non-profit charity organization with locations all over Norway. In this report we will discuss how we would implement a network infrastructure for the organization.
+SikreNorge is a non-profit charity organization with locations all over Norway. In this report we will discuss how we would implement a network infrastructure for the organization.
 \end{abstract}
 
 \thispagestyle{empty}
@@ -68,6 +68,7 @@ The organization is reliant on local expertise in each county in the form of vol
 \\
 \\
 Financially SikreNorge relies on donations, government subsidies, and income from their web-shop. Businesses who donate are encouraged to publicise their contribution to show that they support the organization's mission. This way both the contributing businesses and SikreNorge get good PR. Government subsidies are given with the intention and expectation that the organization will use these means to support local public and private institutions with information security tasks.
+
 \subsection{Locations}
 
 SikreNorge will establish learning centers in each of Norway's 19 counties. The headquarter lies in Oslo.
@@ -454,7 +455,7 @@ The following digrams shows a few different views of our network infrastructure.
 The diagram in Figure \ref{logicalview} shows a view of our infrastructure. We've put the routers inside the distribution system to show that we have chosen a collapsed core solution. Note that the "distribution system" on the branch site really just consists of a single router and a few switches, but we felt the terminology still fit. The "services and management resources" area is placed above the distribution system to indicate that this is given it's own dedicated switches. The lab has it's own access layer area in the diagram to indicate that it will be given special treatment.
 
 \begin{figure}[H]
-\caption{Logical view of the network (TEMPORARY}
+\caption{Logical view of the network}
 \centering
 \includegraphics[width=\textwidth]{logicalview}
 \label{logicalview}
@@ -465,6 +466,8 @@ The diagram in Figure \ref{logicalview} shows a view of our infrastructure. We'v
 We've used screenshots of our Packet Tracer implementation to produce the diagrams seen in Figure \ref{physicalviewhq} and \ref{physicalviewbranch}.
 
 \notetous{More info around diagrams? idk if there is more to say}
+
+% TODO: update the physical diagrams
 
 \begin{figure}[H]
 \caption{Physical view of HQ (TEMPORARY)}
