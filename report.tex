@@ -1,5 +1,19 @@
+% TODO THOMAS:
+% * ACL (inkl. lab)
+% * Physical hardening
+% * config as appendix
+% * delete risk about natural disaster at branch
+% * flavortext about ict section
+% * update diagram section
+% * skim through WAN section
+% * Generally add stuff about Firewall
+% * note about how we did VPN in packet tracer
+
+
 % TODO: 
-% * note in WAN section about our demo should be moved to the demo section
+% * ACLs
+% * consistent periods in security policy (and everwhere else for that matter)
+% * note in WAN section about our demo should be moved to the demo section HVA MENER DU!
 % * add prefix to \refs. "section \ref{..}" for example
 % * make sure sections about HQ and branch appear in a consistent order :D *muh consistency*
 % * fix up ~ before \ref and \cite
@@ -201,7 +215,7 @@ The organisation uses a website separate to the public website to manage interna
   \end{enumerate}
   \item Fair and responsible use
   \begin{enumerate}
-    \item As a precaution, emails are to be treated critically.
+    \item As a precaution, emails are to be treated critically. \label{emailfair}
     \begin{enumerate}
       \item Hyperlinks must not be clicked, instead copied and pasted into the search bar.
       \item Images not to be loaded before sender is verified.
@@ -249,9 +263,9 @@ The organisation uses a website separate to the public website to manage interna
         \item Use email.
     \end{enumerate}
   \end{enumerate}
-  \item Criminal use
+  \item Criminal use % TODO: write about this
   \item Offensive or harassing materials
-  \item Copyrighted, licensed, or other intellectual property
+  \item Copyrighted, licensed, or other intellectual property % TODO: write. (no hardcopies, etc.)
 \end{enumerate}
 
 \subsection{Systems management}
@@ -285,7 +299,7 @@ The organisation uses a website separate to the public website to manage interna
   \begin{enumerate}
     \item Each branch must have its own firewall mechanism to filter unwanted traffic.
     \item organization computers and smart-phones with internet connection must have anti-virus.
-    \item Email etiquette, see "Fair and responsible use (a)".
+    \item Email etiquette, see "Fair and responsible use \ref{emailfair}".
   \end{enumerate}
   \item Physical security
   \begin{enumerate}
@@ -311,7 +325,7 @@ The organisation uses a website separate to the public website to manage interna
   \end{enumerate}
     \item Penalties for violations
   \begin{enumerate}
-    \item Minor violations can result in revoked clearance or access.
+    \item Minor violations can result in revoked clearance and/or access.
     \item Serious violations:
     \begin{enumerate}
       \item Subject to dismissal.
@@ -350,7 +364,7 @@ The organisation uses a website separate to the public website to manage interna
 
 \textbf{Impact}: Our organisation rely on our reputation. Therefore, the impact of losing confidential information is critical and in a worst case scenario put us out of business.
 
-\textbf{Likelyhood}: As this information is one of our most important assets, it is a target for people with mischievous intent. Therefore, the likelyhood of someone trying to gain access and control over this information is great.
+\textbf{Likelihood}: As this information is one of our most important assets, it is a target for people with mischievous intent. Therefore, the likelihood of someone trying to gain access and control over this information is great.
 
 \textbf{Verdict}: Access to confidential data must be authorized, authenticated and logged. It must be stored encrypted on a safe server. In processing it must also be encrypted and never be transferred over unsecured links in plaintext. For telecommuters it is required to have an established VPN tunnel on secure equipment only intended for work.
 
@@ -369,7 +383,7 @@ The organisation uses a website separate to the public website to manage interna
 
 \textbf{Impact}: Staff would loose access to all internal services, and networking equipment would loose access to management resources at the HQ. Staff and guests would still be able to browse the internet like normal.
 
-\textbf{Likelyhood}: We have redundant connections at the HQ, but each branch only has a single gateway router. This router is bound to fail every once in a while, and the connection will break with it. The connection could break the HQ end as well, and this a much more serious problem, but this should be very unlikely compared with the connection breaking at the branch end.
+\textbf{Likelihood}: We have redundant connections at the HQ, but each branch only has a single gateway router. This router is bound to fail every once in a while, and the connection will break with it. The connection could break the HQ end as well, and this a much more serious problem, but this should be very unlikely compared with the connection breaking at the branch end.
 
 \textbf{Verdict}: This is an accepted risk. To solve this we would have to implement redundancy at each of our 18 branch locations, which would be costly. The problem is addressed at the HQ however, as this is the main reason we have redundant gateways set up there.
 
@@ -380,7 +394,7 @@ The organisation uses a website separate to the public website to manage interna
 
 \textbf{Impact}: We handle confidential data about our clients, so a leak would be catastrophic.
 
-\textbf{Likelyhood}: All employees are screened before they get access to the organisations resources. In addition, employes are on a need-to-know basis, so they only have access to resources related to projects they are involved in. This decreases the likelyhood somewhat, but as explained in the verdict we feel this problem should be addressed at a higher level.
+\textbf{Likelihood}: All employees are screened before they get access to the organisations resources. In addition, employees are on a need-to-know basis, so they only have access to resources related to projects they are involved in. This decreases the likelihood somewhat, but as explained in the verdict we feel this problem should be addressed at a higher level.
 
 \textbf{Verdict}: Network security measures like AAA and logging are in place to support mitigating the issue, but measures at higher levels than that defined by this report are needed, so we judge it to be outside our scope to address this fully.
 
@@ -390,7 +404,7 @@ The organisation uses a website separate to the public website to manage interna
 
 \textbf{Impact}: A DDoS would be targeted at our public website. This website going down means potential loss of incoming through donations and purchases in the webshop, but we deem this not to be a huge issue because we are a non-profit organisation, and wouldn't miss out on much due to a little downtime. The DDoS would put a strain on our gateway networking equipment, however, meaning internal services would be impacted.
 
-\textbf{Likelyhood}: We deem this to be fearly likely, as we are a public organisation focused around infromation security.
+\textbf{Likelihood}: We deem this to be fairly likely, as we are a public organisation focused around information security.
 
 \textbf{Verdict}: This is an issue we have to address. Because the only publicly reachable resource is our website, and since that website does not contain any of our clients confidential information, we could set in place a process to bring our website up on a public cloud provider. This is beyond the scope of this project, but worth mentioning. 
 
@@ -401,27 +415,27 @@ The organisation uses a website separate to the public website to manage interna
 
 \textbf{Impact}: The HQ going down due to natural disaster would likely mean a halt in all activity at both HQ and all branch locations. In addition we could loose data due to physical destruction of resources.
 
-\textbf{Likelyhood}: Not very likely, as we will place the HQ in a safe location.
+\textbf{Likelihood}: Not very likely, as we will place the HQ in a safe location.
 
-\textbf{Verdict}: The impact would be so catastrophic that we have to address this despite the low likelyhood. Essential services and management systems will be placed in racks that can take a beating\cite{todo}, and we will implement backup routines to make sure physically loosing the resources at HQ does not mean loosing essential data.
+\textbf{Verdict}: The impact would be so catastrophic that we have to address this despite the low likelihood. Essential services and management systems will be placed in racks that can take a beating\cite{todo}, and we will implement backup routines to make sure physically loosing the resources at HQ does not mean loosing essential data.
 
 \subsection{Failure due to power outage at branch location}
 
-\textbf{Description}: A power outage at a branch location is a possbible event.
+\textbf{Description}: A power outage at a branch location is a possible event.
 
 \textbf{Impact}: A power outage means all the networking equipment at the branch will go down. All activity at the branch will likely halt until the issue is fixed.
 
-\textbf{Likelyhood}: Fearly likely.
+\textbf{Likelihood}: Fairly likely.
 
-\textbf{Verdict}: We could have set up UPS batteries to mitiage the issue, but as everything important is stored at HQ we decide to save costs by not doing this. A UPS system would also only provide us with a little bit of time before we would run out of power anyways, so the branch would go down either way.
+\textbf{Verdict}: We could have set up UPS batteries to mitigate the issue, but as everything important is stored at HQ we decide to save costs by not doing this. A UPS system would also only provide us with a little bit of time before we would run out of power anyways, so the branch would go down either way.
 
 \subsection{Failure due to power outage at HQ}
 
-\textbf{Description}: A power outage at a branch location is a possbible event.
+\textbf{Description}: A power outage at a branch location is a possible event.
 
 \textbf{Impact}: A power outage means that all networking equipment at the HQ would go down. This effectively means that all activity at the HQ would halt, and all activity involving internal resources would halt at branch locations. The impact would be huge.
 
-\textbf{Likelyhood}: Fearly likely
+\textbf{Likelihood}: Fairly likely
 
 \textbf{Verdict}: We mitigate this by installing UPS batteries for the services and essential networking equipment. This way services could shut down safely in the event of a power outage, or even operate as normal through a short amount of time.
 
@@ -469,9 +483,9 @@ The organisation uses a website separate to the public website to manage interna
 
 \subsection{Layout and Diagrams}
 
-\notetous{Show logical and phyical views, and provide some discussion around them. The diagrams included are only temporary, proper ones will be added later.}
+\notetous{Show logical and physical views, and provide some discussion around them. The diagrams included are only temporary, proper ones will be added later.}
 
-The following digrams shows a few different views of our network infrastructure. Short explanations of the diagrams are included.
+The following diagrams shows a few different views of our network infrastructure. Short explanations of the diagrams are included.
 
 \subsubsection{Logical view}
 
@@ -511,22 +525,22 @@ We've used screenshots of our Packet Tracer implementation to produce the diagra
 
 \subsection{WAN}
 
-For the site to site WAN between HQ and branches, we have implemented an IPsec tunnel that traverses the internet, in order to connect branches and HQ without having to pay for a leased line, which is too expensive for us and therfore the reason to NOT use PPP or PPPoE, that cannot be transmitted over the internet as they are L2 protocols. IPsec on the other hand is a L3 protocol and therefore can be transmitted over the internet, which is a very affordable medium, also safe with IPsec encryption and we also don't really need the bandwidth of a leased line.
+For the site to site WAN between HQ and branches, we have implemented an IPsec tunnel that traverses the internet, in order to connect branches and HQ without having to pay for a leased line, which is too expensive for us and therefore the reason to NOT use PPP or PPPoE, that cannot be transmitted over the internet as they are L2 protocols. IPsec on the other hand is a L3 protocol and therefore can be transmitted over the internet, which is a very affordable medium, also safe with IPsec encryption and we also don't really need the bandwidth of a leased line.
 
 We also want to be able to VPN to HQ from an off-site location, so we could have a VPN server with a pool of temporary IP addresses for remote locations. This VPN would pass through an IPsec tunnel forwarded by the ISP, to an off-site client.
 
 We have simulated the internet as a router connected to the HQ and the branches. This router will not provide any connection other than function as a representative router for an internet connection. 
 
-The WAN conection is a series of serial cables from branhes and HQ to eachother, where there are own subnets between the edge routers. The IPsec encrytion is configured between the edge routers only, and serves as an end to end encryption, to avoid MIM attacks, snooping and revelation of sensitive information.
+The WAN connection is a series of serial cables from branches and HQ to each other, where there are own subnets between the edge routers. The IPsec encrytion is configured between the edge routers only, and serves as an end to end encryption, to avoid MIM attacks, snooping and revelation of sensitive information.
 
 \subsection{VLANs and Subnets}
 
 The goal when designing our VLANs and subnets was simplicity. We chose to subnet our private addresses from the 10.0.0.0/8 private address range, as it gave us plenty of space to the subnets up how we wanted.
 We dedicate the second octet to indicate what location the subnet belongs to, where the value 1 indicates the HQ, and a value above 1 indicates a branch location. For example: 10.1.x.x is a subnet the HQ, and 10.2.x.x is a subnet at the first learning centre and so on.
 
-This lets us create subnets that look very similar across locations, while letting a network engineer quickly see what location a particular IP address belongs to. We dedicate the third octet to indicate what VLAN the subnet belongs to, with the value of the octet being the same as the VLAN id. 10.1.10.x is a subnet for the management vlan of the HQ, and 10.10.60.x is a subnet for the printer VLAN of location nr 9. Combined with the fact that we reserve the first 10 hosts for static IPs in each subnet range, this leaves us with 244 available dynamic host addresses.
+This lets us create subnets that look very similar across locations, while letting a network engineer quickly see what location a particular IP address belongs to. We dedicate the third octet to indicate what VLAN the subnet belongs to, with the value of the octet being the same as the VLAN id. 10.1.10.x is a subnet for the management VLAN of the HQ, and 10.10.60.x is a subnet for the printer VLAN of location nr 9. Combined with the fact that we reserve the first 10 hosts for static IPs in each subnet range, this leaves us with 244 available dynamic host addresses.
 
-For the learning centres this is not a problem, as 244 guests are unlikely to be connected to the network at the same time. The HQ is more brittle, but we've condluded that 244 hosts should be enough there as well. Table \ref{vlansubnettable} shows our VLANs with their corresponding subnets.
+For the learning centres this is not a problem, as 244 guests are unlikely to be connected to the network at the same time. The HQ is more brittle, but we've concluded that 244 hosts should be enough there as well. Table \ref{VLANsubnettable} shows our VLANs with their corresponding subnets.
 
 % TODO: 10.0.x.x = ipsec (subnet bruk mellom WAN linker)
 
@@ -534,7 +548,7 @@ For the learning centres this is not a problem, as 244 guests are unlikely to be
 % Forces table to show up under text
 \begin{table}[H]
 \caption{Table of VLANs with corresponding subnets}
-\label{vlansubnettable}
+\label{VLANsubnettable}
 \begin{tabular}{|l|l|l|l|l|}
 \hline
 \textbf{VLAN Name} & \textbf{VLAN ID} & \textbf{Subnet} & \textbf{Excluded addresses} & \textbf{Available addresses} \\ \hline
@@ -569,7 +583,7 @@ Our Wireless setup consists of two WLANs, one for staff and one for guests. Both
 
 %\notetous{Discuss how we implemented the lab environment}
 
-The purpose of the labs was to provide an environmet where visitors could experiment freely with information security concepts. This means that it is a security risk by design, so we have to be careful how we implement it. The labs will have their own physical switch, and the kinds of traffic that may pass through will be heavily restricted. Only browsing is allowed, so we allow outgoing connections on port 80 and 443 (WHAT ELSE THOUGH? KEMMERICH SAID THIS WASN'T ENOUGH). 
+The purpose of the labs was to provide an environment where visitors could experiment freely with information security concepts. This means that it is a security risk by design, so we have to be careful how we implement it. The labs will have their own physical switch, and the kinds of traffic that may pass through will be heavily restricted. Only browsing is allowed, so we allow outgoing connections on port 80 and 443 (WHAT ELSE THOUGH? KEMMERICH SAID THIS WASN'T ENOUGH). 
 \\
 \\
 Some networking equipment will be placed in the lab to be used for experimentation, but we don't consider this a part of our network infrastructure.
@@ -583,7 +597,7 @@ Some networking equipment will be placed in the lab to be used for experimentati
 % TODO more sections?
 %\notetous{Discuss topics specific to the branch network setup}
 
-As seen in Figure \ref{physicalviewbranch}, the branch network is very simple. As all resources are located at the HQ, each branch only needs a router, a few switches and a few LWAPs to function. Each branch location will not have much traffic, so we can justify saving costs by placing the firewall, local DHCP server and the VPN termation at the router itself.
+As seen in Figure \ref{physicalviewbranch}, the branch network is very simple. As all resources are located at the HQ, each branch only needs a router, a few switches and a few LWAPs to function. Each branch location will not have much traffic, so we can justify saving costs by placing the firewall, local DHCP server and the VPN termination at the router itself.
 
 The LWAPs are configured through CAPWAP tunnels going to the WLCs at HQ. We could have set up redundant WLC functionality on each branch location, but decided against it because the cost of configuring this for each branch would be too high.
 \\
@@ -599,7 +613,7 @@ Initially we aimed for a three-tier architecture~\cite{todo}, but found out that
 We have two routers and two switches set up to combine the core and distribution layer into a single layer. The services and management resources are given special treatment and placed in its own segment of the network, while the rest of the network is set up to use access switches with connections to both distribution/core layer switches to provide redundancy.
 \\
 \\
-Phyically each access layer switch is configured with access ports based on what users are found around the switch. Switches placed in the offices will have staff and management ports, while switches in lecture halls and such will have guest ports. The switches LWAPs are connected need to be management ports. 
+Physically each access layer switch is configured with access ports based on what users are found around the switch. Switches placed in the offices will have staff and management ports, while switches in lecture halls and such will have guest ports. The switches LWAPs are connected need to be management ports. 
 
 % TODO: elaborate?
 
@@ -624,6 +638,12 @@ As we have have two gateways we need to use a "First Hop Redundancy" protocol to
 
 \subsubsection{Physical security}
 
+\notetous{Thomas skriver denne}
+
+% TODO 
+% * staff kommer seg ikke inn i management. 
+% * gjester er fysisk separaert fra staff. management kommer seg inn i management.
+
 \textbf{Device access}:
 
 \textbf{Premise access}:
@@ -635,9 +655,9 @@ As layer 2 can be the weakest link in our network infrastructure we will impleme
 
 \textbf{STP manipulation attacks}: Our switches, especially in HQ, are set up for redundancy and use STP to prevent loops. All access port will have configured with PortFast and BPDU Guard to prevent an attacker becoming the root bridge.
 
-\textbf{CAM table attack}: To prevent flooding of a switchs CAM table all access ports have port-security implemented. This also helps mitigate a DHCP starvation attack.
+\textbf{CAM table attack}: To prevent flooding of a switch's CAM table all access ports have port-security implemented. This also helps mitigate a DHCP starvation attack.
 
-\textbf{VLAN hopping and double-tagging attack}: To prevent an attacker from spoofing a switch trunk all ports have disabled DTP(auto trunking). Ports available to users are explicitly assigned as access ports. To prevent a double-tagging attack trunks have a native BLACKHOLE VLAN. Ports which are not in use are disabled. They are also configured as access ports to the BLACKHOLE VLAN to force awareness of the configuration when turned back on.
+\textbf{VLAN hopping and double-tagging attack}: To prevent an attacker from spoofing a switch trunk all ports have disabled DTP(auto trunking). Ports available to users are explicitly assigned as access ports. To prevent a double-tagging attack trunks have a native Blackhole VLAN. Ports which are not in use are disabled. They are also configured as access ports to the Blackhole VLAN to force awareness of the configuration when turned back on.
 
 \textbf{DHCP spoofing and DHCP starvation attacks}: To prevent rogue DHCP servers and further mitigate DHCP starvation we will use DHCP Snooping. It will be enabled for all user VLANs. While our upstream ports will be set to trusted, access port will have a limit to how many DHCP request it can send per second. However, we must take into account that it may take some time for the DHCP Snooping to finish the binding table. 
 
@@ -647,15 +667,42 @@ As layer 2 can be the weakest link in our network infrastructure we will impleme
 
 \subsubsection{Securing network infrastructure}
 
-\textbf{Securing the router}: We use a defense-in-depth approach with a DMZ. Between our internal router an edge router we will have a firewall which will allow external networks to access our web server. On our edge router we will disable unnecessary services with the use of Ciscos auto secure function. All management access to router must be with the use of AAA and SSH. Remote access must have an established VPN connection beforehand.
+\textbf{Securing the router}: We use a defense-in-depth approach with a DMZ. Between our internal router an edge router we will have a firewall which will allow external networks to access our web server. On our edge router we will disable unnecessary services with the use of Ciscos auto secure function. All management access to router must be with the use of AAA and SSH if not connected to the console port. Remote access must have an established VPN connection beforehand.
 
-\textbf{Authentication Authorization and Accounting}: Users within our network will have role-based access to devices and actions. We will implement this with the use of a Tacacs+ server. The system admin of the site will also have a local-case user if connection to the server is lost.
+\textbf{Authentication Authorization and Accounting}: Users within our network will have role-based access. We will implement this with the use of a TACACS+ server. The system admin of the site will also have a local user if connection to the server is lost. For every user in staff and management we will implement port based authentication (802.1x). This is to ensure that every action and access can be properly authorized as well as logged. The logging will be handled by a server and devices must share a NTP server for accuracy of events logged.
 
 \textbf{ACLs}: In our infrastructure everyone should not be able to communicate with certain devices, or other users. The lab could be a potential security threat to the rest of our network. Therefore, we will implement ACLs that only allow the lab to only browse the internet, otherwise it should be a completely closed environment. Telnet will be explicitly disabled with the use of ACL. Only staff, services and management can communicate from branch to HQ and vice versa. Staff may only access the database to get documents required in their work.
 
 \subsubsection{Endpoint security}
 
-\textbf{Malware and virus prevention}: All endpoint devices must have software that prevents infection and spread of malware and viruses. 
+\\
+\\
+\\
+All endpoint devices must have software that prevents infection and spread of malware. This being due to the especially vulnerable nature of endpoints because of their interactions with a user.
+
+Traditionally this is done firstly by installing some kind of antimalware software, in order to detect and mitigate malware threats. We could also provide the endpoint host with a host based IPS, to monitor and report on their system.
+In accordance with this we can also install a host-based firewall to add to the security threats posed by incoming traffic, that may buypass the security measures of the network.
+
+However, we did not decide to do this, as it simply is an outdated way of doing things on the scale we need it. Instead we opted for a more modern approach for endpoint security; by using:
+Anti Malware Protection(AMP),
+Email Security Appliances(ESA),
+Web Security Appliances(WSA) 
+and Network Admission Control(NAC).
+\\The combination of these different technologies and protocols gives us a good protection suite for the endpoint users and our whole network.
+
+These technologies provide us with everything we need to efficiently secure the endpoints. Firstly AMP gives us an endpoint malware protection, secondly, ESA provides us with email spam filtering even before the emails reach the endpoint.
+\\ WSA allows us to filter and blacklist websites that are malicious and or reputably unsafe. Last but not least we have NAC which permits only authorised and policy-compliant systems to connect to the network.
+
+On the endpoint host we should use some form of data encryption in case of loss or theft. Data encryption is built into OS X systems, in contrast to many other OSes where you need to manually install a data encryption tool, this is a good reason to employ it as a company standard.
+
+Now, we have all the tools we need to:
+\begin{enumerate}
+    \item Discover, enforce and protect before an event.
+    \item Detect, block and defend during an event.
+    \item Scope, contain and remediate after an event.
+\end{enumerate}
+
+
 
 \subsection{Our demo Packet Tracer implementation}
 
