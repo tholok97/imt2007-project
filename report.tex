@@ -149,7 +149,7 @@ The organisation uses a website separate to the public website to manage interna
 \subsection{Statement of policy}
 
 \begin{enumerate}
-  \item Scope and applicability
+  \item Scope and applicability:
   \begin{enumerate}
     \item Our organization
       \begin{enumerate}
@@ -176,7 +176,7 @@ The organisation uses a website separate to the public website to manage interna
   \end{enumerate}
   \item Chief Technology Officer (CTO)
    \begin{enumerate}
-      \item Responsible for technology infrastructure
+      \item Responsible for technology infrastructure:
       \begin{enumerate}
         \item Identify and evaluate new technology.
         \item Maintaining and improving existing systems.
@@ -185,7 +185,7 @@ The organisation uses a website separate to the public website to manage interna
   \end{enumerate}
   \item Chief Information Officer (CIO)
    \begin{enumerate}
-      \item Responsible for IT and computer systems.
+      \item Responsible for IT and computer systems:
       \begin{enumerate}
           \item Responsible for our web server.
       \end{enumerate}
@@ -193,7 +193,7 @@ The organisation uses a website separate to the public website to manage interna
   \end{enumerate}
   \item Chief Security Officer (CSO)
    \begin{enumerate}
-      \item Responsible for the organizations security strategy and programs as well as safeguarding our intellectual property.
+      \item Responsible for the organizations security strategy and programs as well as safeguarding our intellectual property:
       \begin{enumerate}
           \item Responsible for our personnel's security awareness and delegate counseling of clients regarding awareness.
       \end{enumerate}
@@ -238,7 +238,7 @@ The organisation uses a website separate to the public website to manage interna
   \end{enumerate}
   \item Fair and responsible use
   \begin{enumerate}
-    \item As a precaution, emails are to be treated critically. \label{emailfair}
+    \item As a precaution, emails are to be treated critically: \label{emailfair}
     \begin{enumerate}
       \item Hyperlinks must not be clicked, instead copied and pasted into the search bar.
       \item Images not to be loaded before sender is verified.
@@ -246,7 +246,7 @@ The organisation uses a website separate to the public website to manage interna
       \item Attachments not to be downloaded or viewed unless verified sender.
       \item The email server must have DMARC, SPF and DKIM.
     \end{enumerate}
-    \item Passwords should have a certain standard. %TODO: follow NIST suggestion of using long phrases instead?
+    \item Passwords should have a certain standard: %TODO: follow NIST suggestion of using long phrases instead?
     \begin{enumerate}
       \item Least 10 characters.
       \item Non dictionary words or other easily identifiable words.
@@ -256,7 +256,7 @@ The organisation uses a website separate to the public website to manage interna
     \end{enumerate}
     \item VPN required off-site.
   \end{enumerate}
-  \item Protection of privacy
+  \item Protection of privacy:
   \begin{enumerate}
     \item Must adhere to GDPR regulations.
     \item Must also comply with regulations from Datatilsynet.
@@ -272,7 +272,7 @@ The organisation uses a website separate to the public website to manage interna
     \item No personal equipment in restricted areas.
     \item USB devices must only be issued by the organization and only these can be used on organization equipment.
     \item Vital organizational equipment should not be brought off-site.
-    \item Restricted equipment must not be used for not-intended purposes.
+    \item Restricted equipment must not be used for not-intended purposes:
     \begin{enumerate}
       \item Web surfing.
       \item email.
@@ -280,15 +280,16 @@ The organisation uses a website separate to the public website to manage interna
       \item Hosting (Unless intended).
       \item Packet sniffing (Wireshark, unless intended).
     \end{enumerate}
-    \item Users with high level of access must not use their accounts to perform non-vital and possibly compromising tasks.
+    \item Users with high level of access must not use their accounts to perform non-vital and possibly compromising tasks:
     \begin{enumerate}
         \item Web surfing.
         \item Use email.
     \end{enumerate}
   \end{enumerate}
-  \item Criminal use % TODO: write about this
-  \item Offensive or harassing materials
-  \item Copyrighted, licensed, or other intellectual property % TODO: write. (no hardcopies, etc.)
+  \item Copyrighted, licensed, or other intellectual property \begin{enumerate}
+        \item Hard-copies must be shredded after they are no longer needed. 
+        \item Photos of confidential material are not allowed.
+    \end{enumerate}
 \end{enumerate}
 
 \subsection{Systems management}
@@ -312,7 +313,7 @@ The organisation uses a website separate to the public website to manage interna
   \begin{enumerate}
     \item Use of internet logged.
     \item Organizational equipment inventory checked regularly.
-    \item Restricted area entry logged.
+    \item Restricted area entry logged:
     \begin{enumerate}
       \item Physical - ID card entry log.
       \item Digital - Credentials log.
@@ -326,7 +327,7 @@ The organisation uses a website separate to the public website to manage interna
   \end{enumerate}
   \item Physical security
   \begin{enumerate}
-    \item Limited access to restricted areas.
+    \item Limited access to restricted areas:
     \begin{enumerate}
       \item Must use ID-card to enter: Server rooms and Offices for high clearance individuals.
     \end{enumerate}
@@ -341,12 +342,12 @@ The organisation uses a website separate to the public website to manage interna
 \subsection{Violation of policy}
 
 \begin{enumerate}
-  \item Procedures for reporting violations
+  \item Procedures for reporting violations:
   \begin{enumerate}
     \item As a security pushing organization, reporting violations of our policy is encouraged.
     \item To ensure this practice the report can be submitted anonymously.
   \end{enumerate}
-    \item Penalties for violations
+    \item Penalties for violations:
   \begin{enumerate}
     \item Minor violations can result in revoked clearance and/or access.
     \item Serious violations:
@@ -369,7 +370,7 @@ The organisation uses a website separate to the public website to manage interna
 \subsection{Limitations of liability}
 
 \begin{enumerate}
-  \item Statements of liability
+  \item Statements of liability:
   \begin{enumerate}
     \item This organization is not liable if an employee does not comply with our policy.
     \begin{enumerate}
@@ -689,17 +690,15 @@ As layer 2 can be the weakest link in our network infrastructure we will impleme
 
 \subsubsection{Securing network infrastructure}
 
-\textbf{Securing the router}: We use a defense-in-depth approach with a DMZ. Between our internal router and edge router we will have a firewall which will allow external networks to access our web server. On our edge router we will disable unnecessary services with the use of Cisco's auto secure function~\cite{autosecure}. All management access to router must be with the use of AAA and SSH if not connected to the console port. Remote access must have an established VPN connection beforehand.
+\textbf{Securing the router}: We use a defense-in-depth approach with a DMZ. Between our internal router and edge router we will have a firewall which will allow external networks to access our web server. On our edge router we will disable unnecessary services with the use of Cisco's auto secure function~\cite{autosecure}. This will also configure enable passwords and telnet vty input, which will be reconfigured. All management access to router must be with the use of AAA and SSH if not connected to the console port. Remote access must have an established VPN connection beforehand.
 
 \textbf{Firewalls}: The firewall is the networks first line of defence, and it it vitally important that we have a good firewall implementation. We will use next-gen firewalls~\cite{nextgenfirewall} in order to supply ourselves with both packet filtering and session analysis. With this we will always have a current threat picture due to the rapidly updating threat database of the firewall provider.
 
-We have decided on firewalls from branch to HQ (Defence in Depth), and from the internet to endpoints on our network. This is to avoid split tunneling concerns. These concerns being that the users internet connection, if not filtered, may compromise the entire network; especially if the endpoint is a manager, as managers have clearance. We don't want to give a potential attacker this kind of access.
-
-Our ACLs only allow staff-to-services and management-to-management traffic from branch to HQ.
+In branch the firewall mechanism is on the router as we can not justify a dedicated firewall, reasoned by the small size of a branch network. However, in HQ we will have a dedicated firewall where it is implemented through a defence in depth structure. We route all traffic from the internet through the firewall mechanisms. This is to avoid split tunneling concerns. These concerns being that the users internet connection, if not filtered, may compromise the entire network; especially if the endpoint is a manager, as managers have clearance. We don't want to give a potential attacker this kind of access.
 
 \textbf{Authentication Authorization and Accounting}: Users within our network will have role-based access. We will implement this with the use of a TACACS+ server. The system admin of the site will also have a local user if connection to the server is lost. For every user in staff and management we will implement port based authentication (802.1x). This is to ensure that every action and access can be properly authorized as well as logged. The logging will be handled by a server and devices must share a NTP server for accuracy of events logged.
 
-\textbf{ACLs}: In our infrastructure everyone should not be able to communicate with certain devices, or other users. The lab could be a potential security threat to the rest of our network. Therefore, we will implement ACLs that only allow the lab to only browse the internet, otherwise it should be a completely closed environment. Telnet will be explicitly disabled with the use of ACL. Only staff, services and management can communicate from branch to HQ and vice versa. Staff may only access the database to get documents required in their work.
+\textbf{ACLs}: In our infrastructure everyone should not be able to communicate with certain devices, or other users. The lab could be a potential security threat to the rest of our network. Therefore, we will implement ACLs that only allow the lab to only browse the internet, otherwise it should be a completely closed environment. Telnet will be explicitly disabled with the use of ACL. Staff may only access the database to get documents required in their work.
 
 \subsubsection{Endpoint security}
 
@@ -736,6 +735,8 @@ Now, we have all the tools we need to:
 % * wireless not configured in packet tracer
 % * list of what is implemented and what isn't?
 % * explain how we simplified WAN for the demo
+
+% TODO: NAT
 
 As part of the project we implemented part of our infrastructure in Packet Tracer. The configuration can be found in appendix \ref{config}. This section will provide some discussion around the demo implementation.
 
