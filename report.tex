@@ -668,6 +668,12 @@ As layer 2 can be the weakest link in our network infrastructure we will impleme
 
 \textbf{Securing the router}: We use a defense-in-depth approach with a DMZ. Between our internal router an edge router we will have a firewall which will allow external networks to access our web server. On our edge router we will disable unnecessary services with the use of Cisco's auto secure function. All management access to router must be with the use of AAA and SSH if not connected to the console port. Remote access must have an established VPN connection beforehand.
 
+\textbf{Firewalls}: The firewalls in the networks first line of defence, and it it vitally important that we have a good firewall implementation. We have implemented a next-gen firewall in order to supply ourselves with both packet filtering and session filtering for endpoint analysis for network security. With this we will always have a current threat picture due to the rapidly updating threat database of the firewall provider.
+
+We have decided to implement firewalls from branch to HQ (Defence in Depth) and from the internet to the internet user on our network, this to avoid split tunneling concerns, these concerns being that the users internet connection, if not filtered compromises the entire network; especially if the internet user is a manager whom has access to HQ from branch and branch from HQ. An access we decidedly not want to give a potential attacker.
+
+Our ACLs from branch to HQ only allow managers and services. This means that only a manager has access accross the network and other users only have access to services and the web serer.
+
 \textbf{Authentication Authorization and Accounting}: Users within our network will have role-based access. We will implement this with the use of a TACACS+ server. The system admin of the site will also have a local user if connection to the server is lost. For every user in staff and management we will implement port based authentication (802.1x). This is to ensure that every action and access can be properly authorized as well as logged. The logging will be handled by a server and devices must share a NTP server for accuracy of events logged.
 
 \textbf{ACLs}: In our infrastructure everyone should not be able to communicate with certain devices, or other users. The lab could be a potential security threat to the rest of our network. Therefore, we will implement ACLs that only allow the lab to only browse the internet, otherwise it should be a completely closed environment. Telnet will be explicitly disabled with the use of ACL. Only staff, services and management can communicate from branch to HQ and vice versa. Staff may only access the database to get documents required in their work.
@@ -725,6 +731,8 @@ The WLC would in reality be coupled with at least one standby controller, but we
 \notetous{Johannes could add notes about security measures that were implemented?}
 
 \subsubsection{Branch demo configuration}
+
+% TODO: write about address of AP's. Static cause of more security ACL?
 
 As all the branches have similar configuration, we only implemented one in our demo. Figure \ref{physicalviewbranch} shows our implementation. % <- TODO: REWRITE
 The router is very similar to how it would be configured in reality, the only different being that a firewall has not been set up. The LWAP's connected to the main switch are intended to be placed around the building, and would get their configuration from the WLC at HQ.
