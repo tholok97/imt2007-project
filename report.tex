@@ -6,20 +6,20 @@
 % * D? flavortext about ict section
 % * D? update diagram section
 % * D? skim through WAN section
-% * Generally add stuff about Firewall
+% * D? Generally add stuff about Firewall
 % * note about how we did VPN in packet tracer
 % * double check wireless security (discussion)
+% * add prefix to \refs. "section \ref{..}" for example
 
 
 % TODO: 
 % * ACLs
 % * IPsec -> IPSec
 % * consistent periods in security policy (and everwhere else for that matter)
-% * note in WAN section about our demo should be moved to the demo section HVA MENER DU!
-% * add prefix to \refs. "section \ref{..}" for example
+% * D? note in WAN section about our demo should be moved to the demo section HVA MENER DU!
 % * make sure sections about HQ and branch appear in a consistent order :D *muh consistency*
 % * fix up ~ before \ref and \cite
-% * give lab access switches special treatment?
+% * D? give lab access switches special treatment?
 % * do we want to clearpage before \sections?
 % * Phyical security!
 % * clean up \\\\'s to look good and uniform
@@ -27,11 +27,11 @@
 % * Run spellchecker
 % * formatting for IP addresses? :/
 % * replace "'S" with "'s"
-% * branch -> learning centre
+% * D? branch -> learning centre
 % * Gjøre guests større?
 % * Make it clear that we are focusing on saving costs. Redundancy at the HQ for example is a luxury
-% * Setup a pingable host in the services segment to use for demonstration
-% * Write about firewalls, defence-in-depth, etc. in ICT discussion
+% * D? Setup a pingable host in the services segment to use for demonstration
+% * D? Write about firewalls, defence-in-depth, etc. in ICT discussion
 
 % command to make notes to us in the document
 \newcommand{\notetous}[1] {
@@ -47,7 +47,7 @@
   Job Nestor Bahner, 494300\\
   Johannes Borgen, 494336\\
   Abdisalan Mohamed Hussein, 494334\\
-  Thomas Løkkeborg, 473157
+  Thomas Løkkeborg, 473157\\
 }
 
 \begin{document}
@@ -82,13 +82,13 @@ Financially SikreNorge relies on donations, government subsidies, and income fro
 
 \subsection{Locations}
 
-SikreNorge will establish learning centres in each of Norway's 19 counties. The headquarter lies in Oslo.
+SikreNorge will establish learning centres in each of Norway's 18 counties. The headquarter lies in Oslo. Because of the county merges coming in a couple of years, then we will have to merge our branches.
 
 % TODO note that the number of counties is changing
 Learning centres are meant as a hub for all the organisations activities in the county. The centres have offices for local management and hired professionals. They also contain network sandbox areas for practicing network security, classrooms for security courses, lecture halls for seminars and general storage space. In addition to activities held at the centres, the organisation can send consultants into the field to do evaluation or configuration on-site. Consultants are a mix of local hired professionals, volunteers and staff.
 \\
 \\
-The organisations headquarter provides the same services as learning centres, but also does the heavy lifting in terms of information technology services and infrastructure. The website, E-mail, management applications, and all the large equipment to which one can connect from another centre for data resources are examples of services that are hosted here.
+The organisations Headquarters, hereafter called HQ, provides the same services as learning centres, but also does the heavy lifting in terms of information technology services and infrastructure. The website, E-mail, management applications, and all the large equipment to which one can connect from another centre for data resources are examples of services that are hosted here.
 
 \subsection{Services}
 
@@ -388,7 +388,7 @@ In this section we address a few key risks related to our network infrastructure
 
 \textbf{Likelihood}: We have redundant connections at the HQ, but each branch only has a single gateway router. This router is bound to fail every once in a while, and the connection will break with it. The connection could break the HQ end as well, and this a much more serious problem, but this should be very unlikely compared with the connection breaking at the branch end.
 
-\textbf{Verdict}: This is an accepted risk. To solve this we would have to implement redundancy at each of our 18 branch locations, which would be costly. The problem is addressed at the HQ however, as this is the main reason we have redundant gateways set up there.
+\textbf{Verdict}: This is an accepted risk. To solve this we would have to implement redundancy at each of our 17 branch locations, which would be costly. The problem is addressed at the HQ however, as this is the main reason we have redundant gateways set up there.
 
 
 \subsection{Leakage of confidential information by employee or volunteer}
@@ -420,7 +420,7 @@ In this section we address a few key risks related to our network infrastructure
 
 \textbf{Likelihood}: Not very likely, as we will place the HQ in a safe location.
 
-\textbf{Verdict}: The impact would be so catastrophic that we have to address this despite the low likelihood. Essential services and management systems will be placed in racks that can take a beating\cite{todo}, and we will implement backup routines to make sure physically loosing the resources at HQ does not mean loosing essential data.
+\textbf{Verdict}: The impact would be so catastrophic that we have to address this despite the low likelihood. Essential services and management systems will be placed in racks that can take a beating\cite{todo}, and we will implement backup routines in place at a Norwegian company providing backup services. Then we are sure that physically loosing the resources at HQ does not mean loosing essential data.
 
 \subsection{Failure due to power outage at HQ}
 
@@ -470,6 +470,9 @@ In this section we address a few key risks related to our network infrastructure
 %   * "remote commuting" (if that's what it's called)
 
 This section provides discussion around the networking implementation we decided on. Note that not everything discussed is implemented in our demo configuration. \ref{democonfigdiscussion} explains our demo.
+\\
+\\
+As previously stated we are a charity organisation that relies on donations, volunteer work and government subsidies. Due to this we have focused on cost reduction in our ICT implementation, this has caused us to mainly prioritise seurity, and down proiritise performance and redundancy. The only exception is in the HQ, where we \textit{need} redundancy.
 
 % TODO: rephrase
 
@@ -568,7 +571,7 @@ Blackhole VLAN & 99      & N/A          & N/A                    & N/A \\ \hline
 We've chosen to build our wireless solution with Wireless Access Controllers (WLC's) and Lightweight Access Points (LWAP's). As we want as few resources as possible to be placed at the branch locations, the WLC's will be placed at the HQ. We will have redundancy in WLC by the use of the "High Availability" features that Cisco provides.
 \\
 \\
-This means that the LWAP's at the branches might encounter situations with no access to WLC's, but as this connection will benefit from the same redundancy as the one provided for services this will be relatively rare. We'd rather put resources into our one HQ than to spread resources around to each of the 18 branches.
+This means that the LWAP's at the branches might encounter situations with no access to WLC's, but as this connection will benefit from the same redundancy as the one provided for services this will be relatively rare. We'd rather put resources into our one HQ than to spread resources around to each of the 17 branches.
 \\
 \\
 The WLC's and LWAP's use CAPWAP to communicate, meaning all LWAP's are connected to access ports on the management VLAN. This unifies how we set up our IP addresses.
@@ -720,7 +723,7 @@ The IPsec encrytion is configured between the edge routers only, and serves as a
 
 \subsubsection{HQ demo configuration}
 
-Figure \ref{physicalviewhq} is taken from our PT implementation of the HQ. As you can see we have configured three access layer switches with a few machines attached to different access ports. The services and management resources area is set up with its own dedicated switches connected to the "distribution system", which is really just two switches connected to two gateway routers. The left gateway router shows how defence-in-depth would be implemented, and also does our VPN connection to the branch location. The firewall is not plugged in, and the DMZ is not set up. In reality the firewall would be placed between the two routers, and traffic from the public web would be routed to a DMZ connected to the firewall, as illustrated by Figure \ref{logicalview}. The setup would be duplicated on the right gateway router.
+Figure \ref{physicalviewhq} is taken from our PT implementation of the HQ. As you can see we have configured three access layer switches with a few machines attached to different access ports. The services and management resources area is set up with its own dedicated switches connected to the "distribution system", which is really just two switches connected to two gateway routers. The left gateway router shows the concept of how our defence-in-depth would be implemented, and also our IPSec connection to the branch location. The firewall is not plugged in, and the DMZ is not set up. In reality the firewall would be placed between the two routers, and traffic from the public web to our web server would be routed to the DMZ connected to the firewall, as illustrated by Figure \ref{logicalview}. The setup would be duplicated on the right gateway router.
 \\
 \\
 In reality we would like to use GLBP for "first hop redundancy" and load balancing, but we did not figure out a way to do this in Packet Tracer. For demonstration purposes we configured HSRP on the routers instead.
@@ -730,6 +733,11 @@ The WLC would in reality be coupled with at least one standby controller, but we
 
 % TODO: add lwaps to PT
 % TODO: add refs to appendix configs
+
+For hardening we have implemented port-security, mitigated STP manipulation, CAM table attacks, VLAN hopping and double-tagging attacks. However, we have not implemented DHCP Snooping, DAI or IPSG. Since our implementation is mainly in packet tracer these commands did have some limitations or were absent. DHCP Snooping would allegedly only work for VLAN1, for others it would display this error: "DHCP Snooping: The switch receives a DHCP DISCOVER message on an untrusted port. The device is not configured with a trusted port in the same vlan.  The device drops the packet.".
+
+We have not implemented any of our services including the DHCP and AAA server. The DHCP pool for HQ and its VLANs are handled by the internal router. Secure management of devices like switches and routers in accordance with AAA is not implemented at all. In reality this is a big liability and would not be acceptable.
+
 \notetous{Johannes could add notes about security measures that were implemented?}
 
 \subsubsection{Branch demo configuration}
@@ -737,7 +745,9 @@ The WLC would in reality be coupled with at least one standby controller, but we
 % TODO: write about address of AP's. Static cause of more security ACL?
 
 As all the branches have similar configuration, we only implemented one in our demo. Figure \ref{physicalviewbranch} shows our implementation. % <- TODO: REWRITE
-The router is very similar to how it would be configured in reality, the only different being that a firewall has not been set up. The LWAP's connected to the main switch are intended to be placed around the building, and would get their configuration from the WLC at HQ.
+The router is very similar to how it would be configured in reality, the only different being that a firewall mechanism has not been set up. The LWAP's connected to the main switch are intended to be placed around the building, and would get their configuration from the WLC at HQ.
+
+The hardening of branch is equal to our HQ implementation.
 
 \subsubsection{Wireless demo configuration} \label{demowireless}
 
