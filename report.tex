@@ -760,7 +760,7 @@ For hardening we have implemented port-security, mitigated STP manipulation, CAM
 
 We have not implemented any of our services including the DHCP and AAA server. The DHCP pool for HQ and its VLANs are handled by the internal router. Secure management of devices like switches and routers in accordance with AAA is not implemented at all. In reality this is a big liability and would not be acceptable.
 
-\notetous{Johannes could add notes about security measures that were implemented?}
+Our IPSec implementation defines ACLs that limit the communication from branch to HQ and vice versa. Branch management can access the tftp server. Branch staff can access the database for documents. Branch APs can communicate with the WLC. HQ management can talk to anyone in a branch for remote support and management.
 
 \subsection{Branch demo configuration}
 
