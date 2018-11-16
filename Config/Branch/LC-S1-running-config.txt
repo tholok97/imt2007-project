@@ -23,9 +23,8 @@ interface FastEthernet0/1
  spanning-tree bpduguard enable
 !
 interface FastEthernet1/1
- switchport trunk native vlan 99
- switchport trunk allowed vlan 10-70
- switchport mode trunk
+ switchport access vlan 40
+ switchport mode access
  switchport nonegotiate
  spanning-tree guard root
 !
@@ -73,13 +72,13 @@ interface FastEthernet7/1
 !
 interface FastEthernet8/1
  switchport trunk native vlan 99
- switchport trunk allowed vlan 10-70
+ switchport trunk allowed vlan 10-60
  switchport mode trunk
  switchport nonegotiate
 !
 interface GigabitEthernet9/1
  switchport trunk native vlan 99
- switchport trunk allowed vlan 10-70
+ switchport trunk allowed vlan 10-60
  switchport mode trunk
  switchport nonegotiate
 !

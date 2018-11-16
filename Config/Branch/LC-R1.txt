@@ -11,11 +11,9 @@ hostname LC_R1
 !
 ip dhcp excluded-address 10.2.10.1 10.2.10.10
 ip dhcp excluded-address 10.2.20.1 10.2.20.10
-ip dhcp excluded-address 10.2.30.1 10.2.30.10
 ip dhcp excluded-address 10.2.40.1 10.2.40.10
 ip dhcp excluded-address 10.2.50.1 10.2.50.10
 ip dhcp excluded-address 10.2.60.1 10.2.60.10
-ip dhcp excluded-address 10.2.70.1 10.2.70.10
 !
 ip dhcp pool VLAN_MANAGEMENT
  network 10.2.10.0 255.255.255.0
@@ -29,15 +27,9 @@ ip dhcp pool VLAN_STAFF
 ip dhcp pool VLAN_LAB
  network 10.2.40.0 255.255.255.0
  default-router 10.2.40.1
-ip dhcp pool VLAN_SERVICES
- network 10.2.30.0 255.255.255.0
- default-router 10.2.30.1
 ip dhcp pool VLAN_PRINTERS
  network 10.2.60.0 255.255.255.0
  default-router 10.2.60.1
-ip dhcp pool VLAN_BLACKHOLE
- network 10.2.99.0 255.255.255.0
- default-router 10.2.70.1
 !
 !
 !
@@ -107,10 +99,6 @@ interface GigabitEthernet0/0/0.50
 interface GigabitEthernet0/0/0.60
  encapsulation dot1Q 60
  ip address 10.2.60.1 255.255.255.0
-!
-interface GigabitEthernet0/0/0.70
- encapsulation dot1Q 70
- ip address 10.2.70.1 255.255.255.0
 !
 interface GigabitEthernet0/0/1
  no ip address
