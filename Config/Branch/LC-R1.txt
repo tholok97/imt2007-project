@@ -133,6 +133,7 @@ access-list 101 permit ip 10.2.10.0 0.0.0.255 host 10.1.30.4
 !staff can connect to the database
 access-list 101 permit ip 10.2.20.0 0.0.0.255 host 10.1.30.3
 !management in HQ can access branch and get replies
+access-list 101 permit icmp 10.2.0.0 0.0.255.255 10.1.10.0 0.0.0.255 echo-reply
 access-list 101 permit tcp 10.2.0.0 0.0.255.255 10.1.10.0 0.0.0.255 established
 !
 !
