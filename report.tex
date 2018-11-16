@@ -1,17 +1,18 @@
 % TODO THOMAS:
 % * ACL (inkl. lab)
 % * D? Physical hardening
-% * WIP config as appendix
-% * delete risk about natural disaster at branch
-% * flavortext about ict section
-% * update diagram section
-% * skim through WAN section
+% * D? config as appendix
+% * D? delete risk about natural disaster at branch
+% * D? flavortext about ict section
+% * D? update diagram section
+% * D? skim through WAN section
 % * Generally add stuff about Firewall
 % * note about how we did VPN in packet tracer
 
 
 % TODO: 
 % * ACLs
+% * IPsec -> IPSec
 % * consistent periods in security policy (and everwhere else for that matter)
 % * note in WAN section about our demo should be moved to the demo section HVA MENER DU!
 % * add prefix to \refs. "section \ref{..}" for example
@@ -358,6 +359,8 @@ The organisation uses a website separate to the public website to manage interna
 
 \section{Risk assessment}
 
+In this section we address a few key risks related to our network infrastructure.
+
 \subsection{Unauthorized access to confidential data}
 
 \textbf{Description}: We may store information about our partners and others we offer services to. This data can be discovered security flaws or other compromising information. Unauthorized individuals may try to steal or view this information. Meanwhile, this data is vital for our organisation to perform our services. 
@@ -466,14 +469,14 @@ The organisation uses a website separate to the public website to manage interna
 %   * what goves over WAN
 %   * "remote commuting" (if that's what it's called)
 
-\notetous{Short flavortext about what will be discussed}
+This section provides discussion around the networking implementation we decided on. Note that not everything discussed is implemented in our demo configuration. \ref{democonfigdiscussion} explains our demo.
+
+% TODO: rephrase
 
 % make sure to emphasize that the goal was cost-savings
 
 
 \subsection{Layout and Diagrams}
-
-\notetous{Show logical and physical views, and provide some discussion around them. The diagrams included are only temporary, proper ones will be added later.}
 
 The following diagrams shows a few different views of our network infrastructure. Short explanations of the diagrams are included.
 
@@ -494,8 +497,6 @@ The diagram in Figure \ref{logicalview} shows a view of our infrastructure. We'v
 
 We've used screenshots of our Packet Tracer implementation to produce the diagrams seen in Figure \ref{physicalviewhq} and \ref{physicalviewbranch}.
 
-\notetous{More info around diagrams? idk if there is more to say}
-
 % TODO: update the physical diagrams
 
 \begin{figure}[H]
@@ -515,13 +516,21 @@ We've used screenshots of our Packet Tracer implementation to produce the diagra
 
 \subsection{WAN}
 
-For the site to site WAN between HQ and branches, we have implemented an IPsec tunnel that traverses the internet, in order to connect branches and HQ without having to pay for a leased line, which is too expensive for us and therefore the reason to NOT use PPP or PPPoE, that cannot be transmitted over the internet as they are L2 protocols. IPsec on the other hand is a L3 protocol and therefore can be transmitted over the internet, which is a very affordable medium, also safe with IPsec encryption and we also don't really need the bandwidth of a leased line.
+We use IPSec to create a site-to-site VPN tunnel from branches to the HQ. We chose VPN because it uses the public internet. Our traffic is encrypted, so security-wise this choice of technology should not restrict us. It does mean we have to settle for less performance though, but we're willing to accept this trade-off in favor of saving costs. 
+\\
+\\
 
-We also want to be able to VPN to HQ from an off-site location, so we could have a VPN server with a pool of temporary IP addresses for remote locations. This VPN would pass through an IPsec tunnel forwarded by the ISP, to an off-site client.
+%For the site to site WAN between HQ and branches, we have implemented an IPsec tunnel that traverses the internet, in order to connect branches and HQ without having to pay for a leased line, which is too expensive for us and therefore the reason to NOT use PPP or PPPoE, that cannot be transmitted over the internet as they are L2 protocols. IPsec on the other hand is a L3 protocol and therefore can be transmitted over the internet, which is a very affordable medium, also safe with IPsec encryption and we also don't really need the bandwidth of a leased line.
 
-We have simulated the internet as a router connected to the HQ and the branches. This router will not provide any connection other than function as a representative router for an internet connection. 
+The WAN connection has two primary uses: To give Staff access to internal services located at the HQ, and to provide management access. In addition we also want to be able to VPN to HQ from an off-site location, so we need a VPN server with a pool of temporary IP addresses for remote commuters. This VPN connection would pass through an IPsec tunnel forwarded by the ISP to an off-site client.
+\\
+\\
+%FIXME:--------no we haven't?
+%We have simulated the internet as a router connected to the HQ and the branches. This router will not provide any connection other than function as a representative router for an internet connection. 
 
-The WAN connection is a series of serial cables from branches and HQ to each other, where there are own subnets between the edge routers. The IPsec encrytion is configured between the edge routers only, and serves as an end to end encryption, to avoid MIM attacks, snooping and revelation of sensitive information.
+%FIXME:--------isn't this more related to our demo configuration?
+%The WAN connection is a series of serial cables from branches and HQ to each other, where there are own subnets between the edge routers. 
+%The IPsec encrytion is configured between the edge routers only, and serves as an end to end encryption, to avoid MIM attacks, snooping and disclosure of sensitive information.
 
 \subsection{VLANs and Subnets}
 
@@ -690,7 +699,7 @@ Now, we have all the tools we need to:
 
 
 
-\subsection{Our demo Packet Tracer implementation}
+\subsection{Our demo Packet Tracer implementation} \label{democonfigdiscussion}
 
 % make sure to include that:
 % * HSRP instead of GLBP
@@ -745,9 +754,6 @@ We had trouble with implementing WLCs and LWAPs properly in Packet Tracer, so we
 
 \section{Our demo Packet Tracer implementation} \label{config}
 
-\subsection{(Physical) WLC configuration} \label{configwlc}
-\inputminted[fontsize=\tiny,linenos,breaklines]{text}{./wirelessimplementation/wlc.cisco}
-
 \subsection{Branch} \label{configbranch}
 \subsubsection{LC\_R1} \label{configwlc}
 \inputminted[fontsize=\tiny,linenos,breaklines]{text}{./Config/Branch/LC-R1.txt}
@@ -777,6 +783,9 @@ We had trouble with implementing WLCs and LWAPs properly in Packet Tracer, so we
 \inputminted[fontsize=\tiny,linenos,breaklines]{text}{./Config/HQ/HQ-R1.txt}
 \subsubsection{HQR2\_running-config} \label{configwlc}
 \inputminted[fontsize=\tiny,linenos,breaklines]{text}{./Config/HQ/HQR2-running-config.txt}
+
+\subsection{(Physical) WLC configuration} \label{configwlc}
+\inputminted[fontsize=\tiny,linenos,breaklines]{text}{./wirelessimplementation/wlc.cisco}
 
 
 
