@@ -46,8 +46,7 @@
 \author{
   Job Nestor Bahner, 494300\\
   Johannes Borgen, 494336\\
-  Abdisalan Hussein, 923\\
-  Sam Roen, 923\\
+  Abdisalan Mohamed Hussein, 494334\\
   Thomas Løkkeborg, 473157
 }
 
@@ -526,8 +525,6 @@ We use IPsec to create a site-to-site VPN tunnel from branches to the HQ. We cho
 The WAN connection has two primary uses: To give Staff access to internal services located at the HQ, and to provide management access. In addition we also want to be able to VPN to HQ from an off-site location, so we need a VPN server with a pool of temporary IP addresses for remote commuters. This VPN connection would pass through an IPsec tunnel forwarded by the ISP to an off-site client.
 \\
 \\
-%FIXME:--------no we haven't?
-%We have simulated the internet as a router connected to the HQ and the branches. This router will not provide any connection other than function as a representative router for an internet connection. 
 
 %FIXME:--------isn't this more related to our demo configuration?
 %The WAN connection is a series of serial cables from branches and HQ to each other, where there are own subnets between the edge routers. 
@@ -715,6 +712,11 @@ Now, we have all the tools we need to:
 % * explain how we simplified WAN for the demo
 
 As part of the project we implemented part of our infrastructure in Packet Tracer. The configuration can be found in appendix \ref{config}. This section will provide some discussion around the demo implementation.
+
+\subsubsection{WAN}
+
+The WAN connection is a series of serial cables from branches and HQ to each other, where there are own subnets between the edge routers. 
+The IPsec encrytion is configured between the edge routers only, and serves as an end to end encryption, to avoid MIM attacks, snooping and disclosure of sensitive information.
 
 \subsubsection{HQ demo configuration}
 
