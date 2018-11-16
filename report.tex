@@ -738,10 +738,13 @@ Now, we have all the tools we need to:
 
 As part of the project we implemented part of our infrastructure in Packet Tracer. The configuration can be found in appendix \ref{config}. This section will provide some discussion around the demo implementation.
 
+\subsection{NAT}
+
+We have not configured NAT. This is because we focused on getting the VPN working, instead of trying to simulate the internet. In reality each site would be behind behind a NAT configured on the edge routers.
+
 \subsection{WAN}
 
-The WAN connection is a series of serial cables from branches and HQ to each other, where there are own subnets between the edge routers. 
-The IPsec encrytion is configured between the edge routers only, and serves as an end to end encryption, to avoid MIM attacks, snooping and disclosure of sensitive information.
+The WAN connection is simulated with the use of a single serial connection between the HQ and branch. We chose to do this for simplicity. In reality they would not be directly connected, but would each be connected to an ISP which would provide internet access.
 
 \subsection{HQ demo configuration}
 
@@ -777,7 +780,33 @@ We had trouble with implementing WLC's and LWAP's properly in Packet Tracer, so 
 
 \section{Conclusion}
 
-\notetous{An amazing conclusion that will knock the socks of Ernst boiiiiiiiiiiiiiiiiiii}
+% - trouble with group
+% - lots of research
+% - 
+
+
+% Research som ikke speiler seg i config
+% AAA, har kunnskap men priorerte andre ting
+% Packet tracer er drit, tok laang tid
+% dårlig med tid.
+% gruppa
+
+We are confident we could have implemented all the security measures described. Due to time-constraints we had to prioritize, however, so unfortunately some key topics of configuration were left out. AAA, inter-subnet ACLs, NAT, and simulating a connection to the internet are examples. We hope we provide enough theoretical discussion in our report to make up for this somewhat though. We want to note that we wasted a lot of time messing around with Packet Tracer, as we did not find what is supported and what is not clear.
+\\
+\\
+We are happy with the Security Policy, and feel it is complete. We've tried to actively use it when designing our network infrastructure.
+\\
+\\
+We must admit our group collaboration was not very good in the beginning. We moved from using Google Docs to using Github with Overleaf however, and this gave the group effort a massive boost. The introduction of version control gave us a central tool to work around, while still allowing each member to work the way they wanted.
+\\
+\\
+In conclusion we feel we have learned a lot from this project, both about networking and about group work.
+
+
+% TODO: write about VPN in demo?
+
+
+
 
 % BEGINNING OF REFERENCES
 
