@@ -1,7 +1,7 @@
 % TODO THOMAS:
 % * ACL (inkl. lab)
-% * Physical hardening
-% * config as appendix
+% * D? Physical hardening
+% * WIP config as appendix
 % * delete risk about natural disaster at branch
 % * flavortext about ict section
 % * update diagram section
@@ -419,16 +419,6 @@ The organisation uses a website separate to the public website to manage interna
 
 \textbf{Verdict}: The impact would be so catastrophic that we have to address this despite the low likelihood. Essential services and management systems will be placed in racks that can take a beating\cite{todo}, and we will implement backup routines to make sure physically loosing the resources at HQ does not mean loosing essential data.
 
-\subsection{Failure due to power outage at branch location}
-
-\textbf{Description}: A power outage at a branch location is a possible event.
-
-\textbf{Impact}: A power outage means all the networking equipment at the branch will go down. All activity at the branch will likely halt until the issue is fixed.
-
-\textbf{Likelihood}: Fairly likely.
-
-\textbf{Verdict}: We could have set up UPS batteries to mitigate the issue, but as everything important is stored at HQ we decide to save costs by not doing this. A UPS system would also only provide us with a little bit of time before we would run out of power anyways, so the branch would go down either way.
-
 \subsection{Failure due to power outage at HQ}
 
 \textbf{Description}: A power outage at a branch location is a possible event.
@@ -495,7 +485,7 @@ The diagram in Figure \ref{logicalview} shows a view of our infrastructure. We'v
 
 \begin{figure}[H]
 \caption{Logical view of the network}
-\centreing
+\centering
 \includegraphics[width=\textwidth]{logicalview}
 \label{logicalview}
 \end{figure}
@@ -510,14 +500,14 @@ We've used screenshots of our Packet Tracer implementation to produce the diagra
 
 \begin{figure}[H]
 \caption{Physical view of HQ (TEMPORARY)}
-\centreing
+\centering
 \includegraphics[width=\textwidth]{physicalviewhq}
 \label{physicalviewhq}
 \end{figure}
 
 \begin{figure}[H]
 \caption{Physical view of Branch (TEMPORARY)}
-\centreing
+\centering
 \includegraphics[width=\textwidth]{physicalviewbranch}
 \label{physicalviewbranch}
 \end{figure}
@@ -636,17 +626,16 @@ As we have have two gateways we need to use a "First Hop Redundancy" protocol to
 
 \subsection{Methods for hardening}
 
-\subsubsection{Physical security}
-
-\notetous{Thomas skriver denne}
+\subsubsection{Physical information security} % FIXME: include "information" ?
 
 % TODO 
 % * staff kommer seg ikke inn i management. 
 % * gjester er fysisk separaert fra staff. management kommer seg inn i management.
 
-\textbf{Device access}:
 
-\textbf{Premise access}:
+\textbf{Premise access}: The premises at HQ will be locked down. Access will be granted based on roles, and keycards will be used to enforce this. Guests do not have access to the staff area, staff do not have access to the main server room, and so on. In addition the main server room will be secured with video surveilence and a mantrap. This way potential unauthorized access will be monitored, and failed attempt will result in the attacker being trapped.
+
+\textbf{Device access}: Physical management ports will be secured with passwords, or turned off completely if they are not in use.
 
 \subsubsection{Securing the LAN}
 As layer 2 can be the weakest link in our network infrastructure we will implement different methods to prevent or mitigate potential attacks:
@@ -675,9 +664,6 @@ As layer 2 can be the weakest link in our network infrastructure we will impleme
 
 \subsubsection{Endpoint security}
 
-\\
-\\
-\\
 All endpoint devices must have software that prevents infection and spread of malware. This being due to the especially vulnerable nature of endpoints because of their interactions with a user.
 
 Traditionally this is done firstly by installing some kind of antimalware software, in order to detect and mitigate malware threats. We could also provide the endpoint host with a host based IPS, to monitor and report on their system.
@@ -759,11 +745,39 @@ We had trouble with implementing WLCs and LWAPs properly in Packet Tracer, so we
 
 \section{Our demo Packet Tracer implementation} \label{config}
 
-\notetous{TODO: Add configuration files here.}
-
 \subsection{(Physical) WLC configuration} \label{configwlc}
-
 \inputminted[fontsize=\tiny,linenos,breaklines]{text}{./wirelessimplementation/wlc.cisco}
+
+\subsection{Branch} \label{configbranch}
+\subsubsection{LC\_R1} \label{configwlc}
+\inputminted[fontsize=\tiny,linenos,breaklines]{text}{./Config/Branch/LC-R1.txt}
+\subsubsection{LC\_S1\_running-config} \label{configwlc}
+\inputminted[fontsize=\tiny,linenos,breaklines]{text}{./Config/Branch/LC-S1-running-config.txt}
+\subsubsection{LC\_S2\_running-config} \label{configwlc}
+\inputminted[fontsize=\tiny,linenos,breaklines]{text}{./Config/Branch/LC-S2-running-config.txt}
+\subsubsection{LC\_S3\_running-config} \label{configwlc}
+\inputminted[fontsize=\tiny,linenos,breaklines]{text}{./Config/Branch/LC-S3-running-config.txt}
+
+\subsection{HQ} \label{confighq}
+\subsubsection{AccessSwitch-1} \label{configwlc}
+\inputminted[fontsize=\tiny,linenos,breaklines]{text}{./Config/HQ/AccessSwitch-1.txt}
+\subsubsection{AccessSwitch-2} \label{configwlc}
+\inputminted[fontsize=\tiny,linenos,breaklines]{text}{./Config/HQ/AccessSwitch-2.txt}
+\subsubsection{AccessSwitch-3} \label{configwlc}
+\inputminted[fontsize=\tiny,linenos,breaklines]{text}{./Config/HQ/AccessSwitch-3.txt}
+\subsubsection{DistributionSwitch-1} \label{configwlc}
+\inputminted[fontsize=\tiny,linenos,breaklines]{text}{./Config/HQ/DistributionSwitch-1.txt}
+\subsubsection{DistributionSwitch-2} \label{configwlc}
+\inputminted[fontsize=\tiny,linenos,breaklines]{text}{./Config/HQ/DistributionSwitch-2.txt}
+\subsubsection{DistributionSwitch-3} \label{configwlc}
+\inputminted[fontsize=\tiny,linenos,breaklines]{text}{./Config/HQ/DistributionSwitch-3.txt}
+\subsubsection{HQ\_ER1} \label{configwlc}
+\inputminted[fontsize=\tiny,linenos,breaklines]{text}{./Config/HQ/HQ-ER1.txt}
+\subsubsection{HQ\_R1} \label{configwlc}
+\inputminted[fontsize=\tiny,linenos,breaklines]{text}{./Config/HQ/HQ-R1.txt}
+\subsubsection{HQR2\_running-config} \label{configwlc}
+\inputminted[fontsize=\tiny,linenos,breaklines]{text}{./Config/HQ/HQR2-running-config.txt}
+
 
 
 \end{document}
