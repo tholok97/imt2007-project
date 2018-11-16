@@ -15,7 +15,7 @@ spanning-tree extend system-id
 !
 interface FastEthernet0/1
  switchport trunk native vlan 99
- switchport trunk allowed vlan 10-70
+ switchport trunk allowed vlan 10-60
  switchport mode trunk
  switchport nonegotiate
 !

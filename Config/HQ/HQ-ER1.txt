@@ -82,7 +82,14 @@ ip route 10.1.0.0 255.255.0.0 10.1.0.2
 ip flow-export version 9
 !
 !
-access-list 101 permit ip 10.1.0.0 0.0.255.255 10.2.0.0 0.0.255.255
+!management in HQ can access everything in branch
+access-list 101 permit ip 10.1.10.0 0.0.0.255 10.2.0.0 0.0.255.255
+!WLC can connect to APs
+access-list 101 permit ip host 10.1.10.2 10.2.10.0 0.0.0.255
+!tftp server can reply to management
+access-list 101 permit ip host 10.1.30.4 10.2.10.0 0.0.0.255 
+!Database can reply to staff
+access-list 101 permit ip host 10.1.30.3 10.2.20.0 0.0.0.255
 !
 !
 !
