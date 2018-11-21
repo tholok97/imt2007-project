@@ -10,8 +10,9 @@ _minted*
 *.bbl
 *.blg
 
-# don't ignore the example pdf
+# allow some pdf's
 !example.pdf
+!submitted_report.pdf
 
 # ignore some vim-specific files:
 
