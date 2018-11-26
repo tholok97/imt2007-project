@@ -1,4 +1,4 @@
-# Repo for project in IMT2007
+# Repo for project in IMT2007 - Network Security
 
 The repository was at commit 84463ee971195dfff1ed5e04b2f90be63c521b53 when the presentation was held.
 
