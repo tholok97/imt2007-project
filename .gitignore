@@ -13,6 +13,7 @@ _minted*
 # allow some pdf's
 !example.pdf
 !submitted_report.pdf
+!project_presentation_slides.pdf
 
 # ignore some vim-specific files:
 
