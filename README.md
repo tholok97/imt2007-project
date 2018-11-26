@@ -2,6 +2,13 @@
 
 The repository was at commit 84463ee971195dfff1ed5e04b2f90be63c521b53 when the presentation was held.
 
+## Group members
+
+* [Abdisalan Mohamed Hussein](https://github.com/migwa)
+* [Job Nestor Bahner](https://github.com/jobnestor)
+* [Johannes Borgen](https://github.com/brogen98)
+* [Thomas Løkkeborg](https://github.com/tholok97)
+
 ## Useful links
 
 * [Our PT implementation configuration files](./Config/)
