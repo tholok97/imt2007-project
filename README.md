@@ -2,7 +2,7 @@
 
 ## Introdution
 
-This is the repository we used to centralize our project work. It contains our LaTeX report, our Packet Tracer implementation, notes, and general artifacts from our project. As we used the repository in a kind of ad-hoc way, it is a little messy.
+This is the repository we used to centralize our project work. It contains the LaTeX report, the Packet Tracer implementation, notes, and general artifacts from our project. As we used the repository in a kind of ad-hoc way, it is a little messy.
 
 Read [the report](./submitted_report.pdf) for a full discussion of our project.
 
@@ -22,7 +22,7 @@ We've noticed some mistakes in our report after the time of submission. Rather t
 1. **IPsec group 5**: We configured our IPsec tunnel to use group 5, but discovered that [best practice](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/sec_conn_vpnips/configuration/xe-3s/sec-sec-for-vpns-w-ipsec-xe-3s-book/sec-cfg-vpn-ipsec.html) is to use group 14 or higher.
 1. **Misuse of the word "apostasy"**: We intended for this word to be an English translation of the Norwegian word "frafall", but discovered that it means [something different](https://www.merriam-webster.com/dictionary/apostasy).
 
-## Useful links
+## Links
 
 * [Submitted report](./submitted_report.pdf)
 * [Project presentation slides](./project_presentation_slides.pdf)
